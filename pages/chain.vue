@@ -232,6 +232,10 @@
                     </validation-provider>
                   </b-form-group>
                 </b-col>
+                <b-col md="6" class="d-flex pt-4 align-items-center">
+                    <div class="mr-3">Ana Şube</div>
+                    <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
+                </b-col>
               </b-row>
             </validation-observer>
           </tab-content>
@@ -244,15 +248,15 @@
                 </b-col>
               </b-row>
               <b-row :key="chain.address" class="mb-4" v-for="chain in chains">
-                <b-col sm="12">
-                  <div class="chain-card">
-                    <b-avatar button class="edit" variant="info"></b-avatar>
-                    <b-avatar button class="delete" variant="danger"></b-avatar>
+                <b-col sm="6">
+                  <div class="chain-card px-3">
+<!--                    <b-avatar button class="edit" variant="info"></b-avatar>-->
+<!--                    <b-button class="delete" variant="outline-info">Details</b-button>-->
                     <b-row>
-                      <b-col sm="4">
-                        <div class="map"></div>
-                      </b-col>
-                      <b-col sm="8">
+<!--                      <b-col sm="4">-->
+<!--                        <div class="map"></div>-->
+<!--                      </b-col>-->
+                      <b-col sm="12">
                         <div class="content">
                           <p class="fw-bold">{{chain.address}}</p>
                           <p class="coordinates">Enlem: {{chain.latitude}} Boylam: {{chain.longitude}}</p>
@@ -265,7 +269,7 @@
                 </b-col>
               </b-row>
               <b-row>
-                <b-col class="mb-4 mt-4" sm="9">
+                <b-col class="mb-4 mt-4" sm="6">
                   <b-button @click="addChain" block variant="success" >Sube Ekle</b-button>
                 </b-col>
               </b-row>
@@ -442,81 +446,7 @@
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import {BRow, BCol, BFormGroup, BButton, BAvatar} from 'bootstrap-vue'
 import {FormWizard, TabContent} from 'vue-form-wizard'
-import 'vue-form-wizard/dist/vue-form-wizard.min.css'
-import { extend, localize } from 'vee-validate'
-import {
-  required as rule_required,
-  email as rule_email,
-  min as rule_min,
-  max as rule_max,
-  confirmed as rule_confirmed,
-  regex as rule_regex,
-  between as rule_between,
-  alpha as rule_alpha,
-  integer as rule_integer,
-  digits as rule_digits,
-  length as rule_length,
-} from 'vee-validate/dist/rules'
-
-export const validatorPassword = password => {
-  /* eslint-disable no-useless-escape */
-  const regExp = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*()]).{8,}/
-  /* eslint-enable no-useless-escape */
-  const validPassword = regExp.test(password)
-  return validPassword
-}
-
-export const validatorCreditCard = creditnum => {
-  /* eslint-disable no-useless-escape */
-  const cRegExp = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/
-  /* eslint-enable no-useless-escape */
-  const validCreditCard = cRegExp.test(creditnum)
-  return validCreditCard
-}
-export const validatorPhone = phonenum => {
-  /* eslint-disable no-useless-escape */
-  const cRegExp = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/
-  /* eslint-enable no-useless-escape */
-  const validPhone = cRegExp.test(phonenum)
-  return validPhone
-}
-
-export const credit = extend('credit-card', {
-  validate: validatorCreditCard,
-  message: 'It is not valid credit card!',
-})
-
-export const password = extend('password', {
-  validate: validatorPassword,
-  message: 'Your {_field_} must contain at least one uppercase, one lowercase, one special character and one digit',
-})
-
-export const phone = extend('phone', {
-  validate: validatorPhone,
-  message: 'Phone number is not valid',
-})
-
-export const required = extend('required', rule_required)
-
-export const email = extend('email', rule_email)
-
-export const min = extend('min', rule_min)
-
-export const max = extend('max', rule_max)
-
-export const confirmed = extend('confirmed', rule_confirmed)
-
-export const regex = extend('regex', rule_regex)
-
-export const between = extend('between', rule_between)
-
-export const alpha = extend('alpha', rule_alpha)
-
-export const integer = extend('integer', rule_integer)
-
-export const digits = extend('digits', rule_digits)
-
-export const length = extend('length', rule_length)
+// import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
 export default {
   name: "chain",
@@ -555,6 +485,7 @@ export default {
         address: '',
         phone: '',
         personnelName: '',
+        main: false,
       },
     }
   },
@@ -694,7 +625,7 @@ export default {
       }
       .chain-card {
         position: relative;
-        width: 73%;
+        //width: 73%;
         border-radius: 5%;
         box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
 
@@ -707,14 +638,14 @@ export default {
           cursor: pointer;
         }
 
-        .delete {
-          position: absolute;
-          top: 66%;
-          left: 92%;
-        }
-        .delete:hover {
-          cursor: pointer;
-        }
+        //.delete {
+        //  position: absolute;
+        //  top: 63%;
+        //  left: 76%;
+        //}
+        //.delete:hover {
+        //  cursor: pointer;
+        //}
 
         .map {
           width: 100%;
