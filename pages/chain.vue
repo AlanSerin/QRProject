@@ -120,159 +120,169 @@
                      </validation-provider>
                    </b-form-group>
                  </b-col>
+               <b-col md="6" class="d-flex pt-4 align-items-center">
+                 <div class="mr-3">Tek bir işletme sahibiyim</div>
+                 <b-form-checkbox class="" v-model="companyDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
+               </b-col>
              </b-row>
            </validation-observer>
           </tab-content>
-          <tab-content :before-change="validationFormChain" title="">
-            <validation-observer ref="chainDetails" tag="form">
-              <b-row>
-                <b-col sm="12" class="mb-4">
-                  <h3 class="title">BASVURU FORMU</h3>
-                  <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
-                </b-col>
-              </b-row>
-              <b-row class="form-card">
-                <b-col md="6">
-                  <b-form-group
-                    label="Enlem"
-                    label-for="i-latitude"
-                  >
-                    <validation-provider
-                      #default="{ errors }"
-                      name="Latitude"
-                      rules="required"
-                    >
-                      <b-form-input
-                        id="i-latitude"
-                        v-model="chainDetails.latitude"
-                        :state="errors.length > 0 ? false:null"
-                        placeholder="15.2"
-                      />
-                      <small class="text-danger">{{ errors[0] }}</small>
-                    </validation-provider>
-                  </b-form-group>
-                </b-col>
-                <b-col md="6">
-                  <b-form-group
-                    label="Boylam"
-                    label-for="i-longitude"
-                  >
-                    <validation-provider
-                      #default="{ errors }"
-                      name="Longitude"
-                      rules="required"
-                    >
-                      <b-form-input
-                        id="i-longitude"
-                        v-model="chainDetails.longitude"
-                        :state="errors.length > 0 ? false:null"
-                        placeholder="12.3"
-                      />
-                      <small class="text-danger">{{ errors[0] }}</small>
-                    </validation-provider>
-                  </b-form-group>
-                </b-col>
-                <b-col md="6">
-                  <b-form-group
-                    label="Adres"
-                    label-for="i-address"
-                  >
-                    <validation-provider
-                      #default="{ errors }"
-                      name="Address"
-                      rules="required"
-                    >
-                      <b-form-input
-                        id="i-address"
-                        v-model="chainDetails.address"
-                        :state="errors.length > 0 ? false:null"
-                        placeholder="Bilmem ne Sokak no 3"
-                      />
-                      <small class="text-danger">{{ errors[0] }}</small>
-                    </validation-provider>
-                  </b-form-group>
-                </b-col>
-                <b-col md="6">
-                  <b-form-group
-                    label="Telefon"
-                    label-for="i-phone"
-                  >
-                    <validation-provider
-                      #default="{ errors }"
-                      name="Phone"
-                      rules="required|phone"
-                    >
-                      <b-form-input
-                        id="i-phone"
-                        v-model="chainDetails.phone"
-                        :state="errors.length > 0 ? false:null"
-                        placeholder="533 833 33 33"
-                      />
-                      <small class="text-danger">{{ errors[0] }}</small>
-                    </validation-provider>
-                  </b-form-group>
-                </b-col>
-                <b-col md="6">
-                  <b-form-group
-                    label="Yetkili Personel"
-                    label-for="i-personnel"
-                  >
-                    <validation-provider
-                      #default="{ errors }"
-                      name="Personnel"
-                      rules="required"
-                    >
-                      <b-form-input
-                        id="i-personnel"
-                        v-model="chainDetails.personnelName"
-                        :state="errors.length > 0 ? false:null"
-                        placeholder="1234"
-                      />
-                      <small class="text-danger">{{ errors[0] }}</small>
-                    </validation-provider>
-                  </b-form-group>
-                </b-col>
-                <b-col md="6" class="d-flex pt-4 align-items-center">
-                    <div class="mr-3">Ana Şube</div>
-                    <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
-                </b-col>
-              </b-row>
-            </validation-observer>
-          </tab-content>
-          <tab-content :before-change="validationFormView" title="">
+          <tab-content class="" :before-change="validationFormView" title="">
             <validation-observer ref="viewChains" tag="form">
               <b-row>
-                <b-col sm="12" class="mb-4">
+                <b-col sm="10" class="mb-4">
                   <h3 class="title">BASVURU FORMU</h3>
                   <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
                 </b-col>
+                <b-col v-if="chains.length > 0" class="" sm="2">
+                  <b-button @click="addChain" block class="green-button" >Sube Ekle</b-button>
+                </b-col>
               </b-row>
-              <b-row :key="chain.address" class="mb-4" v-for="chain in chains">
-                <b-col sm="6">
-                  <div class="chain-card px-3">
-<!--                    <b-avatar button class="edit" variant="info"></b-avatar>-->
-<!--                    <b-button class="delete" variant="outline-info">Details</b-button>-->
-                    <b-row>
-<!--                      <b-col sm="4">-->
-<!--                        <div class="map"></div>-->
-<!--                      </b-col>-->
-                      <b-col sm="12">
-                        <div class="content">
-                          <p class="fw-bold">{{chain.address}}</p>
-                          <p class="coordinates">Enlem: {{chain.latitude}} Boylam: {{chain.longitude}}</p>
-                          <p class="phone-number">+{{chain.phone}}</p>
-                          <p class="fw-bold">{{chain.personnelName}}</p>
-                        </div>
+              <b-modal ref="details" id="details" hide-footer>
+                <template #modal-title>
+                  <h3 class="title mb-0 fw-normal">BASVURU FORMU</h3>
+                  <!--                        <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>-->
+                </template>
+<!--                <tab-content :before-change="validationFormChain" title="">-->
+                  <validation-observer ref="chainDetails" tag="form">
+                    <b-row class="form-card">
+                      <b-col md="6">
+                        <b-form-group
+                          label="Enlem"
+                          label-for="i-latitude"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Latitude"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-latitude"
+                              v-model="chainDetails.latitude"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="15.2"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Boylam"
+                          label-for="i-longitude"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Longitude"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-longitude"
+                              v-model="chainDetails.longitude"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="12.3"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Adres"
+                          label-for="i-address"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Address"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-address"
+                              v-model="chainDetails.address"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="Bilmem ne Sokak no 3"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Telefon"
+                          label-for="i-phone"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Phone"
+                            rules="required|phone"
+                          >
+                            <b-form-input
+                              id="i-phone"
+                              v-model="chainDetails.phone"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="533 833 33 33"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Yetkili Personel"
+                          label-for="i-personnel"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Personnel"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-personnel"
+                              v-model="chainDetails.personnelName"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="Ahmet Soruc"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
                       </b-col>
                     </b-row>
-                  </div>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col class="mb-4 mt-4" sm="6">
-                  <b-button @click="addChain" block variant="success" >Sube Ekle</b-button>
-                </b-col>
-              </b-row>
+                  </validation-observer>
+                <b-button class="mt-3 green-button" variant="success" block @click="validationFormChain">Submit</b-button>
+              </b-modal>
+              <template v-if="chains.length > 0">
+                <b-row @click="chainPage(index)" :key="index" class="mb-4" v-for="(chain,index) in chains">
+                  <b-col sm="12">
+                    <div class="chain-card p-2 px-3">
+                      <b-row>
+                        <b-col sm="12">
+                          <div class="content">
+                            <p class="fw-bold">{{chain.address}}</p>
+                            <p class="coordinates">Enlem: {{chain.latitude}} Boylam: {{chain.longitude}}</p>
+                            <p class="phone-number">+{{chain.phone}}</p>
+                            <p class="fw-bold">{{chain.personnelName}}</p>
+                          </div>
+                        </b-col>
+<!--                        <b-col sm="4" class="d-flex h-25 justify-content-end pr-0 pt-1">-->
+<!--                          <b-button @click="showModal(index)" variant="outline-info">Detaylar</b-button>-->
+<!--                        </b-col>-->
+                      </b-row>
+                    </div>
+                  </b-col>
+                </b-row>
+              </template>
+              <template v-else>
+                <b-row class="d-grid justify-content-center text-center">
+                  <b-col sm="12" class="d-grid justify-content-center">
+                    <h2 class="fw-normal mb-3">Sube Yok</h2>
+                    <svg class="my-4" width="226" height="259" viewBox="0 0 226 259" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M219.946 242.812H209.857V12.1406C209.857 5.43546 204.437 0 197.75 0H28.25C21.5633 0 16.1429 5.43546 16.1429 12.1406V242.812H6.05357C2.71049 242.812 0 245.53 0 248.883V259H226V248.883C226 245.53 223.29 242.812 219.946 242.812ZM64.5714 38.4453C64.5714 35.093 67.2819 32.375 70.625 32.375H90.8036C94.1467 32.375 96.8571 35.093 96.8571 38.4453V58.6797C96.8571 62.032 94.1467 64.75 90.8036 64.75H70.625C67.2819 64.75 64.5714 62.032 64.5714 58.6797V38.4453ZM64.5714 87.0078C64.5714 83.6555 67.2819 80.9375 70.625 80.9375H90.8036C94.1467 80.9375 96.8571 83.6555 96.8571 87.0078V107.242C96.8571 110.595 94.1467 113.312 90.8036 113.312H70.625C67.2819 113.312 64.5714 110.595 64.5714 107.242V87.0078ZM90.8036 161.875H70.625C67.2819 161.875 64.5714 159.157 64.5714 155.805V135.57C64.5714 132.218 67.2819 129.5 70.625 129.5H90.8036C94.1467 129.5 96.8571 132.218 96.8571 135.57V155.805C96.8571 159.157 94.1467 161.875 90.8036 161.875ZM129.143 242.812H96.8571V200.32C96.8571 196.968 99.5676 194.25 102.911 194.25H123.089C126.432 194.25 129.143 196.968 129.143 200.32V242.812ZM161.429 155.805C161.429 159.157 158.718 161.875 155.375 161.875H135.196C131.853 161.875 129.143 159.157 129.143 155.805V135.57C129.143 132.218 131.853 129.5 135.196 129.5H155.375C158.718 129.5 161.429 132.218 161.429 135.57V155.805ZM161.429 107.242C161.429 110.595 158.718 113.312 155.375 113.312H135.196C131.853 113.312 129.143 110.595 129.143 107.242V87.0078C129.143 83.6555 131.853 80.9375 135.196 80.9375H155.375C158.718 80.9375 161.429 83.6555 161.429 87.0078V107.242ZM161.429 58.6797C161.429 62.032 158.718 64.75 155.375 64.75H135.196C131.853 64.75 129.143 62.032 129.143 58.6797V38.4453C129.143 35.093 131.853 32.375 135.196 32.375H155.375C158.718 32.375 161.429 35.093 161.429 38.4453V58.6797Z" fill="#49C6BE"/>
+                    </svg>
+<!--                    <p>Henuz bir sube eklemediniz</p>-->
+                    <b-button class="my-4" @click="addChain" variant="outline-info">Sube Ekle</b-button>
+                  </b-col>
+                </b-row>
+              </template>
             </validation-observer>
           </tab-content>
           <tab-content :before-change="validationFormCard" title="">
@@ -387,7 +397,7 @@
             </validation-observer>
           </tab-content>
           <template slot="footer" slot-scope="{activeTabIndex,isLastStep, nextTab, prevTab, fillButtonStyle}">
-            <div class=wizard-footer-left>
+            <div class="wizard-footer-left">
               <button v-if="activeTabIndex > 0"
                       @click="prevTab"
                       type="button"
@@ -444,7 +454,7 @@
 
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import {BRow, BCol, BFormGroup, BButton, BAvatar} from 'bootstrap-vue'
+import {BRow, BCol, BFormGroup, BButton, BAvatar, BModal, VBModal} from 'bootstrap-vue'
 import {FormWizard, TabContent} from 'vue-form-wizard'
 // import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
@@ -460,7 +470,9 @@ export default {
     BFormGroup,
     BButton,
     BAvatar,
+    BModal,
   },
+  directives: { 'b-modal': VBModal },
   data() {
     return {
       companyDetails: {
@@ -469,6 +481,7 @@ export default {
         email: '',
         phone: '',
         taxID: '',
+        main: '',
       },
       cardDetails: {
         name: '',
@@ -490,6 +503,13 @@ export default {
     }
   },
   methods: {
+    chainPage(index){
+      this.$router.push({name: 'chainDetails', params: {chain: index}})
+    },
+    showModal(index) {
+      this.$bvModal.show('details')
+      console.log(index)
+    },
     validationFormAccount() {
       console.log('hello')
       return new Promise((resolve, reject) => {
@@ -510,16 +530,20 @@ export default {
           this.chainDetails[propName] = '';
         }
       }
-      console.log(this.chainDetails)
-      this.$refs.chainDetails.reset();
-      this.$refs.myWizard.changeTab(2, 1)
+      console.log(this.chains)
+      // this.$refs.chainDetails.reset();
+      // this.$refs.myWizard.changeTab(2, 1)
+      this.showModal()
     },
     validationFormChain() {
       console.log('hello')
       return new Promise((resolve, reject) => {
         this.$refs.chainDetails.validate().then(success => {
           if (success) {
-            this.chains.push(this.chainDetails)
+            let x = {}
+            Object.assign(x,this.chainDetails)
+            this.chains.push(x)
+            this.$bvModal.hide('details')
             console.log(this.chains)
             resolve(true)
           } else {
@@ -578,6 +602,7 @@ export default {
     box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
     .left-side {
       grid-area: left;
+      overflow: auto;
 
       .wizard-footer-left {
         .btn {
@@ -589,6 +614,13 @@ export default {
           background-color: #66d466;
           color: white;
         }
+      }
+      .green-button {
+        background-color: #66d466;
+        border-color: #66d466;
+      }
+      .green-button:hover {
+        box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
       }
       .wizard-footer-right {
           .wizard-footer-right {
@@ -614,7 +646,7 @@ export default {
         font-weight: normal;
       }
       .title-text {
-        width: 70%;
+        //width: 70%;
         color: lightgray;
         line-height: 23px;
       }
@@ -626,17 +658,18 @@ export default {
       .chain-card {
         position: relative;
         //width: 73%;
-        border-radius: 5%;
+        //border-radius: 5%;
         box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
+        border: 1px solid rgba(255, 255, 255, 0);
 
-        .edit {
-          position: absolute;
-          top: -3%;
-          left: 92%;
-        }
-        .edit:hover {
-          cursor: pointer;
-        }
+        //.edit {
+        //  position: absolute;
+        //  top: -3%;
+        //  left: 92%;
+        //}
+        //.edit:hover {
+        //  cursor: pointer;
+        //}
 
         //.delete {
         //  position: absolute;
@@ -665,6 +698,11 @@ export default {
           }
         }
       }
+      .chain-card:hover {
+        cursor: pointer;
+        // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+        border: 1px solid #8ADA7D;
+      }
     }
     .right-side {
       display: flex;
@@ -680,6 +718,16 @@ export default {
       }
     }
   }
+}
+
+.green-button {
+  background-color: #66d466;
+  border-color: #66d466;
+}
+.green-button:hover {
+  // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+  // background-color: #8ADA7D;
+  // border-color: #8ADA7D;
 }
 
 ul.wizard-nav.wizard-nav-pills {
