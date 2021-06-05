@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex flex-column justify-content-between root">
-    <div class="top-area container-fluid">
-      <div class="top-content w-100">
+    <div>
+      <div class="top-area container-fluid">
+        <div class="top-content w-100">
           <div class="d-flex justify-content-end">
             <img class="government-logo" src="~/assets/img/saglik-removebg-preview.png" />
           </div>
@@ -9,9 +10,8 @@
             <h2 class="text-light">Kuzey Kibris Turk Cumhuriyeti</h2>
             <h2 class="text-light">Saglik Bakanligi</h2>
           </div>
+        </div>
       </div>
-    </div>
-    <div>
       <div class="body text-center container-fluid">
         <b-row class="mb-2">
           <b-col sm="5"></b-col>
@@ -32,11 +32,17 @@
           </b-row>
         </div>
       </div>
+    </div>
+    <div>
+
       <div class="d-flex justify-content-center align-content-center align-items-center">
         <div class="qr-code">
           <vue-qrcode :width="650" value="https://www.youtube.com" />
         </div>
       </div>
+
+    </div>
+    <div>
       <div class="clearfix py-3 container-fluid warning my-footer">
         <b-row class="">
           <b-col class="d-flex align-items-center justify-content-center" sm="2">
@@ -52,8 +58,8 @@
           </b-col>
         </b-row>
       </div>
+      <div class="footer-area my-4"></div>
     </div>
-    <div class="footer-area my-4"></div>
   </div>
 </template>
 
