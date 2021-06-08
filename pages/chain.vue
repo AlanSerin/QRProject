@@ -8,139 +8,20 @@
           :title="null"
           :subtitle="null"
           shape="circle"
-          finish-button-text="Gonder"
-          back-button-text="Onceki"
           class="mb-3"
           @on-complete="formSubmitted"
         >
-          <tab-content :before-change="validationFormAccount" title="">
-           <validation-observer ref="accountDetails" tag="form">
-             <b-row>
-                <b-col sm="12" class="mb-4">
-                  <h3 class="title">BASVURU FORMU</h3>
-                  <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
-                </b-col>
-               <b-col md="6">
-                 <b-form-group
-                   label="Sirket Adi"
-                   label-for="i-company"
-                 >
-                   <validation-provider
-                     #default="{ errors }"
-                     name="Company"
-                     rules="required"
-                   >
-                     <b-form-input
-                       id="i-company"
-                       v-model="companyDetails.name"
-                       :state="errors.length > 0 ? false:null"
-                       placeholder="FurtherSoft"
-                     />
-                     <small class="text-danger">{{ errors[0] }}</small>
-                   </validation-provider>
-                 </b-form-group>
-               </b-col>
-                 <b-col md="6">
-                   <b-form-group
-                     label="Yetkili Personel"
-                     label-for="i-personnel"
-                   >
-                     <validation-provider
-                       #default="{ errors }"
-                       name="Personnel"
-                       rules="required"
-                     >
-                       <b-form-input
-                         id="i-personnel"
-                         v-model="companyDetails.personnelName"
-                         :state="errors.length > 0 ? false:null"
-                         placeholder="Ahmet Soruc"
-                       />
-                       <small class="text-danger">{{ errors[0] }}</small>
-                     </validation-provider>
-                   </b-form-group>
-                 </b-col>
-                 <b-col md="6">
-                   <b-form-group
-                     label="E-posta"
-                     label-for="i-email"
-                   >
-                     <validation-provider
-                       #default="{ errors }"
-                       name="Email"
-                       rules="required|email"
-                     >
-                       <b-form-input
-                         id="i-email"
-                         v-model="companyDetails.email"
-                         :state="errors.length > 0 ? false:null"
-                         placeholder="ahmet@mail.com"
-                       />
-                       <small class="text-danger">{{ errors[0] }}</small>
-                     </validation-provider>
-                   </b-form-group>
-                 </b-col>
-                 <b-col md="6">
-                   <b-form-group
-                     label="Telefon"
-                     label-for="i-phone"
-                   >
-                     <validation-provider
-                       #default="{ errors }"
-                       name="Phone"
-                       rules="required|phone"
-                     >
-                       <b-form-input
-                         id="i-phone"
-                         v-model="companyDetails.phone"
-                         :state="errors.length > 0 ? false:null"
-                         placeholder="533 833 33 33"
-                       />
-                       <small class="text-danger">{{ errors[0] }}</small>
-                     </validation-provider>
-                   </b-form-group>
-                 </b-col>
-                 <b-col md="6">
-                   <b-form-group
-                     label="Tax ID"
-                     label-for="i-taxid"
-                   >
-                     <validation-provider
-                       #default="{ errors }"
-                       name="TaxID"
-                       rules="required|min:4|integer"
-                     >
-                       <b-form-input
-                         id="i-taxid"
-                         v-model="companyDetails.taxID"
-                         :state="errors.length > 0 ? false:null"
-                         placeholder="1234"
-                       />
-                       <small class="text-danger">{{ errors[0] }}</small>
-                     </validation-provider>
-                   </b-form-group>
-                 </b-col>
-               <b-col md="6" class="d-flex pt-4 align-items-center">
-                 <div class="mr-3">Tek bir işletme sahibiyim</div>
-                 <b-form-checkbox class="" v-model="companyDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
-               </b-col>
-             </b-row>
-           </validation-observer>
-          </tab-content>
           <tab-content class="" :before-change="validationFormView" title="">
             <validation-observer ref="viewChains" tag="form">
               <b-row>
-                <b-col sm="10" class="mb-4">
+                <b-col sm="12" class="mb-4 pr-0">
                   <h3 class="title">BASVURU FORMU</h3>
                   <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
-                </b-col>
-                <b-col v-if="chains.length > 0" class="" sm="2">
-                  <b-button @click="addChain" block class="green-button" >Sube Ekle</b-button>
                 </b-col>
               </b-row>
               <b-modal ref="details" id="details" hide-footer>
                 <template #modal-title>
-                  <h3 class="title mb-0 fw-normal">BASVURU FORMU</h3>
+                  <h3 class="title mb-0 fw-normal">SUBE OLUSTUR</h3>
                   <!--                        <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>-->
                 </template>
 <!--                <tab-content :before-change="validationFormChain" title="">-->
@@ -246,9 +127,16 @@
                           </validation-provider>
                         </b-form-group>
                       </b-col>
+                      <b-col md="6" class="d-flex pt-4 align-items-center">
+                        <div class="mr-3 pb-1">Ana Sube</div>
+                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
+                      </b-col>
+                      <b-col sm="12" class="mt-3">
+                        <b-button block variant="outline-success">Google Maps Kullan</b-button>
+                      </b-col>
                     </b-row>
                   </validation-observer>
-                <b-button class="mt-3 green-button" variant="success" block @click="validationFormChain">Submit</b-button>
+                <b-button class="mt-3 green-button" variant="success" block @click="validationFormChain">Kaydet</b-button>
               </b-modal>
               <template v-if="chains.length > 0">
                 <b-row @click="chainPage(index)" :key="index" class="mb-4" v-for="(chain,index) in chains">
@@ -270,6 +158,11 @@
                     </div>
                   </b-col>
                 </b-row>
+                <b-row>
+                  <b-col>
+                    <b-button @click="addChain" block class="green-button mb-4">Sube Ekle</b-button>
+                  </b-col>
+                </b-row>
               </template>
               <template v-else>
                 <b-row class="d-grid justify-content-center text-center">
@@ -287,7 +180,7 @@
           </tab-content>
           <tab-content :before-change="validationFormCard" title="">
             <validation-observer ref="cardDetails" tag="form">
-              <b-row>
+              <b-row class="mb-4">
                 <b-col sm="12" class="mb-4">
                   <h3 class="title">BASVURU FORMU</h3>
                   <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>
@@ -399,10 +292,10 @@
           <template slot="footer" slot-scope="{activeTabIndex,isLastStep, nextTab, prevTab, fillButtonStyle}">
             <div class="wizard-footer-left">
               <button v-if="activeTabIndex > 0"
-                      @click="prevTab"
+                      @click="cancelChain"
                       type="button"
                       class="btn btn-outline-success">
-                Geri
+                Iptal Et
               </button>
             </div>
             <div class="wizard-footer-right">
@@ -414,7 +307,7 @@
               </button>
 
               <button	v-else
-                       @click="nextTab"
+                       @click="confirmChain"
                        type="button"
                        class="btn btn-success wizard-footer-right finish">
                 Tamamla
@@ -425,7 +318,7 @@
       </div>
       <div class="right-side">
         <div class="qr-code">
-          <svg width="408" height="408" viewBox="0 0 408 408" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <svg width="300" height="300" viewBox="0 0 408 408" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_i)">
               <rect width="408" height="408" fill="url(#pattern0)" style="mix-blend-mode:overlay"/>
             </g>
@@ -475,14 +368,6 @@ export default {
   directives: { 'b-modal': VBModal },
   data() {
     return {
-      companyDetails: {
-        name:'',
-        personnelName: '',
-        email: '',
-        phone: '',
-        taxID: '',
-        main: '',
-      },
       cardDetails: {
         name: '',
         surname: '',
@@ -544,6 +429,7 @@ export default {
             Object.assign(x,this.chainDetails)
             this.chains.push(x)
             this.$bvModal.hide('details')
+            this.$refs.myWizard.nextTab()
             console.log(this.chains)
             resolve(true)
           } else {
@@ -551,6 +437,22 @@ export default {
           }
         })
       })
+    },
+    cancelChain () {
+      const lastChain = this.chains.pop()
+      this.$refs.myWizard.prevTab()
+      console.log(lastChain)
+    },
+    async confirmChain () {
+      try {
+        const res = await this.$axios.$get('http://icanhazip.com')
+        console.log(res)
+        this.$refs.myWizard.prevTab()
+      } catch (e) {
+        console.log(e)
+        this.chains.pop()
+        this.$refs.myWizard.prevTab()
+      }
     },
     validationFormView() {
       console.log('hello')
@@ -586,139 +488,256 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
-  display: grid;
-  justify-content: center;
-  height: 100vh;
-  align-items: center;
-  .card-container {
-    border-radius: 3%;
-    display: grid;
-    width: 90vw;
-    height: 90vh;
-    grid-template-columns: 4fr 3fr;
-    grid-auto-rows: auto;
-    grid-template-areas: "left right";
-    box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
-    .left-side {
-      grid-area: left;
-      overflow: auto;
 
-      .wizard-footer-left {
-        .btn {
-          width: 250%;
-          border-color: #66d466;
-          color: #66d466;
+@media (min-width: 1024px) {
+
+  .container {
+    display: grid;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    .card-container {
+      border-radius: 3%;
+      display: grid;
+      // EMIN OLAMADIM YA EKRAN COK BUYUK OLURSA
+      min-width: 80vw;
+      min-height: 80vh;
+
+
+      grid-template-columns: 4fr 3fr;
+      grid-auto-rows: auto;
+      grid-template-areas: "left right";
+      box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
+      .left-side {
+        grid-area: left;
+        overflow: auto;
+        padding: 0 1rem;
+
+        .wizard-footer-left {
+          .btn {
+            width: 250%;
+            border-color: #66d466;
+            color: #66d466;
+          }
+          .btn:hover {
+            background-color: #66d466;
+            color: white;
+          }
         }
-        .btn:hover {
+        .green-button {
           background-color: #66d466;
-          color: white;
+          border-color: #66d466;
         }
-      }
-      .green-button {
-        background-color: #66d466;
-        border-color: #66d466;
-      }
-      .green-button:hover {
-        box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-      }
-      .wizard-footer-right {
+        .green-button:hover {
+          box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+        }
+        .wizard-footer-right {
           .wizard-footer-right {
             width: 250%;
             background-color: #66d466;
             border-color: #66d466;
           }
-        .wizard-footer-right:hover {
-          box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+          .wizard-footer-right:hover {
+            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+          }
+          .finish {
+            width: 150%;
+            background-color: #66d466;
+            border-color: #66d466;
+          }
+          .finish:hover {
+            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+          }
         }
-        .finish {
-          width: 150%;
+        .title {
+          font-size: 2.4rem;
+          color: #66d466;
+          font-weight: normal;
+        }
+        .title-text {
+          //width: 70%;
+          color: lightgray;
+          line-height: 23px;
+        }
+        .form-card {
+          //padding: 1rem;
+          //border-radius: 3%;
+          //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+        .chain-card {
+          position: relative;
+          box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
+          border: 1px solid rgba(255, 255, 255, 0);
+
+          .map {
+            width: 100%;
+            height: 100%;
+            background-color: #66d466;
+            border-radius: 5% 0 0 5%;
+          }
+          .content {
+            .coordinates {
+              color: lightgray;
+            }
+            .phone-number {
+              color: #66d466;
+            }
+            p {
+              margin-bottom: 0.125rem;
+            }
+          }
+        }
+        .chain-card:hover {
+          cursor: pointer;
+          // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+          border: 1px solid #8ADA7D;
+        }
+      }
+      .right-side {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: right;
+        background-color: #66d466;
+        border-radius: 0 3% 3% 0;
+        .qr-code {
+          background: #8ADA7D;
+          box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 29px;
+        }
+      }
+    }
+  }
+
+}
+@media (max-width: 1024px) {
+  .container {
+    display: grid;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    .card-container {
+      //border-radius: 3%;
+      display: grid;
+      width: 100vw;
+      height: 100vh;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      grid-template-areas: "left";
+      //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
+      .left-side {
+        grid-area: left;
+        overflow: auto;
+        padding: 0 1rem;
+
+        .wizard-footer-left {
+          .btn {
+            width: 150%;
+            border-color: #66d466;
+            color: #66d466;
+          }
+          .btn:hover {
+            background-color: #66d466;
+            color: white;
+          }
+        }
+        .green-button {
           background-color: #66d466;
           border-color: #66d466;
         }
-        .finish:hover {
+        .green-button:hover {
           box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
         }
-      }
-      .title {
-        font-size: 2.4rem;
-        color: #66d466;
-        font-weight: normal;
-      }
-      .title-text {
-        //width: 70%;
-        color: lightgray;
-        line-height: 23px;
-      }
-      .form-card {
-        //padding: 1rem;
-        //border-radius: 3%;
-        //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
-      }
-      .chain-card {
-        position: relative;
-        //width: 73%;
-        //border-radius: 5%;
-        box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
-        border: 1px solid rgba(255, 255, 255, 0);
-
-        //.edit {
-        //  position: absolute;
-        //  top: -3%;
-        //  left: 92%;
-        //}
-        //.edit:hover {
-        //  cursor: pointer;
-        //}
-
-        //.delete {
-        //  position: absolute;
-        //  top: 63%;
-        //  left: 76%;
-        //}
-        //.delete:hover {
-        //  cursor: pointer;
-        //}
-
-        .map {
-          width: 100%;
-          height: 100%;
-          background-color: #66d466;
-          border-radius: 5% 0 0 5%;
-        }
-        .content {
-          .coordinates {
-            color: lightgray;
+        .wizard-footer-right {
+          .wizard-footer-right {
+            width: 150%;
+            background-color: #66d466;
+            border-color: #66d466;
           }
-          .phone-number {
-            color: #66d466;
+          .wizard-footer-right:hover {
+            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
           }
-          p {
-            margin-bottom: 0.125rem;
+          .finish {
+            width: 125%;
+            background-color: #66d466;
+            border-color: #66d466;
+          }
+          .finish:hover {
+            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
           }
         }
+        .title {
+          font-size: 2.4rem;
+          color: #66d466;
+          font-weight: normal;
+        }
+        .title-text {
+          //width: 70%;
+          color: lightgray;
+          line-height: 23px;
+        }
+        .form-card {
+          //padding: 1rem;
+          //border-radius: 3%;
+          //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+        .chain-card {
+          position: relative;
+          //width: 73%;
+          //border-radius: 5%;
+          box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
+          border: 1px solid rgba(255, 255, 255, 0);
+
+          //.edit {
+          //  position: absolute;
+          //  top: -3%;
+          //  left: 92%;
+          //}
+          //.edit:hover {
+          //  cursor: pointer;
+          //}
+
+          //.delete {
+          //  position: absolute;
+          //  top: 63%;
+          //  left: 76%;
+          //}
+          //.delete:hover {
+          //  cursor: pointer;
+          //}
+
+          .map {
+            width: 100%;
+            height: 100%;
+            background-color: #66d466;
+            border-radius: 5% 0 0 5%;
+          }
+          .content {
+            .coordinates {
+              color: lightgray;
+            }
+            .phone-number {
+              color: #66d466;
+            }
+            p {
+              margin-bottom: 0.125rem;
+            }
+          }
+        }
+        .chain-card:hover {
+          cursor: pointer;
+          // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
+          border: 1px solid #8ADA7D;
+        }
       }
-      .chain-card:hover {
-        cursor: pointer;
-        // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-        border: 1px solid #8ADA7D;
-      }
-    }
-    .right-side {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      grid-area: right;
-      background-color: #66d466;
-      border-radius: 0 3% 3% 0;
-      .qr-code {
-        background: #8ADA7D;
-        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 29px;
+      .right-side {
+        display: none;
       }
     }
   }
 }
+
+
 
 .green-button {
   background-color: #66d466;
