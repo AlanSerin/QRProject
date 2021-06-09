@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div>
       <!-- pre loader area start -->
       <div id="loading">
@@ -30,7 +29,7 @@
             <div class="row align-items-center">
               <div class="col-xxl-4 col-xl-2 col-lg-2 col-md-6 col-6">
                 <div class="logo">
-                  <a href="index.html">
+                  <a href="/">
                     <img src="~/assets/img/logo/logo.png" alt="logo">
                   </a>
                 </div>
@@ -41,45 +40,21 @@
                     <nav id="mobile-menu">
                       <ul>
                         <li>
-                          <a href="#">Home</a>
+                          <a href="#home">Anasayfa</a>
                         </li>
-                        <li><a href="#">About</a></li>
-                        <li class="has-dropdown">
-                          <a href="services.html">Services</a>
-                          <ul class="submenu">
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="services-details.html">Services Details</a></li>
-                          </ul>
+                        <li><a href="#uygulama">Uygulama</a></li>
+                        <li class="has-dropdownn">
+                          <a href="#register">İşletme Kaydı</a>
                         </li>
-                        <li class="has-dropdown">
-                          <a href="blog.html">Blog</a>
-
-                          <ul class="submenu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-standard.html">Blog Standard</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                          </ul>
+                        <li class="has-dropdownn">
+                          <a href="#quest">Sorular</a>
                         </li>
-                        <li class="has-dropdown">
-                          <a href="about.html">Pages</a>
-                          <ul class="submenu">
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                            <li><a href="team.html">Team</a></li>
-                            <li><a href="team-details.html">Team Details</a></li>
-                            <li><a href="#">Error 404</a></li>
-                            <li><a href="sign-up.html">Sign Up</a></li>
-                            <li><a href="sign-in.html">Sign In</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Contact</a></li>
                       </ul>
                     </nav>
                   </div>
                   <div class="header__action ml-40 text-end d-flex align-items-center justify-content-end">
                     <div class="header__right-btn d-none d-md-flex d-xl-block">
-                      <nuxt-link to="/signUp" class="w-btn w-btn-purple w-btn-7">Get Started</nuxt-link>
+                      <a href="contact.html" class="w-btn w-btn-purple w-btn-7">Kayıt Ol</a>
                     </div>
                   </div>
                 </div>
@@ -105,19 +80,19 @@
           <div class="sidebar__close">
             <button class="sidebar__close-btn" id="sidebar__close-btn">
               <span><i class="fal fa-times"></i></span>
-              <span>close</span>
+              <span>Kapat</span>
             </button>
           </div>
           <div class="sidebar__content">
             <div class="logo mb-40">
-              <a href="index.html">
+              <a href="/">
                 <img src="~/assets/img/logo/logo.png" alt="logo">
               </a>
             </div>
             <div class="mobile-menu mobile-menu-3"></div>
             <div class="sidebar__info mt-350">
-              <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">login</a>
-              <a href="#" class="w-btn w-btn-blue d-block">sign up</a>
+              <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">Giriş Yap</a>
+              <a href="#" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
             </div>
           </div>
         </div>
@@ -129,7 +104,7 @@
 
     <main>
       <!-- hero area start -->
-      <section class="hero__area hero__height-3 hero__bg p-relative d-flex align-items-center missingheader">
+      <section id="home" class="hero__area hero__height-3 hero__bg p-relative d-flex align-items-center missingheader">
         <div class="hero__shape-3">
           <img class="hero-3-circle-2" src="~/assets/img/icon/hero/home-3/hero-circle.png" alt="">
           <img class="hero-3-dot" src="~/assets/img/icon/hero/home-3/hero-dot.png" alt="">
@@ -142,25 +117,25 @@
             <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6">
               <div class="hero__thumb-3 ">
                 <img class="hero-phone wow fadeInLeft" data-wow-delay=".3s" src="~/assets/img/hero/home-3/hero-phone.png" alt="">
-                <img class="hero-3-gradient" src="~/assets/img/icon/hero/home-3/hero-gradient-circle.png" alt="">
+<!--                <img class="hero-3-gradient" src="~/assets/img/icon/hero/home-3/circle.png" alt="">-->
                 <img class="hero-3-dot-2" src="~/assets/img/icon/hero/home-3/hero-dot-2.png" alt="">
               </div>
             </div>
             <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-6">
               <div class="hero__content-3 mb-100 pl-70">
-                <h3 class="hero__title-3 wow fadeInUp" data-wow-delay=".3s">Get the App for Your Device.</h3>
-                <p class="wow fadeInUp" data-wow-delay=".5s">Unify your team’s video creation process under one repository to create, collaborat scale.</p>
+                <h3 class="hero__title-3 wow fadeInUp" data-wow-delay=".3s">Kuzey Kıbrıs AdaPass</h3>
+                <p class="wow fadeInUp" data-wow-delay=".5s">AdaPass uygulamasıyla mekanlara veya ülkeye giriş çıkışlarınızı daha güvenli hale getirin.</p>
 
                 <div class="hero__app wow fadeInUp" data-wow-delay=".7s">
                   <ul>
                     <li>
-                      <a href="#" class="d-flex align-items-center active">
+                      <a href="#" class="d-flex align-items-center">
                         <div class="hero__app-icon">
                           <i class="fab fa-google-play"></i>
                         </div>
                         <div class="hero__app-content">
-                          <h5>Available on the</h5>
-                          <span> App Store</span>
+                          <h5>Android için</h5>
+                          <span>Play Store</span>
                         </div>
                       </a>
                     </li>
@@ -170,8 +145,8 @@
                           <i class="fab fa-apple"></i>
                         </div>
                         <div class="hero__app-content">
-                          <h5>Available on the</h5>
-                          <span>Apple Store</span>
+                          <h5>İOS & Mac için</h5>
+                          <span>App Store</span>
                         </div>
                       </a>
                     </li>
@@ -182,67 +157,76 @@
           </div>
         </div>
       </section>
-      <!-- hero area end -->
 
-      <!-- services area start -->
-      <section class="services__area pt-120 pb-110 p-relative">
+      <section id="uygulama" class="about__area pb-120 p-relative pt-100">
+        <div class="about__shape">
+          <img class="about-triangle" src="~/assets/img/icon/about/home-1/triangle.png" alt="">
+          <img class="about-circle" src="~/assets/img/icon/about/home-1/circle.png" alt="">
+          <img class="about-circle-2" src="~/assets/img/icon/about/home-1/circle-2.png" alt="">
+          <img class="about-circle-3" src="~/assets/img/icon/about/home-1/circle-3.png" alt="">
+        </div>
         <div class="container">
-          <div class="row">
-            <div class="col-xxl-8 offset-xxl-2 col-xl-10 offset-xl-1">
-              <div class="section__title-wrapper section__title-wrapper-3 text-center section-padding-3 mb-80 wow fadeInUp" data-wow-delay=".3s">
-                <span class="section__pre-title-img"><img src="~/assets/img/icon/title/services.png" alt=""></span>
-                <h2 class="section__title section__title-3">Outcomes that Accelerate Growth In a Mobile-first World</h2>
-                <p>The wireless tosser bloke chancer off his nut sloshed bite your arm off butty wellies.</p>
+          <div class="row align-items-center">
+            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-9">
+              <div class="about__wrapper mb-10">
+                <div class="section__title-wrapper mb-25">
+                  <h2 class="section__title">Ülkeye Giriş İzni Alma</h2>
+                  <p>Giriş İzni Alabilmek için bu adımları tamamlamanız gerekiyor.</p>
+                </div>
+                <ul>
+                  <li> <p style="font-weight: bold;">PCR Testi</p> Ülkenizde yaptığınız PCR testini yükleyin</li>
+                  <li> <p style="font-weight:bold;"> Aşı Belgesi </p> Sahip olduğunuz aşı belgesini yükleyin</li>
+                  <li> <p style="font-weight:bold;"> Uçuş Bileti</p> Satın aldığınız uçuşun PNR kodunu girin</li>
+                  <li> <p style="font-weight:bold;">Çocuk Ekleyin (Eğer Varsa)</p> Yaşı 12’den küçük çocuklarınızı ekleyiniz. 12 yaşından büyük çocuklarınız için hesap oluşturmanız gerekiyor.</li>
+                </ul>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-              <div class="services__item-3 white-bg transition-3 mb-30 text-center">
-                <div class="services__icon-3">
-                  <img src="~/assets/img/icon/services/home-3/services-1.png" alt="">
+            <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6 col-md-10 order-first order-lg-last">
+              <div class="about__thumb-wrapper p-relative ml-40 fix text-end">
+                <img src="~/assets/img/about/home-1/about-bg.png" alt="">
+                <div class="about__thumb p-absolute">
+                  <img class="bounceInUp wow about-big" data-wow-delay=".3s" src="~/assets/img/about/home-1/about-1.png" alt="">
+
                 </div>
-                <div class="services__content-3">
-                  <h3 class="services__title-3"><a href="services-details.html">Development</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-              <div class="services__item-3 white-bg transition-3 mb-30 text-center">
-                <div class="services__icon-3">
-                  <img src="~/assets/img/icon/services/home-3/services-2.png" alt="">
-                </div>
-                <div class="services__content-3">
-                  <h3 class="services__title-3"><a href="services-details.html">Bdevs Services</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-              <div class="services__item-3 white-bg transition-3 mb-30 text-center">
-                <div class="services__icon-3">
-                  <img src="~/assets/img/icon/services/home-3/services-3.png" alt="">
-                </div>
-                <div class="services__content-3">
-                  <h3 class="services__title-3"><a href="services-details.html">UI/UX Design</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".9s">
-              <div class="services__more text-center mt-30">
-                <a href="services.html" class="w-btn w-btn-purple w-btn-purple-2 w-btn-3 w-btn-6">View all service</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- services area end -->
+      <!-- about area end -->
 
       <!-- about area start -->
+      <section class="about__area pb-160 pt-80 p-relative">
+        <div class="about__shape">
+          <img class="about-plus" src="~/assets/img/icon/about/home-1/plus.png" alt="">
+          <img class="about-triangle-2" src="~/assets/img/icon/about/home-1/triangle-2.png" alt="">
+          <img class="about-circle-4" src="~/assets/img/icon/about/home-1/circle-4.png" alt="">
+          <img class="about-circle-5" src="~/assets/img/icon/about/home-1/circle-5.png" alt="">
+        </div>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+              <div class="about__thumb-wrapper p-relative ml--30 fix mr-70">
+                <img src="~/assets/img/about/home-1/about-bg-2.png" alt="">
+                <div class="about__thumb about__thumb-2 p-absolute wow fadeInUp" data-wow-delay=".3s">
+                  <img class="about-big bounceInUp wow" data-wow-delay=".5s" src="~/assets/img/about/home-1/about-2.png" alt="">
+                  <img class="about-sm about-sm-2"  src="~/assets/img/about/home-1/about-2-1.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-9">
+              <div class="about__wrapper about__wrapper-2 ml-60 mb-30">
+                <div class="section__title-wrapper mb-25">
+                  <h2 class="section__title">QR Kodla Giriş</h2>
+                  <p>Mekan girişlerin de artık sizi kağıt, kalemle bekleyen kişiler olmayacak. İşlemlerinizi tamamladığınız zaman mekanlara girişiniz çok daha kolay ve zaman kaybı olmadan giriş yapabileceksiniz. Tek yapmanız gereken AdaPass uygulamasını açıp giriş yapacağınız mekandaki QR kodu okutmak. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- services area start -->
       <section class="about__area pt-80 pb-30 grey-bg-5">
         <div class="container">
           <div class="row align-items-center">
@@ -250,16 +234,10 @@
               <div class="about__wrapper-3">
                 <div class="section__title-wrapper section__title-wrapper-3 mb-25 wow fadeInUp" data-wow-delay=".3s">
                   <span class="section__pre-title-img"><img src="~/assets/img/icon/title/about.png" alt=""></span>
-                  <h2 class="section__title section__title-3">Get the Perfect Solution for Your Web.</h2>
-                  <p>Starkers pardon you knees up is Elizabeth geeza Why, quain standard  guvnor gosh cras brilliant.</p>
+                  <h2 class="section__title section__title-3">AdaPass Kodu</h2>
+                  <p>AdaPass QR kodunuzla işlemleriniz tamamlanmış ve geçerli ise polis kontrollerinde AdaPass kodunuzu okutarak geçiş yapabilirsiniz.</p>
                 </div>
                 <div class="about__content-4">
-                  <ul>
-                    <li>Instantly Create Your Crowdfunding Platform</li>
-                    <li>Intergate With Popular Softwares item</li>
-                  </ul>
-
-                  <a href="contact.html" class="w-btn w-btn-purple w-btn-6 w-btn-9 w-btn-1-3">Get Started</a>
                 </div>
               </div>
             </div>
@@ -272,79 +250,55 @@
           </div>
         </div>
       </section>
+      <!-- services area end -->
+      <section class="promotion__area promotion__bg pt-100 pb-150 p-relative">
+        <div class="promotion__shape">
+          <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="">
+          <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="">
+          <img class="promotion-triangle" src="~/assets/img/icon/promotion/pro-triangle.png" alt="">
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <div class="promotion__content wow fadeInUp" data-wow-delay=".3s">
+                <h3 class="promotion__title">KKTC Vatandaşı</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, deleniti? Sapiente ullam molestiae iste impedit! Similique iusto dicta nemo facilis aut corporis inventore, reprehenderit, repellat maxime, doloremque molestiae tenetur temporibus.</p>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <div class="promotion__content pl-70 promotion__right wow fadeInUp" data-wow-delay=".5s">
+                <h3 class="promotion__title">Yolcu</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti nulla harum laborum, commodi dignissimos adipisci officiis recusandae ipsum numquam quod vitae iure fugiat porro maiores id facere qui reiciendis non!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- about area start -->
       <!-- about area end -->
 
       <!-- platform area start -->
-      <section class="platform__area pt-30 pb-110 grey-bg-5">
+      <section id="register" class="about__area grey-bg-3 pt-120 pb-120 p-relative">
+        <div class="about__shape-2">
+<!--          <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="">-->
+<!--          <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="">-->
+        </div>
         <div class="container">
           <div class="row">
-            <div class="col-xxl-6 offset-xxl-3">
-              <div class="section__title-wrapper section__title-wrapper-3 text-center mb-45 wow fadeInUp" data-wow-delay=".3s">
-                <span class="section__pre-title-img"><img src="~/assets/img/icon/title/platform.png" alt=""></span>
-                <h2 class="section__title section__title-3">App Download Platfrom</h2>
-                <p>Elizabeth Richard bleeder say do one gosh bite your arm off cuppa.</p>
+            <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-100">
+              <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
+<!--                <img src="~/assets/img/about/home-3/uyg.png" alt="">-->
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-              <div class="platform__item white-bg mb-30 text-center">
-                <h3 class="platform__title">Download <br> from Play Store</h3>
-                <p>Standard  guvnor gosh cras brilliant.</p>
-
-                <div class="platform__name">
-                  <a href="#" class="app-store">
-                    <div class="platform__name-wrapper d-flex align-items-center">
-                      <div class="platform__name-icon">
-                        <i class="fab fa-google-play"></i>
-                      </div>
-                      <div class="platform__name-content">
-                        <h5>Available on the</h5>
-                        <span> App Store</span>
-                      </div>
-                    </div>
-                  </a>
+            <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 mb-100">
+              <div class="about__content-3 pt-100">
+                <div class="section__title-wrapper section__title-wrapper-2 mb-30 wow fadeInUp" data-wow-delay=".3s">
+                  <span class="section__pre-title pink">İşletme Kaydı</span>
+                  <h2 class="section__title section__title-2">İşletmenizi Uygulama için Kaydedin</h2>
+                  <p>AdaPass kullanıcılarının işletmenize QR Kodla giriş yapabilmesi için işletmenizi kaydetmeniz gerekmektedir.</p>
                 </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-              <div class="platform__item white-bg mb-30 text-center">
-                <h3 class="platform__title">Download <br> from Apple Store</h3>
-                <p>Standard  guvnor gosh cras brilliant.</p>
-
-                <div class="platform__name">
-                  <a href="#" class="apple-store">
-                    <div class="platform__name-wrapper d-flex align-items-center">
-                      <div class="platform__name-icon">
-                        <i class="fab fa-apple"></i>
-                      </div>
-                      <div class="platform__name-content">
-                        <h5>Available on the</h5>
-                        <span>Apple Store</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-              <div class="platform__item white-bg mb-30 text-center">
-                <h3 class="platform__title">Download <br> from Windows</h3>
-                <p>Standard  guvnor gosh cras brilliant.</p>
-
-                <div class="platform__name">
-                  <a href="#" class="windows">
-                    <div class="platform__name-wrapper d-flex align-items-center">
-                      <div class="platform__name-icon">
-                        <i class="fab fa-windows"></i>
-                      </div>
-                      <div class="platform__name-content">
-                        <h5>Available on the</h5>
-                        <span>Windows</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+                <a href="#" class="w-btn w-btn-blue w-btn-3 w-btn-1">İşletmeni Kaydet</a>
               </div>
             </div>
           </div>
@@ -352,186 +306,61 @@
       </section>
       <!-- platform area end -->
 
-
-      <!-- price area start -->
-      <section class="price__area pt-120 pb-90">
-        <div class="container">
-          <div class="row">
-            <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-8 offset-lg-2">
-              <div class="section__title-wrapper section__title-wrapper-3 section-padding-p-0 text-center mb-65 wow fadeInUp" data-wow-delay=".3s">
-                <span class="section__pre-title-img"><img src="~/assets/img/icon/title/price.png" alt=""></span>
-                <h2 class="section__title section__title-3">Why Choose Us Our Premium Features on Pricing  Plan?</h2>
-                <p>Say chap skive off the little rotter gosh he erised it matie.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-              <div class="price__item-3 white-bg mb-30 text-center fix">
-                <div class="price__heading free">
-                  <h4>Free</h4>
-                </div>
-                <div class="price__body">
-                  <div class="price__icon mb-15">
-                    <img src="~/assets/img/icon/pricing/home-3/pricing-1.png" alt="">
-                  </div>
-                  <div class="price__tag-3">
-                    <h3>$00 <span>monthly</span></h3>
-                  </div>
-                  <div class="price__features-2">
-                    <ul>
-                      <li>1GB Cloud Storage</li>
-                      <li>Share on Cloud</li>
-                      <li>Private & Team Folders</li>
-                      <li>30GB Cloud Storage</li>
-                    </ul>
-                  </div>
-                  <div class="price__btn">
-                    <a href="contact.html" class="w-btn w-btn-10">buy package</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-              <div class="price__item-3 white-bg mb-30 text-center fix">
-                <div class="price__heading basic">
-                  <h4>Basic</h4>
-                </div>
-                <div class="price__body">
-                  <div class="price__icon mb-15">
-                    <img src="~/assets/img/icon/pricing/home-3/pricing-2.png" alt="">
-                  </div>
-                  <div class="price__tag-3">
-                    <h3>$430 <span>monthly</span></h3>
-                  </div>
-                  <div class="price__features-2">
-                    <ul>
-                      <li>1GB Cloud Storage</li>
-                      <li>Share on Cloud</li>
-                      <li>Private & Team Folders</li>
-                      <li>30GB Cloud Storage</li>
-                    </ul>
-                  </div>
-                  <div class="price__btn">
-                    <a href="contact.html" class="w-btn w-btn-10">buy package</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-              <div class="price__item-3 white-bg mb-30 text-center fix">
-                <div class="price__heading premium">
-                  <h4>Premium</h4>
-                </div>
-                <div class="price__body">
-                  <div class="price__icon mb-15">
-                    <img src="~/assets/img/icon/pricing/home-3/pricing-3.png" alt="">
-                  </div>
-                  <div class="price__tag-3">
-                    <h3>$780 <span>yearly</span></h3>
-                  </div>
-                  <div class="price__features-2">
-                    <ul>
-                      <li>1GB Cloud Storage</li>
-                      <li>Share on Cloud</li>
-                      <li>Private & Team Folders</li>
-                      <li>30GB Cloud Storage</li>
-                    </ul>
-                  </div>
-                  <div class="price__btn">
-                    <a href="contact.html" class="w-btn w-btn-10">buy package</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- platform area end -->
-
-
-      <!-- cta area start -->
-      <section class="cta__area pb-140 p-relative">
-        <div class="container">
-          <div class="cta__inner-3 p-relative fix wow fadeInUp missingcta" data-wow-delay=".4s">
-            <div class="row align-items-center">
-              <div class="col-xxl-7 col-xl-8 col-lg-10 col-md-9">
-                <div class="cta__content-3">
-                  <h3 class="cta__title cta__title-3">Need Some Custom Plan?</h3>
-                  <p>Connect with our support team and ask for our Business & eCommerce Premium plans.</p>
-                </div>
-              </div>
-              <div class="col-xxl-5 col-xl-4 col-lg-2 col-md-3">
-                <div class="cta__btn text-md-end">
-                  <a href="contact.html" class="w-btn w-btn-white-3">Request Plan</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- cta area end -->
 
       <!-- why area start -->
-      <section class="why__area grey-bg-5 pt-135 pb-90">
+      <section id="quest" class="faq__area pt-140 pb-140">
         <div class="container">
           <div class="row">
-            <div class="col-xxl-7 col-xl-8 col-lg-8">
-              <div class="why__wrapper">
-                <div class="section__title-wrapper section__title-wrapper-3 mb-45 wow fadeInUp" data-wow-delay=".3s">
-                  <span class="section__pre-title-img"><img src="~/assets/img/icon/title/why.png" alt=""></span>
-                  <h2 class="section__title section__title-3">Why Choose Us Custom Mobile App Development.</h2>
-                  <p>Smashing blimey wellies excuse my French cor blimey guvnor do one brolly down the pub bobby cuppa, get stuffed mate cup.</p>
+            <div class="col-xxl-5 offset-xxl-1 col-xl-5 offset-xl-1 col-lg-6 col-md-8">
+              <div class="faq__content">
+                <div class="section__title-wrapper section__title-wrapper-2 mb-35 wow fadeInUp" data-wow-delay=".5s">
+                  <h2 class="section__title section__title-2">Kuzey Kıbrıs AdaPass</h2>
+                  <p>Uygulama hakkında merak ettiğiniz sorular.</p>
                 </div>
-                <div class="why__counter">
-                  <div class="row">
-                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
-                      <div class="why__item text-center white-bg mb-30">
-                        <div class="why__icon mb-15">
-                          <i class="icon_star"></i>
-                        </div>
-                        <div class="why__content">
-                          <h3 class="why__title"> <span class="counter">4.8</span> Stars</h3>
-                          <p>Average Rating</p>
-                        </div>
+                <div class="faq__counter wow fadeInUp" data-wow-delay=".7s">
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
+              <div class="faq__wrapper wow fadeInUp" data-wow-delay=".3s">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Her Şube için ayrı bir QR mı almam gerekiyor ?
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>Evet alınması gerekiyor.</p>
                       </div>
                     </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".5s">
-                      <div class="why__item text-center white-bg mb-30">
-                        <div class="why__icon mb-15">
-                          <i class="icon_ribbon"></i>
-                        </div>
-                        <div class="why__content">
-                          <h3 class="why__title"> <span class="counter">438</span>K</h3>
-                          <p>Project</p>
-                        </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Hangi işletmeler QR Kod Almalı
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p> Tüm işletmeler. (İşletmesin de müşteri hizmeti veren tüm işletmeler)</p>
                       </div>
                     </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".7s">
-                      <div class="why__item text-center white-bg mb-30">
-                        <div class="why__icon mb-15">
-                          <i class="icon_star"></i>
-                        </div>
-                        <div class="why__content">
-                          <h3 class="why__title"> <span class="counter">357</span> M</h3>
-                          <p>Download</p>
-                        </div>
+                  </div>
+                  <div class="accordion-item border-none">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed pb-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        AdaPass Kod Nedir ?
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod.</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-xxl-4 offset-xxl-1 col-xl-4 col-lg-4 col-md-6">
-              <div class="why__features white-bg wow fadeInUp" data-wow-delay=".9s">
-                <ul>
-                  <li>Our Experience 14+ Years</li>
-                  <li>Our Team Members 100+</li>
-                  <li>Free Support 2 years</li>
-                  <li>Agile Development</li>
-                  <li>Transparent Process</li>
-                </ul>
-                <a href="contact.html" class="w-btn w-btn-purple w-100"> contact us</a>
               </div>
             </div>
           </div>
@@ -540,251 +369,11 @@
       <!-- why area end -->
 
       <!-- testimonial area start -->
-      <section class="testimonial__area grey-bg-5 pb-175 overflow-y-visible">
-        <div class="container">
-          <div class="row">
-            <div class="col-xxl-8 offset-xxl-2">
-              <div class="section__title-wrapper section__title-wrapper-3 text-center section-padding-4 mb-55 wow fadeInUp" data-wow-delay=".3s">
-                <span class="section__pre-title-img"><img src="~/assets/img/icon/title/testimonial.png" alt=""></span>
-                <h2 class="section__title section__title-3 section-mb-15">See What Others Have to Say</h2>
-                <p>Connect with our support team and ask for our Business & eCommerce Premium plans</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-12">
-              <div class="testimonial__slider-3 owl-carousel wow fadeInUp" data-wow-delay=".4s">
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
 
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-1.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Hilary Ouse</h4>
-                      <span>Developer</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-2.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>INNA Gomz</h4>
-                      <span>Designer</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-3.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Shahnewaz Sakil</h4>
-                      <span>Web Developer</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-4.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Charlie</h4>
-                      <span>Business Man</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-4.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Decaprio Helson</h4>
-                      <span>Digital Marketer</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-5.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Thomas Edison</h4>
-                      <span>Inventor</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial__item-3 white-bg mb-30">
-                  <div class="rating">
-                    <ul>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                      <li><i class="icon_star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="testimonial__text-3">
-                    <p>‘’Cobblers posh cras victoria sponge some dodgy chaverat barney only a quid, boot bubble and squeak wind up bits and boes bleeding up the duff brolly. ’’ </p>
-                  </div>
-
-                  <div class="testimonial__person d-flex align-items-center">
-                    <div class="testimonial__avater mr-20">
-                      <img src="~/assets/img/testimonial/home-1/testi-6.png" alt="">
-                    </div>
-                    <div class="testimonial__author-3">
-                      <h4>Robert Downey Jr.</h4>
-                      <span>Inventor</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- testimonial area end -->
 
       <!-- blog area start -->
-      <section class="blog__area pt-120 pb-80">
-        <div class="container">
-          <div class="row">
-            <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-10">
-              <div class="section__title-wrapper section__title-wrapper-3 mb-65 wow fadeInUp" data-wow-delay=".3s">
-                <span class="section__pre-title-img"><img src="~/assets/img/icon/title/blog.png" alt=""></span>
-                <h2 class="section__title section__title-3 section-mb-15">The Ultimate Marketing Technology News.</h2>
-                <p>Connect with our support team and ask for our Business & eCommerce Premium plans.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-              <div class="blog__item-3 white-bg mb-30">
-                <div class="blog__thumb-3 p-relative w-img fix">
-                  <a href="blog-details.html">
-                    <img src="~/assets/img/blog/home-3/blog-1.jpg" alt="">
-                  </a>
-                  <div class="blog__meta-3">
-                    <span class="tag-3"><a href="blog-details.html">Design</a></span>
-                  </div>
-                </div>
-                <div class="blog__content-3">
-                  <div class="blog__meta-3 mb-10">
-                    <span class="date">May 18, 2021</span>
-                  </div>
-                  <h3 class="blog__title-3"><a href="blog-details.html">What is a digital agency & what can they do for my business?</a></h3>
 
-                  <a href="blog-details.html" class="link-btn">More Details <i class="arrow_right"></i> </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-              <div class="blog__item-3 white-bg mb-30">
-                <div class="blog__thumb-3 p-relative w-img fix">
-                  <a href="blog-details.html">
-                    <img src="~/assets/img/blog/home-3/blog-2.jpg" alt="">
-                  </a>
-                  <div class="blog__meta-3">
-                    <span class="tag-3"><a href="#">Creative</a></span>
-                  </div>
-                </div>
-                <div class="blog__content-3">
-                  <div class="blog__meta-3 mb-10">
-                    <span class="date">May 20, 2021</span>
-                  </div>
-                  <h3 class="blog__title-3"><a href="blog-details.html">How to Create an Amazon Affiliate Store in WordPress?</a></h3>
-
-                  <a href="blog-details.html" class="link-btn">More Details <i class="arrow_right"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- blog area end -->
 
     </main>
@@ -809,87 +398,7 @@
                     </div>
                   </div>
                   <div class="footer__widget-content">
-                    <p>Ever since we started using  we’ve , and more.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                <div class="footer__widget mb-50 footer__pl-70">
-                  <div class="footer__widget-title mb-25">
-                    <h3>Overview</h3>
-                  </div>
-                  <div class="footer__widget-content">
-                    <div class="footer__link footer__link-2">
-                      <ul>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Integrations</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
-                <div class="footer__widget mb-50 footer__pl-90">
-                  <div class="footer__widget-title mb-25">
-                    <h3>Customer</h3>
-                  </div>
-                  <div class="footer__widget-content">
-                    <div class="footer__link footer__link-2">
-                      <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Integrations</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".9s">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-title mb-25">
-                    <h3>Product</h3>
-                  </div>
-                  <div class="footer__widget-content">
-                    <div class="footer__link footer__link-2">
-                      <ul>
-                        <li><a href="#">Getting Started</a></li>
-                        <li><a href="#">Style Guide</a></li>
-                        <li><a href="#">Licences</a></li>
-                        <li><a href="#">Changelog</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="1.2s">
-                <div class="footer__widget mb-50 float-md-end fix">
-                  <div class="footer__widget-title mb-25">
-                    <h3>Follow Us</h3>
-                  </div>
-                  <div class="footer__widget-content">
-                    <div class="footer__social footer__social-2">
-                      <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <div class="container">
-            <div class="footer__copyright">
-              <div class="row">
-                <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".7s">
-                  <div class="footer__copyright-wrapper footer__copyright-wrapper-2 text-center">
-                    <p>Copyright © 2021 All Rights Reserved passion by <a href="#">ThemePure</a></p>
+                    <p>Kuzey Kıbrıs AdaPass</p>
                   </div>
                 </div>
               </div>

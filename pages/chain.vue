@@ -19,7 +19,7 @@
                 </template>
                 <div v-if="validateChain" class="chain-maps">
                   <GmapMap
-                    :center="{lat:35.189940, lng:33.357756}"
+                    :center="center"
                     :zoom="10"
                     map-type-id="terrain"
                     style="width: 600px; height: 400px"
@@ -82,16 +82,17 @@
                       <b-col md="6">
                         <b-form-group
                           label="Il"
-                          label-for="i-il"
+                          label-for="i-province"
                         >
                           <validation-provider
                             #default="{ errors }"
-                            name="Il"
+                            name="Province"
                             rules="required"
                           >
-                            <b-form-input
-                              id="i-il"
-                              v-model="chainDetails.il"
+                            <b-form-select
+                              id="i-province"
+                              v-model="chainDetails.province"
+                              :options="provinceOptions"
                               :state="errors.length > 0 ? false:null"
                               placeholder="Gazimagusa"
                             />
@@ -102,16 +103,17 @@
                       <b-col md="6">
                         <b-form-group
                           label="Ilce"
-                          label-for="i-ilce"
+                          label-for="i-district"
                         >
                           <validation-provider
                             #default="{ errors }"
-                            name="Ilce"
+                            name="District"
                             rules="required"
                           >
-                            <b-form-input
-                              id="i-ilce"
-                              v-model="chainDetails.ilce"
+                            <b-form-select
+                              id="i-district"
+                              v-model="chainDetails.district"
+                              :options="districtOptions"
                               :state="errors.length > 0 ? false:null"
                               placeholder="Gazimagusa"
                             />
@@ -418,41 +420,33 @@ export default {
     BModal,
   },
   directives: { 'b-modal': VBModal },
-  computed: {
-    returnLocations() {
-      return this.marker.position
-    },
-  },
+
   data() {
     return {
-      markerKey:0,
-      marker: { position: {lat: 35.189940, lng: 33.357756}},
+      center: {lat:35.189940, lng:33.357756},
       markers: [
         {
 
         },
       ],
+      provinceOptions: [
+        { value: 'famagusta', text: 'Gazimagusa' },
+        { value: 'nicosia', text: 'Lefkosa' },
+        { value: 'Trikomo', text: 'Iskele' },
+        { value: 'morphou', text: 'Guzelyurt' },
+        { value: 'lefka', text: 'Lefke' },
+        { value: 'kyrenia', text: 'Girne' },
+      ],
+      districtOptions: [
+        { value: 'famagusta', text: 'Gazimagusa' },
+        { value: 'nicosia', text: 'Lefkosa' },
+        { value: 'Trikomo', text: 'Iskele' },
+        { value: 'morphou', text: 'Guzelyurt' },
+        { value: 'lefka', text: 'Lefke' },
+        { value: 'kyrenia', text: 'Girne' },
+      ],
       validateCard: false,
       validateChain: true,
-      currentLocation: {},
-      circleOptions: {},
-      location: {
-
-      },
-      pins: {
-        selected: "data:image/png;base64,iVBORw0KGgo...",
-        notSelected: "data:image/png;base64,iVBORw0KGgo..."
-      },
-      mapStyle: [],
-      clusterStyle: [
-        {
-          url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png",
-          width: 56,
-          height: 56,
-          textColor: "#fff"
-        }
-      ],
-
       cardDetails: {
         name: '',
         surname: '',
@@ -466,8 +460,8 @@ export default {
         latitude: '',
         longitude: '',
         address: '',
-        il: '',
-        ilce: '',
+        province: '',
+        district: '',
         phone: '',
         personnelName: '',
         main: false,
