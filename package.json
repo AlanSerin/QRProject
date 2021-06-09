@@ -23,6 +23,7 @@
     "vee-validate": "^3.4.8",
     "vue-form-wizard": "^0.8.4",
     "vue-fragment": "^1.5.2",
+    "vue-phone-number-input": "^1.1.10",
     "vue-qrcode": "^0.4.0",
     "vue2-google-maps": "^0.10.7"
   },

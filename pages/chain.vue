@@ -22,7 +22,7 @@
                     :center="center"
                     :zoom="10"
                     map-type-id="terrain"
-                    style="width: 600px; height: 400px"
+                    style="width: 450px; height: 450px"
                     @click="handleMapClick"
                   >
                     <GmapMarker
@@ -81,6 +81,61 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group
+                          label="Adres"
+                          label-for="i-address"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Address"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-address"
+                              v-model="chainDetails.address"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="Bilmem ne Sokak no 3"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Yetkili Personel"
+                          label-for="i-personnel"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Personnel"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-personnel"
+                              v-model="chainDetails.personnelName"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="Ahmet Soruc"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
+                          label="Telefon"
+                          label-for="i-phone"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Phone"
+                            rules="required"
+                          >
+                            <VuePhoneNumberInput id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
+                      </b-col>
+                      <b-col md="6">
+                        <b-form-group
                           label="Il"
                           label-for="i-province"
                         >
@@ -116,66 +171,6 @@
                               :options="districtOptions"
                               :state="errors.length > 0 ? false:null"
                               placeholder="Gazimagusa"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Adres"
-                          label-for="i-address"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Address"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-address"
-                              v-model="chainDetails.address"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Bilmem ne Sokak no 3"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Telefon"
-                          label-for="i-phone"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Phone"
-                            rules="required|phone"
-                          >
-                            <b-form-input
-                              id="i-phone"
-                              v-model="chainDetails.phone"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="533 833 33 33"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Yetkili Personel"
-                          label-for="i-personnel"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Personnel"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-personnel"
-                              v-model="chainDetails.personnelName"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Ahmet Soruc"
                             />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -225,7 +220,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group
-                          label="SoyIsim"
+                          label="Soyisim"
                           label-for="i-surname"
                         >
                           <validation-provider
@@ -251,11 +246,12 @@
                           <validation-provider
                             #default="{ errors }"
                             name="Card"
-                            rules="required|credit-card"
+                            rules="required"
                           >
                             <b-form-input
                               id="i-card"
-                              v-model="cardDetails.cardNumber"
+                              v-model="cardNumber"
+                              :formatter="cardFormatter"
                               :state="errors.length > 0 ? false:null"
                               placeholder="4716800255496291"
                             />
@@ -296,7 +292,8 @@
                             <b-form-input
                               id="i-expiration"
                               v-model="cardDetails.expiration"
-                              type="date"
+                              type="text"
+                              :formatter="dateFormatter"
                               :state="errors.length > 0 ? false:null"
                               placeholder="03/24"
                             />
@@ -423,6 +420,8 @@ export default {
 
   data() {
     return {
+      phoneDetails: null,
+      cardNumber: null,
       center: {lat:35.189940, lng:33.357756},
       markers: [
         {
@@ -469,6 +468,30 @@ export default {
     }
   },
   methods: {
+    dateFormatter (value) {
+      if(!value) return
+      let realNumber = value.replace(/\//gi, '')
+
+      // Generate dashed number
+      let dashedNumber = realNumber.match(/.{1,2}/g)
+      value = dashedNumber.join('/')
+
+      return value.substring(0,5)
+    },
+    cardFormatter (value) {
+      this.cardDetails.cardNumber = value.split('-').join('')
+      console.log(this.cardDetails.cardNumber)
+      // Card number without dash (-)
+      let realNumber = value.replace(/-/gi, '')
+
+      // Generate dashed number
+      let dashedNumber = realNumber.match(/.{1,4}/g)
+
+      // Replace the dashed number with the real one
+      value = dashedNumber.join('-')
+
+      return value.substring(0,19)
+    },
     //Moves the marker to click position on the map
     handleMapClick(e) {
       console.log(e)
@@ -514,6 +537,7 @@ export default {
             console.log('yes')
             let x = {}
             Object.assign(x,this.chainDetails)
+            console.log(this.chainDetails)
             this.chains.push(x)
             this.validateCard = true
             this.validateChain = false
@@ -548,6 +572,13 @@ export default {
 
 @media (min-width: 1024px) {
 
+  .country-selector.has-hint .country-selector__label[data-v-46e105de], .country-selector.has-value .country-selector__label[data-v-46e105de] {
+    transform: translateY(-30%) !important;
+  }
+  .input-tel.has-hint .input-tel__label[data-v-e59be3b4], .input-tel.has-value .input-tel__label[data-v-e59be3b4] {
+    transform: translateY(-30%) !important;
+  }
+
   #details___BV_modal_body_ {
     .chain-form {
       grid-area: form;
@@ -560,7 +591,7 @@ export default {
       padding-left: 1rem;
     }
     display: grid;
-    grid-template-columns: 3fr 4fr;
+    grid-template-columns: 4fr 3fr;
     grid-template-rows: auto;
     grid-template-areas: "form maps";
   }
@@ -650,6 +681,12 @@ export default {
 
 }
 @media (max-width: 1024px) {
+  .country-selector.has-hint .country-selector__label[data-v-46e105de], .country-selector.has-value .country-selector__label[data-v-46e105de] {
+    transform: translateY(-27%) !important;
+  }
+  .input-tel.has-hint .input-tel__label[data-v-e59be3b4], .input-tel.has-value .input-tel__label[data-v-e59be3b4] {
+    transform: translateY(-30%) !important;
+  }
   .container {
     display: grid;
     justify-content: center;
