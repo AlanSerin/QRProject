@@ -2,24 +2,14 @@
   <div class="container">
     <div class="card-container">
       <div class="left-side">
-        <form-wizard
-          ref="myWizard"
-          color="#7367F0"
-          :title="null"
-          :subtitle="null"
-          shape="circle"
-          class="mb-3"
-          @on-complete="formSubmitted"
-        >
-          <tab-content class="" :before-change="validationFormView" title="">
-            <validation-observer ref="viewChains" tag="form">
+            <validation-observer class="p-4" ref="viewChains" tag="form">
               <b-row>
                 <b-col sm="12" class="mb-4 pr-0">
                   <h3 class="title">BASVURU FORMU</h3>
                   <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
                 </b-col>
               </b-row>
-              <b-modal size="xl" class="maps-modal" ref="details" no-close-on-esc hide-header-close no-close-on-backdrop :id="validateChain ? 'details' : 'card'" hide-footer>
+              <b-modal size="xl" class="maps-modal h-100" ref="details" no-close-on-esc hide-header-close no-close-on-backdrop :id="validateChain ? 'details' : 'card'" hide-footer>
                 <template v-slot:modal-header-close>
 <!--                  <i class="fa fa-close"></i>-->
                 </template>
@@ -37,16 +27,15 @@
                     :zoom="14"
                     @click="handleMapClick"
                   >
-                    <div :key="markerKey" v-if="returnLocations">
                       <GMapMarker
-                        :position="returnLocations"
+                        :key="index"
+                        v-for="(m,index) in markers"
+                        :position="m.position"
                         :clickable="true"
                         :draggable="true"
-                        @click="panToMarker"
+                        :options="{icon: 'favicon.ico'}"
                       >
                       </GMapMarker>
-                    </div>
-                    <GMapCircle :options="circleOptions"/>
                   </GMap>
                 </div>
                 <div v-if="validateChain" class="chain-form">
@@ -381,144 +370,6 @@
                 </b-row>
               </template>
             </validation-observer>
-          </tab-content>
-<!--          <tab-content :before-change="validationFormCard" title="">-->
-<!--            <validation-observer ref="cardDetails" tag="form">-->
-<!--              <b-row class="mb-4">-->
-<!--                <b-col sm="12" class="mb-4">-->
-<!--                  <h3 class="title">BASVURU FORMU</h3>-->
-<!--                  <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
-<!--                </b-col>-->
-<!--                <b-col md="6">-->
-<!--                  <b-form-group-->
-<!--                    label="Isim"-->
-<!--                    label-for="i-name"-->
-<!--                  >-->
-<!--                    <validation-provider-->
-<!--                      #default="{ errors }"-->
-<!--                      name="Name"-->
-<!--                      rules="required"-->
-<!--                    >-->
-<!--                      <b-form-input-->
-<!--                        id="i-name"-->
-<!--                        v-model="cardDetails.name"-->
-<!--                        :state="errors.length > 0 ? false:null"-->
-<!--                        placeholder="Ahmet"-->
-<!--                      />-->
-<!--                      <small class="text-danger">{{ errors[0] }}</small>-->
-<!--                    </validation-provider>-->
-<!--                  </b-form-group>-->
-<!--                </b-col>-->
-<!--                <b-col md="6">-->
-<!--                  <b-form-group-->
-<!--                    label="SoyIsim"-->
-<!--                    label-for="i-surname"-->
-<!--                  >-->
-<!--                    <validation-provider-->
-<!--                      #default="{ errors }"-->
-<!--                      name="Surname"-->
-<!--                      rules="required"-->
-<!--                    >-->
-<!--                      <b-form-input-->
-<!--                        id="i-surname"-->
-<!--                        v-model="cardDetails.surname"-->
-<!--                        :state="errors.length > 0 ? false:null"-->
-<!--                        placeholder="Soruc"-->
-<!--                      />-->
-<!--                      <small class="text-danger">{{ errors[0] }}</small>-->
-<!--                    </validation-provider>-->
-<!--                  </b-form-group>-->
-<!--                </b-col>-->
-<!--                <b-col md="6">-->
-<!--                  <b-form-group-->
-<!--                    label="Kart Numarasi"-->
-<!--                    label-for="i-card"-->
-<!--                  >-->
-<!--                    <validation-provider-->
-<!--                      #default="{ errors }"-->
-<!--                      name="Card"-->
-<!--                      rules="required|credit-card"-->
-<!--                    >-->
-<!--                      <b-form-input-->
-<!--                        id="i-card"-->
-<!--                        v-model="cardDetails.cardNumber"-->
-<!--                        :state="errors.length > 0 ? false:null"-->
-<!--                        placeholder="4716800255496291"-->
-<!--                      />-->
-<!--                      <small class="text-danger">{{ errors[0] }}</small>-->
-<!--                    </validation-provider>-->
-<!--                  </b-form-group>-->
-<!--                </b-col>-->
-<!--                <b-col md="6">-->
-<!--                  <b-form-group-->
-<!--                    label="CVV Kodu"-->
-<!--                    label-for="i-cvv"-->
-<!--                  >-->
-<!--                    <validation-provider-->
-<!--                      #default="{ errors }"-->
-<!--                      name="CVV"-->
-<!--                      rules="required|min:3"-->
-<!--                    >-->
-<!--                      <b-form-input-->
-<!--                        id="i-cvv"-->
-<!--                        v-model="cardDetails.cvv"-->
-<!--                        :state="errors.length > 0 ? false:null"-->
-<!--                        placeholder="212"-->
-<!--                      />-->
-<!--                      <small class="text-danger">{{ errors[0] }}</small>-->
-<!--                    </validation-provider>-->
-<!--                  </b-form-group>-->
-<!--                </b-col>-->
-<!--                <b-col md="6">-->
-<!--                  <b-form-group-->
-<!--                    label="Son Kullanma Tarihi"-->
-<!--                    label-for="i-expiration"-->
-<!--                  >-->
-<!--                    <validation-provider-->
-<!--                      #default="{ errors }"-->
-<!--                      name="Expiration"-->
-<!--                      rules="required"-->
-<!--                    >-->
-<!--                      <b-form-input-->
-<!--                        id="i-expiration"-->
-<!--                        v-model="cardDetails.expiration"-->
-<!--                        type="date"-->
-<!--                        :state="errors.length > 0 ? false:null"-->
-<!--                        placeholder="03/24"-->
-<!--                      />-->
-<!--                      <small class="text-danger">{{ errors[0] }}</small>-->
-<!--                    </validation-provider>-->
-<!--                  </b-form-group>-->
-<!--                </b-col>-->
-<!--              </b-row>-->
-<!--            </validation-observer>-->
-<!--          </tab-content>-->
-          <template slot="footer" slot-scope="{activeTabIndex,isLastStep, nextTab, prevTab, fillButtonStyle}">
-            <div class="wizard-footer-left">
-<!--              <button v-if="activeTabIndex > 0"-->
-<!--                      @click="cancelChain"-->
-<!--                      type="button"-->
-<!--                      class="btn btn-outline-success">-->
-<!--                Iptal Et-->
-<!--              </button>-->
-<!--            </div>-->
-<!--            <div class="wizard-footer-right">-->
-<!--              <button	v-if="!isLastStep"-->
-<!--                       @click="nextTab"-->
-<!--                       type="button"-->
-<!--                       class="btn btn-success wizard-footer-right">-->
-<!--                Ileri-->
-<!--              </button>-->
-
-<!--              <button	v-else-->
-<!--                       @click="confirmChain"-->
-<!--                       type="button"-->
-<!--                       class="btn btn-success wizard-footer-right finish">-->
-<!--                Tamamla-->
-<!--              </button>-->
-            </div>
-          </template>
-        </form-wizard>
       </div>
       <div class="right-side">
         <div class="qr-code">
@@ -578,7 +429,12 @@ export default {
   data() {
     return {
       markerKey:0,
-      marker: { position: null},
+      marker: { position: {lat: 35.189940, lng: 33.357756}},
+      markers: [
+        {
+          position: {lat: 35.189940, lng: 33.357756}
+        },
+      ],
       validateCard: false,
       validateChain: true,
       currentLocation: {},
@@ -632,28 +488,16 @@ export default {
     }
   },
   methods: {
-    cancelModal() {
-      console.log('yo')
-    },
     //Moves the marker to click position on the map
     handleMapClick(e) {
       const x = { id: 0, lat: e.event.latLng.lat(), lng: e.event.latLng.lng() };
       this.marker.position = { lat: e.event.latLng.lat(), lng: e.event.latLng.lng() }
-      // this.locations[0].lat = x.lat
-      // this.locations[0].lng = x.lng
-      // this.location = x
       this.chainDetails.latitude = x.lat
       this.chainDetails.longitude = x.lng
       this.markerKey++
-      console.log(this.marker);
-    },
-    //Moves the map view port to marker
-    panToMarker() {
-      this.$refs.gMap.panTo(this.marker.position);
-      this.$refs.gMap.setZoom(18);
-    },
-    clickedLocation(e) {
-      console.log(e)
+      this.markers = []
+      console.log(this.markerKey);
+      console.log(this.marker.position)
     },
     chainPage(index){
       this.$router.push({name: 'chainInfo', params: {chain: index}})
@@ -661,18 +505,6 @@ export default {
     showModal(index) {
       this.$bvModal.show('details')
       console.log(index)
-    },
-    validationFormAccount() {
-      console.log('hello')
-      return new Promise((resolve, reject) => {
-        this.$refs.accountDetails.validate().then(success => {
-          if (success) {
-            resolve(true)
-          } else {
-            reject()
-          }
-        })
-      })
     },
     addChain() {
       const propNames = Object.getOwnPropertyNames(this.chainDetails);
@@ -693,52 +525,6 @@ export default {
       // this.$refs.chainDetails.reset();
       // this.$refs.myWizard.changeTab(2, 1)
       this.showModal()
-    },
-    validationFormChain() {
-      console.log('hello')
-      return new Promise((resolve, reject) => {
-        this.$refs.chainDetails.validate().then(success => {
-          if (success) {
-            let x = {}
-            Object.assign(x,this.chainDetails)
-            this.chains.push(x)
-            this.$bvModal.hide('details')
-            this.$refs.myWizard.nextTab()
-            console.log(this.chains)
-            resolve(true)
-          } else {
-            reject()
-          }
-        })
-      })
-    },
-    cancelChain () {
-      const lastChain = this.chains.pop()
-      this.$refs.myWizard.prevTab()
-      console.log(lastChain)
-    },
-    async confirmChain () {
-      try {
-        const res = await this.$axios.$get('http://icanhazip.com')
-        console.log(res)
-         // this.$refs.myWizard.prevTab()
-      } catch (e) {
-        console.log(e)
-        this.chains.pop()
-        // this.$refs.myWizard.prevTab()
-      }
-    },
-    validationFormView() {
-      console.log('hello')
-      return new Promise((resolve, reject) => {
-        this.$refs.viewChains.validate().then(success => {
-          if (success) {
-            resolve(true)
-          } else {
-            reject()
-          }
-        })
-      })
     },
     validationFormChainModal() {
       return new Promise((resolve, reject) => {
@@ -771,23 +557,6 @@ export default {
           }
         })
       })
-    },
-    validationFormCard() {
-      console.log('hello1')
-      return new Promise((resolve, reject) => {
-        this.$refs.cardDetails.validate().then(success => {
-          if (success) {
-            resolve(true)
-          } else {
-            reject()
-          }
-        })
-      })
-    },
-    formSubmitted() {
-      console.log(this.cardDetails)
-      console.log(this.companyDetails)
-      console.log(this.chains)
     },
   },
 }
@@ -836,42 +605,12 @@ export default {
         grid-area: left;
         overflow: auto;
         padding: 0 1rem;
-
-        .wizard-footer-left {
-          .btn {
-            width: 250%;
-            border-color: #66d466;
-            color: #66d466;
-          }
-          .btn:hover {
-            background-color: #66d466;
-            color: white;
-          }
-        }
         .green-button {
           background-color: #66d466;
           border-color: #66d466;
         }
         .green-button:hover {
           box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-        }
-        .wizard-footer-right {
-          .wizard-footer-right {
-            width: 250%;
-            background-color: #66d466;
-            border-color: #66d466;
-          }
-          .wizard-footer-right:hover {
-            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-          }
-          .finish {
-            width: 150%;
-            background-color: #66d466;
-            border-color: #66d466;
-          }
-          .finish:hover {
-            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-          }
         }
         .title {
           font-size: 2.4rem;
@@ -882,11 +621,6 @@ export default {
           //width: 70%;
           color: lightgray;
           line-height: 23px;
-        }
-        .form-card {
-          //padding: 1rem;
-          //border-radius: 3%;
-          //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
         }
         .chain-card {
           position: relative;
@@ -954,41 +688,12 @@ export default {
         overflow: auto;
         padding: 0 1rem;
 
-        .wizard-footer-left {
-          .btn {
-            width: 150%;
-            border-color: #66d466;
-            color: #66d466;
-          }
-          .btn:hover {
-            background-color: #66d466;
-            color: white;
-          }
-        }
         .green-button {
           background-color: #66d466;
           border-color: #66d466;
         }
         .green-button:hover {
           box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-        }
-        .wizard-footer-right {
-          .wizard-footer-right {
-            width: 150%;
-            background-color: #66d466;
-            border-color: #66d466;
-          }
-          .wizard-footer-right:hover {
-            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-          }
-          .finish {
-            width: 125%;
-            background-color: #66d466;
-            border-color: #66d466;
-          }
-          .finish:hover {
-            box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
-          }
         }
         .title {
           font-size: 2.4rem;
@@ -1000,35 +705,10 @@ export default {
           color: lightgray;
           line-height: 23px;
         }
-        .form-card {
-          //padding: 1rem;
-          //border-radius: 3%;
-          //box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
-        }
         .chain-card {
           position: relative;
-          //width: 73%;
-          //border-radius: 5%;
           box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.075);
           border: 1px solid rgba(255, 255, 255, 0);
-
-          //.edit {
-          //  position: absolute;
-          //  top: -3%;
-          //  left: 92%;
-          //}
-          //.edit:hover {
-          //  cursor: pointer;
-          //}
-
-          //.delete {
-          //  position: absolute;
-          //  top: 63%;
-          //  left: 76%;
-          //}
-          //.delete:hover {
-          //  cursor: pointer;
-          //}
 
           .map {
             width: 100%;
@@ -1050,7 +730,6 @@ export default {
         }
         .chain-card:hover {
           cursor: pointer;
-          // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
           border: 1px solid #8ADA7D;
         }
       }
@@ -1071,16 +750,6 @@ export default {
   // box-shadow: 0 4px 16px 0 rgba(102, 212, 102, 0.66);
   // background-color: #8ADA7D;
   // border-color: #8ADA7D;
-}
-
-ul.wizard-nav.wizard-nav-pills {
-  display: none;
-}
-.wizard-progress-with-circle {
-  display: none;
-}
-.vue-form-wizard .wizard-header{
-  padding: 0;
 }
 
 </style>
