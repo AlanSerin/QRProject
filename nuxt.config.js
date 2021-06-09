@@ -51,6 +51,7 @@ export default {
     { src: '~/plugins/vee-validate.js', ssr: true },
     { src: '~/plugins/qrcode.js', ssr: true },
     { src: '~/plugins/qr.js', ssr: true },
+    {src: "~/plugins/vue2-google-maps.js"}
     // { src: '~/plugins/googleMaps.js', ssr: true },
     // { src: '~/plugins/useGeolocation.js', ssr: true },
   ],
@@ -67,10 +68,10 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    ['nuxt-gmaps', {
-      key: 'AIzaSyBshazo-Nrs6_vKy0Ksn-b7FFXRsXHjhRY',
-      //you can use libraries: ['places']
-    }],
+    // ['nuxt-gmaps', {
+    //   key: 'AIzaSyBshazo-Nrs6_vKy0Ksn-b7FFXRsXHjhRY',
+    //   //you can use libraries: ['places']
+    // }],
   ],
 
 
@@ -80,6 +81,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vee-validate']
+    transpile: ['vee-validate'],
+    vendor: ["vue2-google-maps"]
   }
 }

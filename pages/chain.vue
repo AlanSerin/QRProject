@@ -18,25 +18,22 @@
                   <!--                        <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>-->
                 </template>
                 <div v-if="validateChain" class="chain-maps">
-                  <GMap
-                    ref="gMap"
-                    language="en"
-                    :cluster="{options: {styles: clusterStyle}}"
-                    :center="{lat: 35.18, lng: 33.35}"
-                    :options="{fullscreenControl: false, styles: mapStyle}"
-                    :zoom="14"
+                  <GmapMap
+                    :center="{lat:35.189940, lng:33.357756}"
+                    :zoom="10"
+                    map-type-id="terrain"
+                    style="width: 600px; height: 400px"
                     @click="handleMapClick"
                   >
-                      <GMapMarker
-                        :key="index"
-                        v-for="(m,index) in markers"
-                        :position="m.position"
-                        :clickable="true"
-                        :draggable="true"
-                        :options="{icon: 'favicon.ico'}"
-                      >
-                      </GMapMarker>
-                  </GMap>
+                    <GmapMarker
+                      :key="index"
+                      v-for="(m, index) in markers"
+                      :position="m.position"
+                      :clickable="true"
+                      :draggable="true"
+                      @click="center=m.position"
+                    />
+                  </GmapMap>
                 </div>
                 <div v-if="validateChain" class="chain-form">
                   <!--                <tab-content :before-change="validationFormChain" title="">-->
@@ -432,7 +429,7 @@ export default {
       marker: { position: {lat: 35.189940, lng: 33.357756}},
       markers: [
         {
-          position: {lat: 35.189940, lng: 33.357756}
+
         },
       ],
       validateCard: false,
@@ -442,16 +439,6 @@ export default {
       location: {
 
       },
-        // {
-        //   id: 0,
-        //   lat: 35.189940,
-        //   lng: 33.357756
-        // },
-        // {
-        //   id: 1,
-        //   lat: 35.29940,
-        //   lng: 33.387756
-        // }
       pins: {
         selected: "data:image/png;base64,iVBORw0KGgo...",
         notSelected: "data:image/png;base64,iVBORw0KGgo..."
@@ -490,14 +477,14 @@ export default {
   methods: {
     //Moves the marker to click position on the map
     handleMapClick(e) {
-      const x = { id: 0, lat: e.event.latLng.lat(), lng: e.event.latLng.lng() };
-      this.marker.position = { lat: e.event.latLng.lat(), lng: e.event.latLng.lng() }
-      this.chainDetails.latitude = x.lat
-      this.chainDetails.longitude = x.lng
-      this.markerKey++
-      this.markers = []
-      console.log(this.markerKey);
-      console.log(this.marker.position)
+      console.log(e)
+      this.chainDetails.latitude = e.latLng.lat()
+      this.chainDetails.longitude = e.latLng.lng()
+      this.markers = [
+        {
+          position: {lat: e.latLng.lat(), lng: e.latLng.lng()}
+        },
+      ]
     },
     chainPage(index){
       this.$router.push({name: 'chainInfo', params: {chain: index}})
