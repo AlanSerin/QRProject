@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     async getChainDetails() {
-      console.log('hello')
+      console.log(this.chainID)
     }
   }
 }

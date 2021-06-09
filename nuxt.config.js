@@ -51,6 +51,8 @@ export default {
     { src: '~/plugins/vee-validate.js', ssr: true },
     { src: '~/plugins/qrcode.js', ssr: true },
     { src: '~/plugins/qr.js', ssr: true },
+    // { src: '~/plugins/googleMaps.js', ssr: true },
+    // { src: '~/plugins/useGeolocation.js', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -65,6 +67,10 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    ['nuxt-gmaps', {
+      key: 'AIzaSyBshazo-Nrs6_vKy0Ksn-b7FFXRsXHjhRY',
+      //you can use libraries: ['places']
+    }],
   ],
 
 
