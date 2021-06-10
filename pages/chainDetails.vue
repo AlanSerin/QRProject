@@ -39,7 +39,7 @@
     <div>
       <div class="d-flex justify-content-center align-content-center align-items-center">
         <div class="qr-code">
-          <vue-qrcode :width="300" class="qr-object" value="https://www.youtube.com" />
+          <vue-qrcode :width="1200" class="qr-object" value="https://www.youtube.com" />
         </div>
       </div>
 
@@ -142,14 +142,15 @@ export default {
 <style lang="scss" scoped>
 @media screen {
   .root {
-    width: 41.4%;
-    height: 100vh;
+    width: 1240px;
+    height: 1754px;
     margin: auto;
     box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
 
     .qr-code {
+      margin-bottom: 1rem;
       .qr-object {
-        width: 55vh;
+        width: 52.1rem;
       }
     }
   }
@@ -161,14 +162,14 @@ export default {
       grid-template-columns: 200px 1fr;
       align-items: center;
       .government-logo {
-        width: 75px;
-        height: 75px;
+        width: 12rem;
+        height: 12rem;
       }
       .ministry-name {
         display: block;
         h2 {
           margin-left: 12px;
-          font-size: 1.25rem;
+          font-size: 3rem;
         }
         h2:nth-of-type(2) {
           margin-left: 12px;
@@ -177,15 +178,20 @@ export default {
     }
   }
   .body {
+    .chain-address {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+
     .restaurant {
-      font-size: 2.25rem;
+      font-size: 7rem;
       margin-bottom: 0px;
     }
     .warning {
       border: 2px solid #FFB800;
       h3 {
         color: #FFB800;
-        font-size: 0.75rem;
+        font-size: 2rem;
       }
       border-radius: 12px;
       width: 50%;
@@ -193,9 +199,9 @@ export default {
       .qr-warning {
         position: relative;
         svg {
-          width: 40px;
+          width: 4rem;
           position: absolute;
-          top: -40%;
+          top: 12%;
           left: 0%;
         }
       }
@@ -206,55 +212,51 @@ export default {
     border-radius: 12px;
   }
   .footer-area {
-    position: fixed;
-    bottom: 0;
-    width: 41%;
+    position: relative;
     background-color: #1ABC9C;
 
     .arrow-up {
       width: 0;
       height: 0;
       position: absolute;
-      bottom: 0px;
-      left: 69%;
-      border-left: 40px solid transparent;
-      border-right: 40px solid transparent;
-
-      border-bottom: 85px solid white;
+      bottom: 0;
+      left: 870px;
+      border-left: 4.5rem solid transparent;
+      border-right: 4.5rem solid transparent;
+      border-bottom: 12rem solid white;
     }
 
     p {
-      font-size: .85rem;
-      line-height: 1rem;
+      font-size: 1.5rem;
+      //line-height: 1rem;
       margin-bottom: 0;
     }
 
     .parallelogram {
-      padding: 1rem;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       svg {
-        width: 50px;
-        height: 50px;
+        width: 5rem;
+        height: 5rem;
       }
     }
   }
 
   .my-footer {
     width: 90%;
+    margin-bottom: 4.16rem;
     h4 {
-      font-size: 1.25rem;
-      margin-bottom: .25rem;
+      font-size: 2.5rem;
     }
     p {
-      font-size: .85rem;
-      margin-bottom: 0;
-      line-height: 1.25rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
     }
     img {
-      width: 75px;
+      width: 12rem;
     }
   }
 }
@@ -268,7 +270,7 @@ export default {
 
     .qr-code {
       .qr-object {
-        width: 60vh;
+        width: 40rem;
       }
     }
   }
