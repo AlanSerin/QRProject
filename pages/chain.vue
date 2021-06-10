@@ -2,14 +2,13 @@
   <div class="container">
     <div class="card-container">
       <div class="left-side">
-            <validation-observer class="p-4" ref="viewChains" tag="form">
               <b-row>
                 <b-col sm="12" class="mb-4 pr-0">
                   <h3 class="title">BASVURU FORMU</h3>
                   <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
                 </b-col>
               </b-row>
-              <b-modal size="xl" class="maps-modal h-100" ref="details" no-close-on-esc hide-header-close no-close-on-backdrop :id="validateChain ? 'details' : 'card'" hide-footer>
+              <b-modal size="xl" class="maps-modal h-100" ref="details" hide-footer no-close-on-esc hide-header-close no-close-on-backdrop :id="validateChain ? 'details' : 'card'">
                 <template v-slot:modal-header-close>
 <!--                  <i class="fa fa-close"></i>-->
                 </template>
@@ -17,6 +16,381 @@
                   <h3 class="title mb-0 fw-normal">SUBE OLUSTUR</h3>
                   <!--                        <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>-->
                 </template>
+                <form-wizard
+                  ref="myWizard"
+                  color="#66d466"
+                  :title="null"
+                  :subtitle="null"
+                  shape="circle"
+                  finish-button-text="Tamamla"
+                  next-button-text="Ileri"
+                  back-button-text="Geri"
+                  class="mb-3 chain-form"
+                  @on-complete="formSubmitted"
+                >
+                  <tab-content
+                    title="Sube Detaylari"
+                    :before-change="validationFormChainModal"
+                  >
+                    <div v-if="validateChain" >
+                      <!--                <tab-content :before-change="validationFormChain" title="">-->
+                      <validation-observer ref="chainDetails" tag="form">
+                        <b-row class="form-card">
+                          <b-col md="6">
+                            <b-form-group
+                              label="Enlem"
+                              label-for="i-latitude"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Latitude"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-latitude"
+                                  v-model="chainDetails.latitude"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="15.2"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Boylam"
+                              label-for="i-longitude"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Longitude"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-longitude"
+                                  v-model="chainDetails.longitude"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="12.3"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+
+                          <b-col md="6">
+                            <b-form-group
+                              label="Telefon"
+                              label-for="i-phone"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Phone"
+                                rules="required|phone"
+                              >
+                                <VuePhoneNumberInput default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+
+
+                          <b-col md="6">
+                            <b-form-group
+                              label="Yetkili Personel"
+                              label-for="i-personnel"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Personnel"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-personnel"
+                                  v-model="chainDetails.personnelName"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Ahmet Soruc"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Il"
+                              label-for="i-province"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Province"
+                                rules="required"
+                              >
+                                <b-form-select
+                                  id="i-province"
+                                  v-model="chainDetails.province"
+                                  :options="provinceOptions"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Gazimagusa"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Ilce"
+                              label-for="i-district"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="District"
+                                rules="required"
+                              >
+                                <b-form-select
+                                  id="i-district"
+                                  v-model="chainDetails.district"
+                                  :options="districtOptions"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Gazimagusa"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="12">
+                            <b-form-group
+                              label="Adres"
+                              label-for="i-address"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Address"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-address"
+                                  v-model="chainDetails.address"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Bilmem ne Sokak no 3"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <!--                      <b-col md="6" class="d-flex pt-4 align-items-center">-->
+                          <!--                        <div class="mr-3 pb-1">Ana Sube</div>-->
+                          <!--                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>-->
+                          <!--                      </b-col>-->
+                        </b-row>
+<!--                        <b-row class="mt-3">-->
+<!--                          <b-col sm="6" class="mb-3">-->
+<!--                            <b-button variant="outline-danger" block @click="() => {this.$bvModal.hide('details')}">Iptal</b-button>-->
+<!--                          </b-col>-->
+<!--                          <b-col sm="6">-->
+<!--                            <b-button class="green-button" variant="success" block @click="validationFormChainModal">Ilerle</b-button>-->
+<!--                          </b-col>-->
+<!--                        </b-row>-->
+                      </validation-observer>
+                    </div>
+                  </tab-content>
+                  <tab-content
+                    title="Kart Bilgileri"
+                    :before-change= "validationFormCardChain"
+                  >
+                    <div>
+                      <validation-observer ref="cardDetails" tag="form">
+                        <b-row class="mb-4">
+                          <!--                      <b-col sm="12" class="mb-4">-->
+                          <!--                        <h3 class="title">BASVURU FORMU</h3>-->
+                          <!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
+                          <!--                      </b-col>-->
+                          <b-col md="6">
+                            <b-form-group
+                              label="Isim"
+                              label-for="i-name"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Name"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-name"
+                                  v-model="cardDetails.name"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Ahmet"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Soyisim"
+                              label-for="i-surname"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Surname"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-surname"
+                                  v-model="cardDetails.surname"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="Soruc"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Kart Numarasi"
+                              label-for="i-card"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Card"
+                                rules="required|credit-card"
+                              >
+                                <b-form-input
+                                  id="i-card"
+                                  v-model="cardNumber"
+                                  :formatter="cardFormatter"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="4716800255496291"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="CVV Kodu"
+                              label-for="i-cvv"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="CVV"
+                                rules="required|min:3"
+                              >
+                                <b-form-input
+                                  id="i-cvv"
+                                  v-model="cardDetails.cvv"
+                                  :formatter="cvvFormatter"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="212"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                          <b-col md="6">
+                            <b-form-group
+                              label="Son Kullanma Tarihi"
+                              label-for="i-expiration"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="Expiration"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-expiration"
+                                  v-model="cardDetails.expiration"
+                                  type="text"
+                                  :formatter="dateFormatter"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="03/24"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                        </b-row>
+<!--                        <b-row class="mt-3">-->
+<!--                          <b-col sm="6" class="mb-3">-->
+<!--                            <b-button-->
+<!--                              block-->
+<!--                              @click="() => {-->
+<!--                      this.validateChain = true-->
+<!--                      this.validateCard = false-->
+<!--                      this.chains.pop()-->
+<!--                    }"-->
+<!--                              variant="outline-danger">-->
+<!--                              Geri-->
+<!--                            </b-button>-->
+<!--                          </b-col>-->
+<!--                          <b-col sm="6">-->
+<!--                            <b-button-->
+<!--                              block-->
+<!--                              @click="validationFormCardChain"-->
+<!--                              variant="success">-->
+<!--                              Tamamla-->
+<!--                            </b-button>-->
+<!--                          </b-col>-->
+<!--                        </b-row>-->
+                      </validation-observer>
+                    </div>
+                  </tab-content>
+                  <tab-content
+                    title="Kart Bilgileri"
+                    :before-change= "validationFormIFrame"
+                  >
+                    <div>
+                      <validation-observer ref="iFrameDetails" tag="form">
+                        <b-row class="mb-4">
+                          <!--                      <b-col sm="12" class="mb-4">-->
+                          <!--                        <h3 class="title">BASVURU FORMU</h3>-->
+                          <!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
+                          <!--                      </b-col>-->
+                          <b-col md="12">
+                            <b-form-group
+                              label="IFrame Verifikasyon Kodu"
+                              label-for="i-frame"
+                            >
+                              <validation-provider
+                                #default="{ errors }"
+                                name="IFrame"
+                                rules="required"
+                              >
+                                <b-form-input
+                                  id="i-frame"
+                                  v-model="cardDetails.iFrame"
+                                  :state="errors.length > 0 ? false:null"
+                                  placeholder="12342"
+                                />
+                                <small class="text-danger">{{ errors[0] }}</small>
+                              </validation-provider>
+                            </b-form-group>
+                          </b-col>
+                        </b-row>
+                        <!--                        <b-row class="mt-3">-->
+                        <!--                          <b-col sm="6" class="mb-3">-->
+                        <!--                            <b-button-->
+                        <!--                              block-->
+                        <!--                              @click="() => {-->
+                        <!--                      this.validateChain = true-->
+                        <!--                      this.validateCard = false-->
+                        <!--                      this.chains.pop()-->
+                        <!--                    }"-->
+                        <!--                              variant="outline-danger">-->
+                        <!--                              Geri-->
+                        <!--                            </b-button>-->
+                        <!--                          </b-col>-->
+                        <!--                          <b-col sm="6">-->
+                        <!--                            <b-button-->
+                        <!--                              block-->
+                        <!--                              @click="validationFormCardChain"-->
+                        <!--                              variant="success">-->
+                        <!--                              Tamamla-->
+                        <!--                            </b-button>-->
+                        <!--                          </b-col>-->
+                        <!--                        </b-row>-->
+                      </validation-observer>
+                    </div>
+                  </tab-content>
+                </form-wizard>
                 <div v-if="validateChain" class="chain-maps">
                   <GmapMap
                     :center="center"
@@ -34,301 +408,6 @@
                       @click="center=m.position"
                     />
                   </GmapMap>
-                </div>
-                <div v-if="validateChain" class="chain-form">
-                  <!--                <tab-content :before-change="validationFormChain" title="">-->
-                  <validation-observer ref="chainDetails" tag="form">
-                    <b-row class="form-card">
-                      <b-col md="6">
-                        <b-form-group
-                          label="Enlem"
-                          label-for="i-latitude"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Latitude"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-latitude"
-                              v-model="chainDetails.latitude"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="15.2"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Boylam"
-                          label-for="i-longitude"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Longitude"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-longitude"
-                              v-model="chainDetails.longitude"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="12.3"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-
-                      <b-col md="6">
-                        <b-form-group
-                          label="Telefon"
-                          label-for="i-phone"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Phone"
-                            rules="required|phone"
-                          >
-                            <VuePhoneNumberInput default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-
-
-                      <b-col md="6">
-                        <b-form-group
-                          label="Yetkili Personel"
-                          label-for="i-personnel"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Personnel"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-personnel"
-                              v-model="chainDetails.personnelName"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Ahmet Soruc"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Il"
-                          label-for="i-province"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Province"
-                            rules="required"
-                          >
-                            <b-form-select
-                              id="i-province"
-                              v-model="chainDetails.province"
-                              :options="provinceOptions"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Gazimagusa"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Ilce"
-                          label-for="i-district"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="District"
-                            rules="required"
-                          >
-                            <b-form-select
-                              id="i-district"
-                              v-model="chainDetails.district"
-                              :options="districtOptions"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Gazimagusa"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="12">
-                        <b-form-group
-                          label="Adres"
-                          label-for="i-address"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Address"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-address"
-                              v-model="chainDetails.address"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Bilmem ne Sokak no 3"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-<!--                      <b-col md="6" class="d-flex pt-4 align-items-center">-->
-<!--                        <div class="mr-3 pb-1">Ana Sube</div>-->
-<!--                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>-->
-<!--                      </b-col>-->
-                    </b-row>
-                    <b-row class="mt-3">
-                      <b-col sm="6" class="mb-3">
-                        <b-button variant="outline-danger" block @click="() => {this.$bvModal.hide('details')}">Iptal</b-button>
-                      </b-col>
-                      <b-col sm="6">
-                        <b-button class="green-button" variant="success" block @click="validationFormChainModal">Ilerle</b-button>
-                      </b-col>
-                    </b-row>
-                  </validation-observer>
-                </div>
-                <div class="chain-form" v-if="validateCard">
-                  <validation-observer ref="cardDetails" tag="form">
-                    <b-row class="mb-4">
-<!--                      <b-col sm="12" class="mb-4">-->
-<!--                        <h3 class="title">BASVURU FORMU</h3>-->
-<!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
-<!--                      </b-col>-->
-                      <b-col md="6">
-                        <b-form-group
-                          label="Isim"
-                          label-for="i-name"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Name"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-name"
-                              v-model="cardDetails.name"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Ahmet"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Soyisim"
-                          label-for="i-surname"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Surname"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-surname"
-                              v-model="cardDetails.surname"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Soruc"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Kart Numarasi"
-                          label-for="i-card"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Card"
-                            rules="required|credit-card"
-                          >
-                            <b-form-input
-                              id="i-card"
-                              v-model="cardNumber"
-                              :formatter="cardFormatter"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="4716800255496291"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="CVV Kodu"
-                          label-for="i-cvv"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="CVV"
-                            rules="required|min:3"
-                          >
-                            <b-form-input
-                              id="i-cvv"
-                              v-model="cardDetails.cvv"
-                              :formatter="cvvFormatter"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="212"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Son Kullanma Tarihi"
-                          label-for="i-expiration"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Expiration"
-                            rules="required"
-                          >
-                            <b-form-input
-                              id="i-expiration"
-                              v-model="cardDetails.expiration"
-                              type="text"
-                              :formatter="dateFormatter"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="03/24"
-                            />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                    </b-row>
-                    <b-row class="mt-3">
-                      <b-col sm="6" class="mb-3">
-                        <b-button
-                          block
-                          @click="() => {
-                      this.validateChain = true
-                      this.validateCard = false
-                      this.chains.pop()
-                    }"
-                          variant="outline-danger">
-                          Geri
-                        </b-button>
-                      </b-col>
-                      <b-col sm="6">
-                        <b-button
-                          block
-                          @click="validationFormCardChain"
-                          variant="success">
-                          Tamamla
-                        </b-button>
-                      </b-col>
-                    </b-row>
-                  </validation-observer>
                 </div>
               </b-modal>
               <template v-if="chains.length > 0">
@@ -369,7 +448,6 @@
                   </b-col>
                 </b-row>
               </template>
-            </validation-observer>
       </div>
       <div class="right-side">
         <div class="qr-code">
@@ -456,6 +534,7 @@ export default {
         cardNumber: '',
         cvv: '',
         expiration: '',
+        iFrame: '',
       },
       chainNumber: 0,
       chains: [],
@@ -472,6 +551,10 @@ export default {
     }
   },
   methods: {
+    formSubmitted() {
+      console.log('success')
+      this.$refs.details.hide()
+    },
     dateFormatter (value) {
       if(!value) return
       let realNumber = value.replace(/\//gi, '')
@@ -553,8 +636,7 @@ export default {
               Object.assign(x,this.chainDetails)
               console.log(this.chainDetails)
               this.chains.push(x)
-              this.validateCard = true
-              this.validateChain = false
+              resolve(true)
             }
           } else {
             console.log('hel')
@@ -568,11 +650,22 @@ export default {
       return new Promise((resolve, reject) => {
         this.$refs.cardDetails.validate().then(success => {
           if (success) {
-            console.log('you did it')
-            this.validateCard = false
-            this.validateChain = true
-            this.$bvModal.hide('card')
+            resolve(true)
           } else {
+            reject()
+          }
+        })
+      })
+    },
+    validationFormIFrame() {
+      console.log('hello1')
+      return new Promise((resolve, reject) => {
+        this.$refs.iFrameDetails.validate().then(success => {
+          if (success) {
+            console.log('Im here')
+            resolve(true)
+          } else {
+            console.log('Im there')
             reject()
           }
         })
