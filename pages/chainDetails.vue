@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column justify-content-between root">
+  <div class="root">
     <div>
       <div class="top-area container-fluid">
         <div class="top-content w-100">
@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="body text-center container-fluid">
-        <b-row class="mb-2">
+        <b-row class="">
           <b-col sm="5"></b-col>
           <b-col sm="7">
-            <div>{{chainDetails.address}} Subesi</div>
+            <div class="chain-address">{{chainDetails.address}} Subesi</div>
           </b-col>
         </b-row>
         <b-row class="text-center mb-2">
@@ -37,26 +37,25 @@
       </div>
     </div>
     <div>
-
       <div class="d-flex justify-content-center align-content-center align-items-center">
         <div class="qr-code">
-          <vue-qrcode :width="550" value="https://www.youtube.com" />
+          <vue-qrcode :width="300" class="qr-object" value="https://www.youtube.com" />
         </div>
       </div>
 
     </div>
     <div class="d-flex flex-column justify-content-between">
-      <div class="clearfix py-3 container-fluid warning my-footer">
+      <div class="clearfix py-2 container-fluid warning my-footer">
         <b-row class="">
           <b-col class="d-flex align-items-center justify-content-center" sm="2">
             <img src="~/assets/img/saglik-removebg-preview.png" alt="Left image" />
           </b-col>
-          <b-col class="pt-3" sm="8">
-            <h3>KKTC Saglik Bakanligi <b-badge class="ml-3 px-3" pill variant="warning">AdaPass</b-badge> </h3>
-            <p class="fs-5" >KKTC Covid gğvenlik ve tedbir sebepleri ile mücadele için uygulanan AdaPass uygulaması ile her bireyin işletlemelere giriş yapabilmek için QR kodu okutması gerekmektedir.</p>
+          <b-col class="" sm="8">
+            <h4>KKTC Saglik Bakanligi <b-badge class="" pill variant="warning">AdaPass</b-badge> </h4>
+            <p class="" >KKTC Covid gğvenlik ve tedbir sebepleri ile mücadele için uygulanan AdaPass uygulaması ile her bireyin işletlemelere giriş yapabilmek için QR kodu okutması gerekmektedir.</p>
           </b-col>
           <b-col sm="2" class="d-flex flex-column justify-content-center align-items-center">
-            <b-row class="mb-2">
+            <b-row class="">
               <svg width="150" height="100" viewBox="0 0 68 51" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="68" height="51" fill="url(#pattern0)"/>
                 <defs>
@@ -67,18 +66,19 @@
                 </defs>
               </svg>
             </b-row>
-            <b-row class="fw-bold">Hemen Indirin</b-row>
+<!--            <b-row class="fw-bold">Hemen Indirin</b-row>-->
           </b-col>
         </b-row>
       </div>
       <div class="footer-area container-fluid d-flex flex-column justify-content-center">
+        <div class="arrow-up"></div>
         <b-row>
-          <b-col class="d-flex align-items-center px-4" sm="8">
-            <h4 class="fw-normal" style="color: white;">
+          <b-col class="d-flex align-items-center" sm="9">
+            <p class="fw-normal" style="color: white;">
               ADA-PASS FurtherSoft ve ISSB işbirliği ile Kuzey Kıbrıs Türk Cumhuriyeti için geliştirilmiş bir alt yapı hizmetidir.
-            </h4>
+            </p>
           </b-col>
-          <b-col sm="4" class="bg-white parallelogram d-flex justify-content-evenly">
+          <b-col sm="3" class="bg-white parallelogram d-flex justify-content-evenly">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="75" height="75" viewBox="0 0 50 50" fill="none">
               <rect width="50" height="50" rx="25" fill="url(#pattern2)"/>
               <defs>
@@ -140,73 +140,122 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.4rem;
-  background-color: #1ABC9C;
-  margin-bottom: 0.5rem;
-  .top-content {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    align-items: center;
-    .government-logo {
-      width: 150px;
-      height: 150px;
-    }
-    .ministry-name {
-      display: flex;
-      h2:nth-of-type(2) {
-        margin-left: 12px;
+@media screen {
+  .root {
+    width: 41.4%;
+    height: 100vh;
+    margin: auto;
+    box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.15);
+
+    .qr-code {
+      .qr-object {
+        width: 55vh;
       }
     }
   }
-}
-.body {
-  .restaurant {
-    font-size: 4rem;
+  .top-area {
+    background-color: #1ABC9C;
+    margin-bottom: 0.25rem;
+    .top-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      align-items: center;
+      .government-logo {
+        width: 75px;
+        height: 75px;
+      }
+      .ministry-name {
+        display: block;
+        h2 {
+          margin-left: 12px;
+          font-size: 1.25rem;
+        }
+        h2:nth-of-type(2) {
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+  .body {
+    .restaurant {
+      font-size: 2.25rem;
+      margin-bottom: 0px;
+    }
+    .warning {
+      border: 2px solid #FFB800;
+      h3 {
+        color: #FFB800;
+        font-size: 0.75rem;
+      }
+      border-radius: 12px;
+      width: 50%;
+      margin: auto;
+      .qr-warning {
+        position: relative;
+        svg {
+          width: 40px;
+          position: absolute;
+          top: -40%;
+          left: 0%;
+        }
+      }
+    }
   }
   .warning {
-    border: 2px solid #FFB800;
-    h3 {
-      color: #FFB800
-    }
+    border: 2px solid black;
     border-radius: 12px;
-    width: 50%;
-    margin: auto;
-    .qr-warning {
-      position: relative;
+  }
+  .footer-area {
+    position: fixed;
+    bottom: 0;
+    width: 41%;
+    background-color: #1ABC9C;
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0px;
+      left: 69%;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+
+      border-bottom: 85px solid white;
+    }
+
+    p {
+      font-size: .85rem;
+      line-height: 1rem;
+      margin-bottom: 0;
+    }
+
+    .parallelogram {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
       svg {
-        position: absolute;
-        top: 0px;
-        left: -45%;
+        width: 50px;
+        height: 50px;
       }
     }
   }
-}
-.warning {
-  border: 2px solid black;
-  border-radius: 12px;
-}
-.footer-area {
-  height: 115px;
-  background-color: #1ABC9C;
 
-  .parallelogram {
-    // transform: skewX(-20deg);
-    height: 115px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-.my-footer {
-  width: 90%;
-  margin-bottom: 3rem;
-  img {
-    width: 170px;
+  .my-footer {
+    width: 90%;
+    h4 {
+      font-size: 1.25rem;
+      margin-bottom: .25rem;
+    }
+    p {
+      font-size: .85rem;
+      margin-bottom: 0;
+      line-height: 1.25rem;
+    }
+    img {
+      width: 75px;
+    }
   }
 }
 @media print {
@@ -216,6 +265,12 @@ export default {
   }
   .root {
     height: 100vh;
+
+    .qr-code {
+      .qr-object {
+        width: 60vh;
+      }
+    }
   }
   .top-area {
     display: flex;
@@ -236,20 +291,42 @@ export default {
       .ministry-name {
         display: block;
         h2:nth-of-type(2) {
-          margin-left: 0;
+          margin-left: 0px;
         }
       }
     }
   }
   .body {
+    .chain-address {
+      font-size: 1.25rem;
+      font-weight: lighter;
+      margin-top: 0.25rem;
+      line-height: .5rem;
+      margin-bottom: 0;
+    }
     .restaurant {
+      margin-top: 0;
       font-size: 5rem;
     }
     .warning {
-      border: 2px solid #FFB800;
+      border: 3px solid #FFB800;
       border-radius: 12px;
       width: 100%;
-      margin-bottom: 10px;
+      margin: auto;
+
+      h3 {
+        color: #FFB800;
+      }
+
+      .qr-warning {
+        position: relative;
+        svg {
+          width: 60px;
+          position: absolute;
+          top: 0%;
+          left: 0%;
+        }
+      }
     }
   }
   .warning {
@@ -257,15 +334,45 @@ export default {
     border-radius: 12px;
   }
   .footer-area {
-    width: 100%;
     position: fixed;
     bottom: 0;
-    // margin-top: 12px;
     background-color: #1ABC9C !important;
     -webkit-print-color-adjust: exact;
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0px;
+      left: 71%;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+
+      border-bottom: 100px solid white;
+    }
+
+    p {
+      padding: 1.5rem;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .parallelogram {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
   }
   .my-footer {
-    margin-bottom: 3rem;
+    width: 80%;
+    h4 {
+      margin-top: .5rem;
+      font-size: 1.75rem;
+    }
+    p {
+      font-size: 1.125rem;
+    }
     span {
      background-color: #FFB800 !important;
       border: 1px solid #FFB800 !important;
@@ -273,7 +380,7 @@ export default {
       -webkit-print-color-adjust: exact;
     }
     img {
-      width: 150px;
+      width: 125px;
     }
   }
 }

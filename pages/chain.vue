@@ -467,7 +467,7 @@ export default {
         district: '',
         phone: '',
         personnelName: '',
-        main: false,
+        // main: false,
       },
     }
   },
