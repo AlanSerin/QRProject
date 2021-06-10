@@ -22,7 +22,7 @@
                     :center="center"
                     :zoom="10"
                     map-type-id="terrain"
-                    style="width: 450px; height: 450px"
+                    style="width: 100%; height: 450px"
                     @click="handleMapClick"
                   >
                     <GmapMarker
@@ -79,26 +79,24 @@
                           </validation-provider>
                         </b-form-group>
                       </b-col>
+
                       <b-col md="6">
                         <b-form-group
-                          label="Adres"
-                          label-for="i-address"
+                          label="Telefon"
+                          label-for="i-phone"
                         >
                           <validation-provider
                             #default="{ errors }"
-                            name="Address"
-                            rules="required"
+                            name="Phone"
+                            rules="required|phone"
                           >
-                            <b-form-input
-                              id="i-address"
-                              v-model="chainDetails.address"
-                              :state="errors.length > 0 ? false:null"
-                              placeholder="Bilmem ne Sokak no 3"
-                            />
+                            <VuePhoneNumberInput default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
                       </b-col>
+
+
                       <b-col md="6">
                         <b-form-group
                           label="Yetkili Personel"
@@ -115,21 +113,6 @@
                               :state="errors.length > 0 ? false:null"
                               placeholder="Ahmet Soruc"
                             />
-                            <small class="text-danger">{{ errors[0] }}</small>
-                          </validation-provider>
-                        </b-form-group>
-                      </b-col>
-                      <b-col md="6">
-                        <b-form-group
-                          label="Telefon"
-                          label-for="i-phone"
-                        >
-                          <validation-provider
-                            #default="{ errors }"
-                            name="Phone"
-                            rules="required"
-                          >
-                            <VuePhoneNumberInput id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -176,10 +159,30 @@
                           </validation-provider>
                         </b-form-group>
                       </b-col>
-                      <b-col md="6" class="d-flex pt-4 align-items-center">
-                        <div class="mr-3 pb-1">Ana Sube</div>
-                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>
+                      <b-col md="12">
+                        <b-form-group
+                          label="Adres"
+                          label-for="i-address"
+                        >
+                          <validation-provider
+                            #default="{ errors }"
+                            name="Address"
+                            rules="required"
+                          >
+                            <b-form-input
+                              id="i-address"
+                              v-model="chainDetails.address"
+                              :state="errors.length > 0 ? false:null"
+                              placeholder="Bilmem ne Sokak no 3"
+                            />
+                            <small class="text-danger">{{ errors[0] }}</small>
+                          </validation-provider>
+                        </b-form-group>
                       </b-col>
+<!--                      <b-col md="6" class="d-flex pt-4 align-items-center">-->
+<!--                        <div class="mr-3 pb-1">Ana Sube</div>-->
+<!--                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>-->
+<!--                      </b-col>-->
                     </b-row>
                     <b-row class="mt-3">
                       <b-col sm="6" class="mb-3">
@@ -194,10 +197,10 @@
                 <div class="chain-form" v-if="validateCard">
                   <validation-observer ref="cardDetails" tag="form">
                     <b-row class="mb-4">
-                      <b-col sm="12" class="mb-4">
-                        <h3 class="title">BASVURU FORMU</h3>
-                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>
-                      </b-col>
+<!--                      <b-col sm="12" class="mb-4">-->
+<!--                        <h3 class="title">BASVURU FORMU</h3>-->
+<!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
+<!--                      </b-col>-->
                       <b-col md="6">
                         <b-form-group
                           label="Isim"
@@ -246,7 +249,7 @@
                           <validation-provider
                             #default="{ errors }"
                             name="Card"
-                            rules="required"
+                            rules="required|credit-card"
                           >
                             <b-form-input
                               id="i-card"
@@ -272,6 +275,7 @@
                             <b-form-input
                               id="i-cvv"
                               v-model="cardDetails.cvv"
+                              :formatter="cvvFormatter"
                               :state="errors.length > 0 ? false:null"
                               placeholder="212"
                             />
@@ -471,7 +475,6 @@ export default {
     dateFormatter (value) {
       if(!value) return
       let realNumber = value.replace(/\//gi, '')
-
       // Generate dashed number
       let dashedNumber = realNumber.match(/.{1,2}/g)
       value = dashedNumber.join('/')
@@ -487,10 +490,14 @@ export default {
       // Generate dashed number
       let dashedNumber = realNumber.match(/.{1,4}/g)
 
+      if(!dashedNumber) return
       // Replace the dashed number with the real one
       value = dashedNumber.join('-')
 
       return value.substring(0,19)
+    },
+    cvvFormatter(value) {
+      return value.substring(0,3)
     },
     //Moves the marker to click position on the map
     handleMapClick(e) {
@@ -534,13 +541,21 @@ export default {
       return new Promise((resolve, reject) => {
         this.$refs.chainDetails.validate().then(success => {
           if (success) {
-            console.log('yes')
-            let x = {}
-            Object.assign(x,this.chainDetails)
-            console.log(this.chainDetails)
-            this.chains.push(x)
-            this.validateCard = true
-            this.validateChain = false
+            console.log(this.phoneDetails)
+            if(this.phoneDetails.isValid === false) {
+              this.$refs.chainDetails.setErrors({
+                Phone: ['Phone number is not valid'],
+              })
+              reject()
+            }
+            else {
+              let x = {}
+              Object.assign(x,this.chainDetails)
+              console.log(this.chainDetails)
+              this.chains.push(x)
+              this.validateCard = true
+              this.validateChain = false
+            }
           } else {
             console.log('hel')
             reject()
