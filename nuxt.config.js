@@ -53,6 +53,7 @@ export default {
     { src: '~/plugins/qr.js', ssr: true },
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
+    {src: "~/plugins/vue-form-wizard.js"},
     // { src: '~/plugins/googleMaps.js', ssr: true },
     // { src: '~/plugins/useGeolocation.js', ssr: true },
   ],
