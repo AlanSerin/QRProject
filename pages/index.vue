@@ -23,6 +23,15 @@
       </div>
       <!-- back to top end -->
 
+
+      <!-- back to top start -->
+      <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+      </div>
+      <!-- back to top end -->
+
       <header>
         <div id="header-sticky" class="header__area header__shadow header__padding">
           <div class="container">
@@ -54,7 +63,7 @@
                   </div>
                   <div class="header__action ml-40 text-end d-flex align-items-center justify-content-end">
                     <div class="header__right-btn d-none d-md-flex d-xl-block">
-                      <a href="contact.html" class="w-btn w-btn-purple w-btn-7">Kayıt Ol</a>
+                      <a href="/signUp" class="w-btn w-btn-purple w-btn-7">Kayıt Ol</a>
                     </div>
                   </div>
                 </div>
@@ -117,7 +126,7 @@
             <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6">
               <div class="hero__thumb-3 ">
                 <img class="hero-phone wow fadeInLeft" data-wow-delay=".3s" src="~/assets/img/hero/home-3/hero-phone.png" alt="">
-<!--                <img class="hero-3-gradient" src="~/assets/img/icon/hero/home-3/circle.png" alt="">-->
+                <img class="hero-3-gradient" src="~/assets/img/icon/hero/home-3/circle.png" alt="">
                 <img class="hero-3-dot-2" src="~/assets/img/icon/hero/home-3/hero-dot-2.png" alt="">
               </div>
             </div>
@@ -251,7 +260,13 @@
         </div>
       </section>
       <!-- services area end -->
-      <section class="promotion__area promotion__bg pt-100 pb-150 p-relative">
+
+
+
+
+
+      <!-- promotion area start -->
+      <section class="promotion__area promotion__bg pt-125 pb-125 p-relative">
         <div class="promotion__shape">
           <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="">
           <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="">
@@ -262,33 +277,34 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <div class="promotion__content wow fadeInUp" data-wow-delay=".3s">
                 <h3 class="promotion__title">KKTC Vatandaşı</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, deleniti? Sapiente ullam molestiae iste impedit! Similique iusto dicta nemo facilis aut corporis inventore, reprehenderit, repellat maxime, doloremque molestiae tenetur temporibus.</p>
+                <p>Kuzey Kıbrısta yaşayan veya ikamet eden her bireyin mobil uygulama ile QR kodu okutarak işletmelere rahatça girip çıkabilirsiniz.</p>
+                <a href="about.html" class="w-btn w-btn-8">Hemen Sahip Ol</a>
               </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <div class="promotion__content pl-70 promotion__right wow fadeInUp" data-wow-delay=".5s">
-                <h3 class="promotion__title">Yolcu</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti nulla harum laborum, commodi dignissimos adipisci officiis recusandae ipsum numquam quod vitae iure fugiat porro maiores id facere qui reiciendis non!</p>
+                <h3 class="promotion__title">KKTC Yolcusu</h3>
+                <p>Kuzey Kıbrıs'a giriş yapabilmek için uygulamayı indirin ve kayıt formunu tamamlayın ve ülkeye giriş için onay alın</p>
+                <a href="about.html" class="w-btn w-btn-8">hemen Sahip Ol</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- promotion area end -->
 
-      <!-- about area start -->
-      <!-- about area end -->
 
       <!-- platform area start -->
       <section id="register" class="about__area grey-bg-3 pt-120 pb-120 p-relative">
         <div class="about__shape-2">
-<!--          <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="">-->
-<!--          <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="">-->
+          <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="">
+          <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="">
         </div>
         <div class="container">
           <div class="row">
             <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-100">
               <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
-<!--                <img src="~/assets/img/about/home-3/uyg.png" alt="">-->
+                <img src="~/assets/img/about/home-3/uyg.png" alt="">
               </div>
             </div>
             <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 mb-100">
@@ -305,7 +321,6 @@
         </div>
       </section>
       <!-- platform area end -->
-
 
       <!-- why area start -->
       <section id="quest" class="faq__area pt-140 pb-140">
@@ -367,14 +382,6 @@
         </div>
       </section>
       <!-- why area end -->
-
-      <!-- testimonial area start -->
-
-      <!-- testimonial area end -->
-
-      <!-- blog area start -->
-
-      <!-- blog area end -->
 
     </main>
 
