@@ -129,7 +129,8 @@ export default {
     }
   },
   mounted() {
-  this.getChainDetails()
+    this.getChainDetails()
+    window.print()
   },
   methods: {
     async getChainDetails() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="sign-up-container">
     <div class="card-container">
       <div class="left-side">
         <validation-observer class="m-auto" ref="accountDetails" tag="form">
@@ -99,12 +99,15 @@
                   name="Phone"
                   rules="required|phone"
                 >
-                  <b-form-input
-                    id="i-phone"
-                    v-model="companyDetails.phone"
-                    :state="errors.length > 0 ? false:null"
-                    placeholder="533 833 33 33"
-                  />
+<!--                  <b-form-input-->
+<!--                    id="i-phone"-->
+<!--                    v-model="companyDetails.phone"-->
+<!--                    :state="errors.length > 0 ? false:null"-->
+<!--                    placeholder="533 833 33 33"-->
+<!--                  />-->
+
+                  <VuePhoneNumberInput class="fucking-selector" default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model= "companyDetails.phone" />
+
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
               </b-form-group>
@@ -192,6 +195,7 @@ export default {
   },
   data() {
     return {
+      phoneDetails: null,
       companyDetails: {
         name:'',
         personnelName: '',
@@ -209,8 +213,16 @@ export default {
       return new Promise((resolve, reject) => {
         this.$refs.accountDetails.validate().then(success => {
           if (success) {
-            resolve(true)
-            this.sendAccountInfo()
+            if(this.phoneDetails.isValid === false) {
+              this.$refs.accountDetails.setErrors({
+                Phone: ['Phone number is not valid'],
+              })
+              reject()
+            }
+            else {
+              resolve(true)
+              this.sendAccountInfo()
+            }
           } else {
             console.log('invaliddd')
             reject()
@@ -231,9 +243,18 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+
 @media (min-width: 1024px) {
-  .main-container {
+
+  .country-selector.has-hint .country-selector__label[data-v-46e105de], .country-selector.has-value .country-selector__label[data-v-46e105de] {
+    transform: translateY(-30%) !important;
+  }
+  .input-tel.has-hint .input-tel__label[data-v-e59be3b4], .input-tel.has-value .input-tel__label[data-v-e59be3b4] {
+    transform: translateY(-30%) !important;
+  }
+
+  .sign-up-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -267,7 +288,15 @@ export default {
 }
 
 @media (max-width: 1024px) {
-  .main-container {
+
+  .country-selector.has-hint .country-selector__label[data-v-46e105de], .country-selector.has-value .country-selector__label[data-v-46e105de] {
+    transform: translateY(-30%) !important;
+  }
+  .input-tel.has-hint .input-tel__label[data-v-e59be3b4], .input-tel.has-value .input-tel__label[data-v-e59be3b4] {
+    transform: translateY(-30%) !important;
+  }
+
+  .sign-up-container {
     width: 100vw;
     height: 100vh;
     display: flex;

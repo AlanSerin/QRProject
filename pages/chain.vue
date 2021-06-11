@@ -31,6 +31,7 @@
                   <tab-content
                     title="Sube Detaylari"
                     :before-change="validationFormChainModal"
+                    icon="fas fa-warehouse"
                   >
                     <div v-if="validateChain" >
                       <!--                <tab-content :before-change="validationFormChain" title="">-->
@@ -176,33 +177,18 @@
                               </validation-provider>
                             </b-form-group>
                           </b-col>
-                          <!--                      <b-col md="6" class="d-flex pt-4 align-items-center">-->
-                          <!--                        <div class="mr-3 pb-1">Ana Sube</div>-->
-                          <!--                        <b-form-checkbox class="" v-model="chainDetails.main" :unchecked-value="false" :value="true"></b-form-checkbox>-->
-                          <!--                      </b-col>-->
                         </b-row>
-<!--                        <b-row class="mt-3">-->
-<!--                          <b-col sm="6" class="mb-3">-->
-<!--                            <b-button variant="outline-danger" block @click="() => {this.$bvModal.hide('details')}">Iptal</b-button>-->
-<!--                          </b-col>-->
-<!--                          <b-col sm="6">-->
-<!--                            <b-button class="green-button" variant="success" block @click="validationFormChainModal">Ilerle</b-button>-->
-<!--                          </b-col>-->
-<!--                        </b-row>-->
                       </validation-observer>
                     </div>
                   </tab-content>
                   <tab-content
                     title="Kart Bilgileri"
                     :before-change= "validationFormCardChain"
+                    icon="fas fa-credit-card"
                   >
                     <div>
                       <validation-observer ref="cardDetails" tag="form">
                         <b-row class="mb-4">
-                          <!--                      <b-col sm="12" class="mb-4">-->
-                          <!--                        <h3 class="title">BASVURU FORMU</h3>-->
-                          <!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
-                          <!--                      </b-col>-->
                           <b-col md="6">
                             <b-form-group
                               label="Isim"
@@ -308,42 +294,17 @@
                             </b-form-group>
                           </b-col>
                         </b-row>
-<!--                        <b-row class="mt-3">-->
-<!--                          <b-col sm="6" class="mb-3">-->
-<!--                            <b-button-->
-<!--                              block-->
-<!--                              @click="() => {-->
-<!--                      this.validateChain = true-->
-<!--                      this.validateCard = false-->
-<!--                      this.chains.pop()-->
-<!--                    }"-->
-<!--                              variant="outline-danger">-->
-<!--                              Geri-->
-<!--                            </b-button>-->
-<!--                          </b-col>-->
-<!--                          <b-col sm="6">-->
-<!--                            <b-button-->
-<!--                              block-->
-<!--                              @click="validationFormCardChain"-->
-<!--                              variant="success">-->
-<!--                              Tamamla-->
-<!--                            </b-button>-->
-<!--                          </b-col>-->
-<!--                        </b-row>-->
                       </validation-observer>
                     </div>
                   </tab-content>
                   <tab-content
-                    title="Kart Bilgileri"
+                    title="I Frame"
                     :before-change= "validationFormIFrame"
+                    icon="far fa-check-square"
                   >
                     <div>
                       <validation-observer ref="iFrameDetails" tag="form">
                         <b-row class="mb-4">
-                          <!--                      <b-col sm="12" class="mb-4">-->
-                          <!--                        <h3 class="title">BASVURU FORMU</h3>-->
-                          <!--                        <p class="title-text">Formu neredeyse bitirdiniz! Simdi odeme secenklerini girmeniz gerek </p>-->
-                          <!--                      </b-col>-->
                           <b-col md="12">
                             <b-form-group
                               label="IFrame Verifikasyon Kodu"
@@ -365,28 +326,6 @@
                             </b-form-group>
                           </b-col>
                         </b-row>
-                        <!--                        <b-row class="mt-3">-->
-                        <!--                          <b-col sm="6" class="mb-3">-->
-                        <!--                            <b-button-->
-                        <!--                              block-->
-                        <!--                              @click="() => {-->
-                        <!--                      this.validateChain = true-->
-                        <!--                      this.validateCard = false-->
-                        <!--                      this.chains.pop()-->
-                        <!--                    }"-->
-                        <!--                              variant="outline-danger">-->
-                        <!--                              Geri-->
-                        <!--                            </b-button>-->
-                        <!--                          </b-col>-->
-                        <!--                          <b-col sm="6">-->
-                        <!--                            <b-button-->
-                        <!--                              block-->
-                        <!--                              @click="validationFormCardChain"-->
-                        <!--                              variant="success">-->
-                        <!--                              Tamamla-->
-                        <!--                            </b-button>-->
-                        <!--                          </b-col>-->
-                        <!--                        </b-row>-->
                       </validation-observer>
                     </div>
                   </tab-content>
@@ -423,9 +362,6 @@
                             <p class="fw-bold">{{chain.personnelName}}</p>
                           </div>
                         </b-col>
-<!--                        <b-col sm="4" class="d-flex h-25 justify-content-end pr-0 pt-1">-->
-<!--                          <b-button @click="showModal(index)" variant="outline-info">Detaylar</b-button>-->
-<!--                        </b-col>-->
                       </b-row>
                     </div>
                   </b-col>

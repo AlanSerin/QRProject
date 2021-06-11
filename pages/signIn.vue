@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="sign-up-container">
     <div class="card-container">
       <div class="left-side">
         <validation-observer class="m-auto" ref="accountDetails" tag="form">
@@ -145,7 +145,7 @@ export default {
 
 <style scoped lang="scss">
 @media (min-width: 1024px) {
-  .main-container {
+  .sign-up-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -179,7 +179,7 @@ export default {
 }
 
 @media (max-width: 1024px) {
-  .main-container {
+  .sign-up-container {
     width: 100vw;
     height: 100vh;
     display: flex;
