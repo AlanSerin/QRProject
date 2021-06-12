@@ -15,23 +15,6 @@
       </div>
       <!-- pre loader area end -->
 
-      <!-- back to top start -->
-      <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-      </div>
-      <!-- back to top end -->
-
-
-      <!-- back to top start -->
-      <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-      </div>
-      <!-- back to top end -->
-
       <header>
         <div id="header-sticky" class="header__area header__shadow header__padding">
           <div class="container">
@@ -134,8 +117,7 @@
               <div class="hero__content-3 mb-100 pl-70">
                 <h3 class="hero__title-3 wow fadeInUp" data-wow-delay=".3s">Kuzey Kıbrıs AdaPass</h3>
                 <p class="wow fadeInUp" data-wow-delay=".5s">AdaPass uygulamasıyla mekanlara veya ülkeye giriş çıkışlarınızı daha güvenli hale getirin.</p>
-
-                <div class="hero__app wow fadeInUp" data-wow-delay=".7s">
+                <div class="hero__app wow fadeInUp " data-wow-delay=".7s">
                   <ul>
                     <li>
                       <a href="#" class="d-flex align-items-center">
@@ -205,7 +187,7 @@
       <!-- about area end -->
 
       <!-- about area start -->
-      <section class="about__area pb-160 pt-80 p-relative">
+      <section class="about__area pb-50 pt-80 p-relative">
         <div class="about__shape">
           <img class="about-plus" src="~/assets/img/icon/about/home-1/plus.png" alt="">
           <img class="about-triangle-2" src="~/assets/img/icon/about/home-1/triangle-2.png" alt="">
@@ -215,12 +197,8 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-xxl-6 col-xl-6 col-lg-6">
-              <div class="about__thumb-wrapper p-relative ml--30 fix mr-70">
-                <img src="~/assets/img/about/home-1/about-bg-2.png" alt="">
-                <div class="about__thumb about__thumb-2 p-absolute wow fadeInUp" data-wow-delay=".3s">
-                  <img class="about-big bounceInUp wow" data-wow-delay=".5s" src="~/assets/img/about/home-1/about-2.png" alt="">
-                  <img class="about-sm about-sm-2"  src="~/assets/img/about/home-1/about-2-1.png" alt="">
-                </div>
+              <div class="about__thumb-wrapper p-relative ml--auto fix mr-90">
+                <img src="~/assets/img/about/home-1/about-bg-2.png" style="max-width: 50vh" alt="">
               </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-9">
@@ -295,14 +273,14 @@
 
 
       <!-- platform area start -->
-      <section id="register" class="about__area grey-bg-3 pt-120 pb-120 p-relative">
+      <section id="register" class="about__area grey-bg-3 pt-50 pb-50 p-relative">
         <div class="about__shape-2">
           <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="">
           <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="">
         </div>
-        <div class="container">
+        <div class="container mb-100">
           <div class="row">
-            <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-100">
+            <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-140">
               <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
                 <img src="~/assets/img/about/home-3/uyg.png" alt="">
               </div>
@@ -323,7 +301,7 @@
       <!-- platform area end -->
 
       <!-- why area start -->
-      <section id="quest" class="faq__area pt-140 pb-140">
+      <section id="quest" class="faq__area pt-50 pb-100">
         <div class="container">
           <div class="row">
             <div class="col-xxl-5 offset-xxl-1 col-xl-5 offset-xl-1 col-lg-6 col-md-8">
@@ -347,7 +325,7 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>Evet alınması gerekiyor.</p>
+                        <p>Evet alınması gerekiyor, Her işletme için QR kodu almanız gerekiyor çünkü her işletmenin konumu farklı alanlarda bulunuyor ve doğru analiz gerçekleştirebilmemiz için her işletmenin QR kodu olması gerekiyor.</p>
                       </div>
                     </div>
                   </div>
@@ -359,7 +337,7 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p> Tüm işletmeler. (İşletmesin de müşteri hizmeti veren tüm işletmeler)</p>
+                        <p> Tüm işletmeler (İşletmesin de müşteri hizmeti veren tüm işletmeler) QR kod almalıdır.</p>
                       </div>
                     </div>
                   </div>
@@ -371,7 +349,7 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod.</p>
+                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod. Aynı zaman da polis kontrolünden geçerken de AdaPass kodunuzu okutarak hızlı ve güvenli bir şekilde geçebileceksiniz.</p>
                       </div>
                     </div>
                   </div>
@@ -387,32 +365,56 @@
 
     <div>
       <!-- footer area start -->
-      <footer class="footer__area grey-bg-3 pt-120 p-relative fix">
-        <div class="footer__shape">
-          <img class="footer-circle-1 footer-2-circle-1" src="~/assets/img/icon/footer/home-1/circle-1.png" alt="">
-          <img class="footer-circle-2 footer-2-circle-2" src="~/assets/img/icon/footer/home-1/circle-2.png" alt="">
-        </div>
-        <div class="footer__top pb-65">
-          <div class="container">
-            <div class="row">
-              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+      <footer class="footer__area grey-bg-3 pt-50 p-relative fix" style="background: #19947b;">
+        <div class="footer__top ">
+          <div class="container text-center align-item-center justify-content-center">
+            <div class="row justify-content-xxl-center">
+              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
                 <div class="footer__widget mb-50">
                   <div class="footer__widget-title mb-25">
                     <div class="footer__logo">
-                      <a href="#">
                         <img src="~/assets/img/logo/logo.png" alt="logo">
-                      </a>
                     </div>
-                  </div>
-                  <div class="footer__widget-content">
-                    <p>Kuzey Kıbrıs AdaPass</p>
                   </div>
                 </div>
               </div>
+              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="footer__widget mb-50">
+                  <div class="footer__widget-title mb-25">
+                    <div class="footer__logo">
+                        <img src="~/assets/img/logo/saglik.png" alt="logo">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="footer__widget mb-50">
+                  <div class="footer__widget-title mb-25">
+                    <div class="footer__logo">
+                        <img src="~/assets/img/logo/f.png" alt="logo">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
+        <div class="footer__bottom">
+            <div class="container">
+               <div class="footer__copyright footer__copyright-2">
+                  <div class="row">
+                     <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="footer__copyright-wrapper footer__copyright-wrapper-3 text-center">
+                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </footer>
+      
     </div>
 
   </div>
