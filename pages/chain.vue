@@ -398,7 +398,7 @@ export default {
           'AcikAdres':this.chainDetails.address,
           'IL':this.chainDetails.province,
           'Ilce':this.chainDetails.district,
-          'Telefon':this.chainDetails.phone,
+          'Telefon':this.phoneDetails.countryCallingCode + this.chainDetails.phone,
           'Yonetici':this.chainDetails.personnelName,
         },
         Odeme:{

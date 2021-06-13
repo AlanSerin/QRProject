@@ -89,7 +89,7 @@ export default {
   },
 
   axios: {
-    baseURL:"http://localhost:3000/selfCompany"
+    baseURL:"https://api.adapass.org/selfCompany"
     // proxy: true
   },
 
