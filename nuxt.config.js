@@ -48,9 +48,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vee-validate.js', ssr: true },
-    { src: '~/plugins/qrcode.js', ssr: true },
-    { src: '~/plugins/qr.js', ssr: true },
+    {src: "~/plugins/lodash.js"},
+    {src: '~/plugins/vee-validate.js', ssr: true },
+    {src: '~/plugins/qrcode.js', ssr: true },
+    {src: '~/plugins/qr.js', ssr: true },
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
     {src: "~/plugins/vue-form-wizard.js"},
@@ -83,9 +84,12 @@ export default {
     //   //you can use libraries: ['places']
     // }],
   ],
-
+  server: {
+      port: 5000 // default: 3000
+  },
 
   axios: {
+    baseURL:"http://localhost:3000/selfCompany"
     // proxy: true
   },
 

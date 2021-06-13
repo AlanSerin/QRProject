@@ -52,7 +52,7 @@
           </b-row>
           <b-row class="d-flex justify-content-end">
             <b-col sm="3" class="d-grid justify-self-end">
-              <BButton @click="validationFormAccount" variant="success">Giris Yap</BButton>
+              <BButton @click="sendLogin" variant="success">Giris Yap</BButton>
             </b-col>
           </b-row>
         </validation-observer>
@@ -115,28 +115,31 @@ export default {
     }
   },
   methods: {
-    validationFormAccount() {
-      console.log('hello')
-      return new Promise((resolve, reject) => {
-        this.$refs.accountDetails.validate().then(success => {
-          if (success) {
-            resolve(true)
-            console.log('validddd')
-            this.$router.push('/chain')
-          } else {
-            console.log('invaliddd')
-            reject()
-          }
-        })
+    async validateForm(refs='') {
+      return await this.$refs.[refs].validate().then((data)=>{
+        if (data) {
+          return Promise.resolve(true);
+        }else {
+          return Promise.resolve(false);
+        }
       })
     },
-    async sendAccountInfo() {
-      try {
-        const res = await this.$axios.$get('http://icanhazip.com')
-        console.log(res)
-        await this.$router.push('/chain')
-      } catch (e) {
-        console.log(e)
+    async sendLogin() {
+      if (!await this.validateForm('accountDetails')) return;
+
+      let Veri = {
+        MailAdres:this.companyDetails.email,
+        Sifre:this.companyDetails.password
+      }
+
+      let res = await this.$axios.$post('/login',Veri);
+      if (res.OK) {
+        this.$axios.setToken(res.Token, 'Bearer');
+        localStorage.setItem('Token', res.Token);
+        localStorage.setItem('UserID', res._id);
+        this.$router.push('/chain');
+      }else {
+        console.log(res);
       }
     },
   },

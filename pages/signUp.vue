@@ -1,7 +1,7 @@
 <template>
   <div class="sign-up-container">
     <div class="card-container">
-      <div class="left-side">
+      <div class="left-side" v-if="Form == 'register'">
         <validation-observer class="m-auto" ref="accountDetails" tag="form">
           <b-row class="mb-4">
             <b-col sm="12" class="mb-4">
@@ -99,12 +99,12 @@
                   name="Phone"
                   rules="required|phone"
                 >
-<!--                  <b-form-input-->
-<!--                    id="i-phone"-->
-<!--                    v-model="companyDetails.phone"-->
-<!--                    :state="errors.length > 0 ? false:null"-->
-<!--                    placeholder="533 833 33 33"-->
-<!--                  />-->
+          <!--                  <b-form-input-->
+          <!--                    id="i-phone"-->
+          <!--                    v-model="companyDetails.phone"-->
+          <!--                    :state="errors.length > 0 ? false:null"-->
+          <!--                    placeholder="533 833 33 33"-->
+          <!--                  />-->
 
                   <VuePhoneNumberInput class="fucking-selector" default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model= "companyDetails.phone" />
 
@@ -139,10 +139,46 @@
           </b-row>
           <b-row class="d-flex justify-content-end">
             <b-col sm="4" class="d-grid justify-self-end">
-              <BButton @click="validationFormAccount" variant="success">Kayit Ol</BButton>
+              <BButton @click="sendRegisterForm" variant="success">Kayit Ol</BButton>
             </b-col>
           </b-row>
         </validation-observer>
+      </div>
+      <div class="left-side" v-if="Form == 'otp'">
+        <b-row class="mb-4">
+          <validation-observer class="m-auto" ref="otpCodes" tag="form">
+          <b-col sm="12" class="mb-4">
+            <h1 class="title">sdfsdf</h1>
+            <p class="title-text">otp kodunu gır bakm</p>
+          </b-col>
+          <b-col md="12">
+            <b-form-group
+              label="OTP Kodu"
+              label-for="i-company"
+            >
+              <validation-provider
+                #default="{ errors }"
+                name="Otp"
+                rules="required|min:6|max:6|integer"
+              >
+                <b-form-input
+                  id="i-company"
+                  v-model="OTPCode"
+                  :state="errors.length > 0 ? false:null"
+                  placeholder="123456"
+                />
+                <small class="text-danger">{{ errors[0] }}</small>
+              </validation-provider>
+            </b-form-group>
+          </b-col>
+          </validation-observer>
+        </b-row>
+
+      <b-row class="d-flex justify-content-end">
+        <b-col sm="4" class="d-grid justify-self-end">
+          <BButton @click="sendOTP" variant="success">Devam Et</BButton>
+        </b-col>
+      </b-row>
       </div>
       <div class="right-side">
         <div class="qr-code">
@@ -171,6 +207,10 @@
       </div>
     </div>
   </div>
+
+
+</div>
+
 </template>
 
 <script>
@@ -205,36 +245,56 @@ export default {
         taxID: '',
         main: '',
       },
+      Form:'register',
+      OTPCode:'',
+      _id:''
     }
   },
   methods: {
-    validationFormAccount() {
-      console.log('hello')
-      return new Promise((resolve, reject) => {
-        this.$refs.accountDetails.validate().then(success => {
-          if (success) {
-            if(this.phoneDetails.isValid === false) {
-              this.$refs.accountDetails.setErrors({
-                Phone: ['Phone number is not valid'],
-              })
-              reject()
-            }
-            else {
-              resolve(true)
-              this.sendAccountInfo()
-            }
-          } else {
-            console.log('invaliddd')
-            reject()
-          }
-        })
+    async validateForm(refs='') {
+      return await this.$refs.[refs].validate().then((data)=>{
+        console.log(data);
+        if (data) {
+          return Promise.resolve(true);
+        }else {
+          return Promise.resolve(false);
+        }
       })
     },
-    async sendAccountInfo() {
+    async sendOTP() {
+      if (!await this.validateForm('otpCodes')) return;
+      if (!this._id) return;
       try {
-        const res = await this.$axios.$get('http://icanhazip.com')
-        console.log(res)
-        await this.$router.push('/chain')
+        let Veri = {
+          OTP:this.OTPCode
+        }
+
+        let res = await this.$axios.$put('/otponay/'+this._id,Veri);
+        if (res.OK) {
+          this.$axios.setToken(res.Token, 'Bearer');
+          localStorage.setItem('Token', res.Token);
+          localStorage.setItem('UserID', res._id);
+          this.$router.push('/chain');
+        }else {
+          console.log(res);
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async sendRegisterForm() {
+      if (!await this.validateForm('accountDetails')) return;
+
+      try {
+        let Veri = {...this.companyDetails}
+        Veri['phone'] = this.phoneDetails.countryCallingCode + Veri['phone'];
+
+        const res = await this.$axios.$post('/register',Veri);
+
+        if (res.OK) {
+          this.Form='otp'
+          this._id=res._id
+        }
       } catch (e) {
         console.log(e)
       }
