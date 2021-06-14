@@ -20,7 +20,7 @@
                     <b-row>
                       <b-col md="6">
                         <b-form-group label="Enlem" label-for="i-latitude">
-                          <validation-provider #default="{ errors }" name="Latitude" rules="required">
+                          <validation-provider #default="{ errors }" name="Enlem" rules="required">
                             <b-form-input id="i-latitude" v-model="chainDetails.latitude" :state="errors.length > 0 ? false:null" placeholder="15.2" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -28,7 +28,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Boylam" label-for="i-longitude">
-                          <validation-provider #default="{ errors }" name="Longitude" rules="required">
+                          <validation-provider #default="{ errors }" name="Boylam" rules="required">
                             <b-form-input id="i-longitude" v-model="chainDetails.longitude" :state="errors.length > 0 ? false:null" placeholder="12.3" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -36,7 +36,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Telefon" label-for="i-phone">
-                          <validation-provider #default="{ errors }" name="Phone" rules="required|phone">
+                          <validation-provider #default="{ errors }" name="Telefon Numarası" rules="required|phone">
                             <VuePhoneNumberInput default-country-code="TR" :translations="translations" id="i-phone" @update="phoneDetails = $event" size="sm" v-model="chainDetails.phone" :clearable="true" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -44,7 +44,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Yetkili Personel" label-for="i-personnel">
-                          <validation-provider #default="{ errors }" name="Personnel" rules="required">
+                          <validation-provider #default="{ errors }" name="Yetkili Personel" rules="required">
                             <b-form-input id="i-personnel" v-model="chainDetails.personnelName" :state="errors.length > 0 ? false:null" placeholder="Ahmet Soruc"/>
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -52,7 +52,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Il" label-for="i-province">
-                          <validation-provider #default="{ errors }" name="Province" rules="required">
+                          <validation-provider #default="{ errors }" name="İl" rules="required">
                             <b-form-select id="i-province" v-model="chainDetails.province" :options="_.filter(regions, { 'UstID': ''})" :state="errors.length > 0 ? false:null" value-field="_id" text-field="Aciklama" placeholder="Gazimagusa" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -60,7 +60,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Ilce" label-for="i-district">
-                          <validation-provider #default="{ errors }" name="District" rules="required">
+                          <validation-provider #default="{ errors }" name="İlçe" rules="required">
                             <b-form-select id="i-district" v-model="chainDetails.district" :options="_.filter(regions, { 'UstID': chainDetails.province || '-1'})" :state="errors.length > 0 ? false:null" value-field="_id" text-field="Aciklama" placeholder="Gazimagusa" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -68,7 +68,7 @@
                       </b-col>
                       <b-col md="12">
                         <b-form-group label="Adres" label-for="i-address">
-                          <validation-provider #default="{ errors }" name="Address" rules="required">
+                          <validation-provider #default="{ errors }" name="Adres" rules="required">
                             <b-form-input id="i-address" v-model="chainDetails.address" :state="errors.length > 0 ? false:null" placeholder="Bilmem ne Sokak no 3" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -100,7 +100,7 @@
                     <b-row>
                       <b-col md="6">
                         <b-form-group label="Isim" label-for="i-name">
-                          <validation-provider #default="{ errors }" name="Name" rules="required">
+                          <validation-provider #default="{ errors }" name="İsim" rules="required">
                             <b-form-input id="i-name" v-model="cardDetails.name" :state="errors.length > 0 ? false:null" placeholder="Ahmet" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -108,7 +108,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Soyisim" label-for="i-surname">
-                          <validation-provider #default="{ errors }" name="Surname" rules="required">
+                          <validation-provider #default="{ errors }" name="Soyisim" rules="required">
                             <b-form-input id="i-surname" v-model="cardDetails.surname" :state="errors.length > 0 ? false:null" placeholder="Soruc" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -116,7 +116,7 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Kart Numarasi" label-for="i-card">
-                          <validation-provider #default="{ errors }" name="Card" rules="required|credit-card">
+                          <validation-provider #default="{ errors }" name="Kart Numarası" rules="required|credit-card">
                             <b-form-input id="i-card" v-model="cardDetails.cardNumber" :formatter="cardFormatter" :state="errors.length > 0 ? false:null" placeholder="4716800255496291" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
@@ -124,15 +124,15 @@
                       </b-col>
                       <b-col md="6">
                         <b-form-group label="Son Kullanma Tarihi" label-for="i-expiration">
-                          <validation-provider #default="{ errors }" name="Expiration" rules="required">
+                          <validation-provider #default="{ errors }" name="Son Kullanma Tarihi" rules="required">
                             <b-form-input id="i-expiration" v-model="cardDetails.expiration" type="text" :formatter="dateFormatter" :state="errors.length > 0 ? false:null" placeholder="03/24" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
                       </b-col>
                       <b-col md="6">
-                        <b-form-group label="CVV Kodu" label-for="i-cvv">
-                          <validation-provider #default="{ errors }" name="CVV" rules="required|min:3">
+                        <b-form-group label="CCV Kodu" label-for="i-cvv">
+                          <validation-provider #default="{ errors }" name="CCV Kodu" rules="required|min:3">
                             <b-form-input id="i-cvv" v-model="cardDetails.cvv" :formatter="cvvFormatter" :state="errors.length > 0 ? false:null" placeholder="212" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>

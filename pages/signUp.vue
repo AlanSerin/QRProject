@@ -15,7 +15,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Company"
+                  name="Şirket Adı"
                   rules="required"
                 >
                   <b-form-input
@@ -35,7 +35,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Personnel"
+                  name="Yetkili Personel"
                   rules="required"
                 >
                   <b-form-input
@@ -55,7 +55,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Email"
+                  name="E-posta"
                   rules="required|email"
                 >
                   <b-form-input
@@ -75,7 +75,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Password"
+                  name="Şifre"
                   rules="required|min:6|max:12"
                 >
                   <b-form-input
@@ -119,7 +119,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="TaxID"
+                  name="Tax ID"
                   rules="required|min:4|integer"
                 >
                   <b-form-input

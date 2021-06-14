@@ -15,7 +15,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Email"
+                  name="E-posta"
                   rules="required|email"
                 >
                   <b-form-input
@@ -35,7 +35,7 @@
               >
                 <validation-provider
                   #default="{ errors }"
-                  name="Password"
+                  name="Şifre"
                   rules="required|min:6|max:12"
                 >
                   <b-form-input
