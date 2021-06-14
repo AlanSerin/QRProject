@@ -5,8 +5,8 @@
         <validation-observer class="m-auto" ref="accountDetails" tag="form">
           <b-row class="mb-4">
             <b-col sm="12" class="mb-4 pr-0">
-              <h1 class="title">Giris Yap</h1>
-              <p class="title-text">Hazirda hesabiniz yok mu? <nuxt-link style="color: #8ADA7D;" to="/signUp">Kayit Ol</nuxt-link></p>
+              <h1 class="title">Giriş Yap</h1>
+              <p class="title-text">Hazırda hesabınız yok mu? <nuxt-link style="color: #8ADA7D;" to="/signUp">Kayıt Ol</nuxt-link></p>
             </b-col>
             <b-col md="6">
               <b-form-group

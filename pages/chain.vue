@@ -5,7 +5,7 @@
       <b-row>
         <b-col sm="12" class="mb-4">
           <h3 class="title">BASVURU FORMU</h3>
-          <p class="title-text">Bu kısımda şirketiniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
+          <p class="title-text">Bu kısımda şubeniz ile ilgili almamız gereken bilgileri girmeniz gerekiyor</p>
         </b-col>
       </b-row>
       <b-modal size="xl" class="maps-modal h-100" id="chainModal" hide-footer hide-header  static @hidden="resetModal">
@@ -96,7 +96,7 @@
             <div>
               <validation-observer ref="cardDetails" tag="form">
                 <b-row class="mb-4">
-                  <b-col order="2" order-md="1" md="6">
+                  <b-col order="2" order-xl="1" lg="12" xl="6">
                     <b-row>
                       <b-col md="6">
                         <b-form-group label="Isim" label-for="i-name">
@@ -140,9 +140,9 @@
                       </b-col>
                     </b-row>
                   </b-col>
-                  <b-col order="1" order-md="2" md="6">
-                    <div class="p-4 m-4">
-                      <LazyCreditCard :name="cardDetails.name + ' ' +cardDetails.surname" :number="cardNumber" :exp="cardDetails.expiration" :ccv="cardDetails.cvv" />
+                  <b-col order="1" order-xl="2" lg="12" xl="6">
+                    <div class="mb-4 pb-4" style="height: 250px;">
+                      <LazyCreditCard :company="'FurtherSoft'" :name="cardDetails.name + ' ' +cardDetails.surname" :number="this.cardDetails.cardNumber" :exp="cardDetails.expiration" :ccv="cardDetails.cvv" />
                     </div>
                   </b-col>
 
@@ -368,6 +368,9 @@ export default {
       return value.substring(0, 5)
     },
     cardFormatter(value) {
+      if(this.cardDetails.cardNumber.length >= 19) {
+        return value.substring(0, 19)
+      }
       this.cardDetails.cardNumber = value.split('-').join('')
       console.log(this.cardDetails.cardNumber)
       // Card number without dash (-)

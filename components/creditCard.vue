@@ -3,13 +3,13 @@
     <div class="center">
       <div class="credit-card" v-bind:class="this.turn ? 'turn':''">
         <div class="flip">
-          <div class="front">
+          <div v-bind:style="cardColor" class="front">
             <div class="strip-bottom"></div>
             <div class="strip-top"></div>
-            <svg class="logo" width="40" height="40" viewbox="0 0 17.5 16.2">
-              <path d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z" fill="white"></path>
-            </svg>
-            <div class="investor">Investor</div>
+<!--            <svg class="logo" width="40" height="40" viewbox="0 0 17.5 16.2">-->
+<!--              <path d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z" fill="white"></path>-->
+<!--            </svg>-->
+            <div class="investor">{{ company }}</div>
             <div class="chip">
               <div class="chip-line"></div>
               <div class="chip-line"></div>
@@ -30,9 +30,188 @@
             </div>
             <div class="end"><span class="end-text">exp. end:</span><span class="end-date">{{ exp }}</span></div>
             <div class="card-holder">{{ name }}</div>
-            <div class="master">
-              <div class="circle master-red"></div>
-              <div class="circle master-yellow"></div>
+            <div class="card-logo">
+              <svg v-if="creditCard === 'visa'" width="65" height="40" viewBox="0 0 88 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M87.8247 51.7635C87.8247 53.5616 86.3863 55 84.5883 55H4.03627C2.23823 55 0.799805 53.5616 0.799805 51.7635V3.33645C0.799805 1.53841 2.23823 0.0999756 4.03627 0.0999756H84.5883C86.3863 0.0999756 87.8247 1.53841 87.8247 3.33645V51.7635V51.7635Z" fill="white"/>
+                <path d="M33.8836 16.0426L24.1742 39.1773H17.8211L13.0264 20.7175C12.7866 19.6387 12.427 19.1592 11.5879 18.6797C10.1495 17.9605 7.75213 17.1214 5.71436 16.7618L5.83422 16.0426H16.0231C17.3417 16.0426 18.5403 16.8817 18.7801 18.44L21.2973 31.8653L27.5305 16.1625H33.8836V16.0426ZM58.6965 31.6256C58.6965 25.5123 50.3056 25.1526 50.3056 22.5155C50.3056 21.6764 51.1447 20.8374 52.8229 20.5976C53.662 20.4777 56.0594 20.3579 58.6965 21.6764L59.7753 16.7618C58.3369 16.2823 56.5388 15.683 54.1415 15.683C48.2679 15.683 44.0725 18.7996 44.0725 23.3546C44.0725 26.7109 47.0692 28.509 49.3467 29.5878C51.6242 30.6666 52.4633 31.3858 52.4633 32.4647C52.4633 34.023 50.6653 34.7422 48.8672 34.7422C45.8705 34.7422 44.0725 33.9031 42.7539 33.3037L41.6751 38.3382C43.1135 38.9376 45.6308 39.5369 48.2679 39.5369C54.5011 39.5369 58.5766 36.4203 58.6965 31.6256ZM74.2795 39.1773H79.7934L74.9987 16.0426H69.8443C68.6456 16.0426 67.6867 16.7618 67.3271 17.7208L58.3369 39.1773H64.5701L65.7687 35.7011H73.4404L74.2795 39.1773ZM67.5668 31.0262L70.6834 22.3956L72.4814 31.0262H67.5668ZM42.3943 16.0426L37.4797 39.1773H31.4862L36.4008 16.0426H42.3943Z" fill="#1A1F71"/>
+              </svg>
+              <svg v-if="creditCard === 'mastercard'" width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M33.7735 9.51666H22.1992V30.482H33.7735V9.51666Z" fill="#FF5F00"/>
+                <path d="M22.9314 20C22.9296 17.9809 23.3835 15.9878 24.2588 14.1717C25.1341 12.3555 26.4079 10.7639 27.9836 9.51735C26.0323 7.9713 23.6888 7.00983 21.2209 6.74284C18.7531 6.47585 16.2605 6.9141 14.0281 8.00753C11.7957 9.10095 9.91347 10.8054 8.59666 12.9261C7.27985 15.0468 6.58154 17.4982 6.58154 20C6.58154 22.5018 7.27985 24.9532 8.59666 27.0739C9.91347 29.1946 11.7957 30.899 14.0281 31.9925C16.2605 33.0859 18.7531 33.5241 21.2209 33.2572C23.6888 32.9902 26.0323 32.0287 27.9836 30.4826C26.4079 29.236 25.1342 27.6444 24.2588 25.8283C23.3835 24.0122 22.9296 22.0191 22.9314 20V20Z" fill="#EB001B"/>
+                <path d="M49.3878 20C49.3879 22.5018 48.6896 24.9531 47.3729 27.0738C46.0562 29.1945 44.174 30.899 41.9417 31.9924C39.7093 33.0859 37.2167 33.5241 34.7489 33.2572C32.2811 32.9902 29.9376 32.0287 27.9863 30.4826C29.5607 29.2348 30.8335 27.6429 31.7086 25.8271C32.5838 24.0112 33.0385 22.0188 33.0385 20C33.0385 17.9812 32.5838 15.9888 31.7086 14.1729C30.8335 12.3571 29.5607 10.7652 27.9863 9.51735C29.9376 7.97129 32.2811 7.00982 34.7489 6.74283C37.2167 6.47585 39.7093 6.91412 41.9417 8.00756C44.174 9.101 46.0562 10.8055 47.3729 12.9262C48.6896 15.0469 49.3879 17.4982 49.3878 20V20Z" fill="#F79E1B"/>
+                <path d="M48.1254 28.2617V27.8325H48.2971V27.745H47.8599V27.8325H48.0316V28.2617H48.1254ZM48.9744 28.2617V27.7442H48.8404L48.6862 28.1002L48.532 27.7442H48.3979V28.2617H48.4925V27.8713L48.6371 28.2079H48.7353L48.8798 27.8705V28.2617H48.9744Z" fill="#F79E1B"/>
+              </svg>
+              <svg v-if="creditCard==='amex'" width="70" height="54" viewBox="0 0 70 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M59.4002 49.7L56.8002 46.8L54.1002 49.7H48.8002H37.4002V36.2H32.1002L38.7002 21.1H45.1002L47.4002 26.3V21.1H55.4002L56.8002 25L58.2002 21.1H64.3002V18.8C64.3002 17.4 63.2002 16.3 61.8002 16.3H8.2002C6.8002 16.3 5.7002 17.4 5.7002 18.8V51.3C5.7002 52.7 6.8002 53.8 8.2002 53.8H61.8002C63.2002 53.8 64.3002 52.7 64.3002 51.3V49.7H59.4002Z" fill="#0071CE"/>
+                <path d="M60.1001 48.1H64.3001L58.8001 42.2L64.3001 36.4H60.2001L56.7001 40.2L53.3001 36.4H49.1001L54.7001 42.3L49.1001 48.1H53.2001L56.7001 44.3L60.1001 48.1Z" fill="#0071CE"/>
+                <path d="M42.4002 45.4V43.6H49.0002V40.9H42.4002V39.1H49.1002V36.4H39.2002V48.1H49.1002V45.4H42.4002Z" fill="#0071CE"/>
+                <path d="M61.2001 34.7H64.2001V22.9L59.4001 23L56.8001 30.3L54.1001 23H49.1001V34.7H52.3001V26.5L55.3001 34.7H58.1001L61.2001 26.5V34.7Z" fill="#0071CE"/>
+                <path d="M44.0002 22.9999H39.9002L34.7002 34.6999H38.2002L39.2002 32.3999H44.6002L45.6002 34.6999H49.2002L44.0002 22.9999ZM40.3002 29.6999L41.9002 25.8999L43.5002 29.6999H40.3002Z" fill="#0071CE"/>
+                <path d="M61.4004 41.9L64.3004 45.0999V38.7L61.4004 41.9Z" fill="#0071CE"/>
+              </svg>
+              <svg v-if="creditCard === 'discover'" width="69" height="43" viewBox="0 0 69 43" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="69" height="43" fill="url(#pattern0)"/>
+                <defs>
+                  <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0" transform="translate(0 -0.00295036) scale(0.00746269 0.011975)"/>
+                  </pattern>
+                  <image id="image0" width="134" height="84" xlink:href="data:image/png;base64,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"/>
+                </defs>
+              </svg>
+              <svg v-if="creditCard === 'diners'" width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.8073 4.16987C12.3958 4.16987 5.54687 11.0123 5.54687 19.4739C5.54687 27.9094 12.3958 34.7779 20.8073 34.7779C29.2448 34.7779 36.0677 27.9094 36.0677 19.4739C36.0677 11.0123 29.2448 4.16987 20.8073 4.16987V4.16987ZM17.3437 28.51C13.724 27.1259 11.1458 23.6002 11.1458 19.4739C11.1458 15.3475 13.724 11.8219 17.3437 10.4116V28.51ZM24.2708 28.5362V10.4116C27.8906 11.8219 30.4687 15.3475 30.4687 19.4739C30.4687 23.6002 27.8906 27.1259 24.2708 28.5362V28.5362ZM45.8333 0H4.16667C1.86632 0 0 1.87165 0 4.17857V34.8214C0 37.1283 1.86632 39 4.16667 39H45.8333C48.1337 39 50 37.1283 50 34.8214V4.17857C50 1.87165 48.1337 0 45.8333 0ZM28.6198 36.2143H20.7812C11.5625 36.2143 3.95833 28.7712 3.95833 19.6567C3.95833 9.68036 11.5625 2.78571 20.7812 2.78571H28.6198C37.7344 2.78571 46.0417 9.68036 46.0417 19.6567C46.0417 28.7712 37.7344 36.2143 28.6198 36.2143Z" fill="#0078BD"/>
+              </svg>
+              <svg v-if="creditCard === 'jcb'"
+                xmlns="http://www.w3.org/2000/svg"
+                height="50"
+                width="60"
+                xml:space="preserve"
+                viewBox="0 0 300.00001 231.511"
+                y="0px"
+                x="0px"
+                id="レイヤー_1"
+                version="1.1"><metadata
+     id="metadata6424"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+                rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+                id="defs6422" /><style
+                id="style6319"
+                type="text/css">
+	.st0{fill:#FFFFFF;}
+  .st1{fill:url(#SVGID_1_);}
+  .st2{fill:url(#SVGID_2_);}
+  .st3{fill:url(#SVGID_3_);}
+  .st4{fill:url(#SVGID_4_);}
+  .st5{fill:url(#SVGID_5_);}
+</style><g
+                transform="translate(-9.4000001,96.810998)"
+                id="g6321"><g
+       transform="matrix(1.8215159,0,0,1.8215159,-8.5437653,-109.83667)"
+       id="g6323"><path
+         style="fill:#ffffff"
+         id="path6325"
+         d="m 174,108.3 c 0,14 -11.4,25.4 -25.4,25.4 l -138.2,0 0,-100.6 c 0,-14 11.4,-25.4 25.4,-25.4 l 138.2,0 0,100.6 z"
+         class="st0" /><g
+                id="g6327"><linearGradient
+           gradientTransform="matrix(1.125,0,0,1.125,-11.9755,-13.8615)"
+           y2="81.398598"
+           x2="157.3299"
+           y1="81.398598"
+           x1="117.3856"
+           gradientUnits="userSpaceOnUse"
+           id="SVGID_1_"><stop
+             id="stop6330"
+             style="stop-color:#007940"
+             offset="0" /><stop
+                id="stop6332"
+                style="stop-color:#00873F"
+                offset="0.2285" /><stop
+                id="stop6334"
+                style="stop-color:#40A737"
+                offset="0.7433" /><stop
+                id="stop6336"
+                style="stop-color:#5CB531"
+                offset="1" /></linearGradient><path
+                style="fill:url(#SVGID_1_)"
+                id="path6338"
+                d="m 129,82.5 10.5,0 c 0.3,0 1,-0.1 1.3,-0.1 2,-0.4 3.7,-2.2 3.7,-4.7 0,-2.4 -1.7,-4.2 -3.7,-4.7 -0.3,-0.1 -0.9,-0.1 -1.3,-0.1 l -10.5,0 0,9.6 z"
+                class="st1" /><linearGradient
+                gradientTransform="matrix(1.125,0,0,1.125,-11.9755,-13.8615)"
+                y2="75.171402"
+                x2="157.3318"
+                y1="75.171402"
+                x1="117.3844"
+                gradientUnits="userSpaceOnUse"
+                id="SVGID_2_"><stop
+             id="stop6341"
+             style="stop-color:#007940"
+             offset="0" /><stop
+                id="stop6343"
+                style="stop-color:#00873F"
+                offset="0.2285" /><stop
+                id="stop6345"
+                style="stop-color:#40A737"
+                offset="0.7433" /><stop
+                id="stop6347"
+                style="stop-color:#5CB531"
+                offset="1" /></linearGradient><path
+                style="fill:url(#SVGID_2_)"
+                id="path6349"
+                d="m 138.3,16.2 c -10,0 -18.2,8.1 -18.2,18.2 l 0,18.9 25.7,0 c 0.6,0 1.3,0 1.8,0.1 5.8,0.3 10.1,3.3 10.1,8.5 0,4.1 -2.9,7.6 -8.3,8.3 l 0,0.2 c 5.9,0.4 10.4,3.7 10.4,8.8 0,5.5 -5,9.1 -11.6,9.1 l -28.2,0 0,37 26.7,0 c 10,0 18.2,-8.1 18.2,-18.2 l 0,-90.9 -26.6,0 z"
+                class="st2" /><linearGradient
+                gradientTransform="matrix(1.125,0,0,1.125,-11.9755,-13.8615)"
+                y2="68.399101"
+                x2="157.33051"
+                y1="68.399101"
+                x1="117.3846"
+                gradientUnits="userSpaceOnUse"
+                id="SVGID_3_"><stop
+             id="stop6352"
+             style="stop-color:#007940"
+             offset="0" /><stop
+                id="stop6354"
+                style="stop-color:#00873F"
+                offset="0.2285" /><stop
+                id="stop6356"
+                style="stop-color:#40A737"
+                offset="0.7433" /><stop
+                id="stop6358"
+                style="stop-color:#5CB531"
+                offset="1" /></linearGradient><path
+                style="fill:url(#SVGID_3_)"
+                id="path6360"
+                d="m 143.2,63.1 c 0,-2.4 -1.7,-4 -3.7,-4.3 -0.2,0 -0.7,-0.1 -1,-0.1 l -9.5,0 0,8.8 9.5,0 c 0.3,0 0.9,0 1,-0.1 2,-0.3 3.7,-1.9 3.7,-4.3 z"
+                class="st3" /></g><linearGradient
+                gradientTransform="matrix(1.125,0,0,1.125,-11.9755,-13.8615)"
+                y2="75.171402"
+                x2="68.522102"
+                y1="75.171402"
+                x1="27.9594"
+                gradientUnits="userSpaceOnUse"
+                id="SVGID_4_"><stop
+           id="stop6363"
+           style="stop-color:#1F286F"
+           offset="0" /><stop
+                id="stop6365"
+                style="stop-color:#004E94"
+                offset="0.4751" /><stop
+                id="stop6367"
+                style="stop-color:#0066B1"
+                offset="0.8261" /><stop
+                id="stop6369"
+                style="stop-color:#006FBC"
+                offset="1" /></linearGradient><path
+                style="fill:url(#SVGID_4_)"
+                id="path6371"
+                d="m 37.7,16.2 c -10,0 -18.2,8.1 -18.2,18.2 l 0,44.9 c 5.1,2.5 10.4,4.1 15.7,4.1 6.3,0 9.7,-3.8 9.7,-9 l 0,-21.2 15.6,0 0,21.1 c 0,8.2 -5.1,14.9 -22.4,14.9 -10.5,0 -18.7,-2.3 -18.7,-2.3 l 0,38.3 26.7,0 c 10,0 18.2,-8.1 18.2,-18.2 l 0,-90.8 -26.6,0 z"
+                class="st4" /><linearGradient
+                gradientTransform="matrix(1.125,0,0,1.125,-11.9755,-13.8615)"
+                y2="75.171402"
+                x2="111.8553"
+                y1="75.171402"
+                x1="72.459503"
+                gradientUnits="userSpaceOnUse"
+                id="SVGID_5_"><stop
+           id="stop6374"
+           style="stop-color:#6C2C2F"
+           offset="0" /><stop
+                id="stop6376"
+                style="stop-color:#882730"
+                offset="0.1735" /><stop
+                id="stop6378"
+                style="stop-color:#BE1833"
+                offset="0.5731" /><stop
+                id="stop6380"
+                style="stop-color:#DC0436"
+                offset="0.8585" /><stop
+                id="stop6382"
+                style="stop-color:#E60039"
+                offset="1" /></linearGradient><path
+                style="fill:url(#SVGID_5_)"
+                id="path6384"
+                d="m 88,16.2 c -10,0 -18.2,8.1 -18.2,18.2 l 0,23.8 c 4.6,-3.9 12.6,-6.4 25.5,-5.8 6.9,0.3 14.3,2.2 14.3,2.2 l 0,7.7 c -3.7,-1.9 -8.1,-3.6 -13.8,-4 -9.8,-0.7 -15.7,4.1 -15.7,12.5 0,8.5 5.9,13.3 15.7,12.5 5.7,-0.4 10.1,-2.2 13.8,-4 l 0,7.7 c 0,0 -7.3,1.9 -14.3,2.2 -12.9,0.6 -20.9,-1.9 -25.5,-5.8 l 0,42 26.7,0 c 10,0 18.2,-8.1 18.2,-18.2 l 0,-91 -26.7,0 z"
+                class="st5" /></g><g
+                id="g6386" /></g></svg>
             </div>
           </div>
           <div class="back">
@@ -42,8 +221,7 @@
               <div class="mt-n3">{{ ccv }}</div>
             </div>
             <div class="terms">
-              <p>This card is property of Monzo Bank, Wonderland. Misuse is criminal offence. If found, please return to Monzo Bank or to the nearest bank with MasterCard logo.</p>
-              <p>Use of this card is subject to the credit card agreement.</p>
+              <p>Lütfen kart bilgilerinizi Başka inslanlarla paylaşmayınız.</p>
             </div>
           </div>
         </div>
@@ -55,9 +233,13 @@
 <script type="js">
 
 export default {
-  props: ['name', 'number', 'exp', 'ccv'],
+  props: ['name', 'number', 'exp', 'ccv', 'company'],
   data() {
     return {
+      creditCard: '',
+      cardColor: {
+        'background-image': 'linear-gradient(to right, #111, #555)',
+      },
       turn: false
     }
   },
@@ -66,7 +248,77 @@ export default {
       setTimeout(()=>{
         this.turn = false
       }, 4000)
-    }
+    },
+    checkCardType() {
+
+      // Visa
+      let re = new RegExp("^4")
+      if (this.number.match(re) != null) {
+        console.log('visa')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #0070ba, #0584dc)'
+        this.creditCard = 'visa'
+        return
+      }
+
+      // Mastercard
+      // Updated for Mastercard 2017 BINs expansion
+      re = new RegExp("^(5$|5[1-5])")
+      if (this.number.match(re) != null) {
+        console.log('mastercard')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #111, #555)'
+        this.creditCard = 'mastercard'
+        return
+      }
+
+      // AMEX
+      re = new RegExp("^3[47]")
+      if (this.number.match(re) != null) {
+        console.log('amex')
+        this.creditCard = 'amex'
+        this.cardColor["background-image"] = 'linear-gradient(to right, #C0C0C0, #d3d3d3)'
+        return
+      }
+
+      // Discover
+      re = new RegExp("^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)");
+      if (this.number.match(re) != null) {
+        console.log('discover')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #7BC5DE, #8cdcf7)'
+        this.creditCard = 'discover'
+        return
+      }
+
+      // Diners
+      re = new RegExp("^36")
+      if (this.number.match(re) != null) {
+        console.log('diners')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #111, #555)'
+        this.creditCard = 'diners'
+        return
+      }
+
+      // JCB
+      re = new RegExp("^35(2[89]|[3-8][0-9])")
+      if (this.number.match(re) != null) {
+        console.log('jcb')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #d4af37, #e8bd3c)'
+        this.creditCard = 'jcb'
+        return
+      }
+
+      // Visa Electron
+      re = new RegExp("^(4026|417500|4508|4844|491(3|7))")
+      if (this.number.match(re) != null) {
+        console.log('electron')
+        this.cardColor["background-image"] = 'linear-gradient(to right, #0070ba, #0584dc)'
+        this.creditCard = 'visa'
+        return
+      }
+
+        this.cardColor["background-image"] = 'linear-gradient(to right, #111, #555)'
+        this.creditCard = ''
+      return
+    },
   },
   watch: {
     ccv: function () {
@@ -78,6 +330,9 @@ export default {
           this.turn = true
         }
       }
+    },
+    number: function() {
+      this.checkCardType()
     }
   }
 }
@@ -124,20 +379,20 @@ export default {
   box-shadow: 0 1px 10px 1px rgba(0,0,0,0.3);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-image: linear-gradient(to right, #111, #555);
+  /*background-image: linear-gradient(to right, #111, #555);*/
   overflow: hidden;
 }
 .front {
   transform: translateZ(0);
 }
-.strip-bottom,
-.strip-top {
-  position: absolute;
-  right: 0;
-  height: inherit;
-  background-image: linear-gradient(to bottom, #ff6767, #ff4545);
-  box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
-}
+/*.strip-bottom,*/
+/*.strip-top {*/
+/*  position: absolute;*/
+/*  right: 0;*/
+/*  height: inherit;*/
+/*  background-image: linear-gradient(to bottom, #ff6767, #ff4545);*/
+/*  box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);*/
+/*}*/
 .strip-bottom {
   width: 200px;
   transform: skewX(-15deg) translateX(50px);
@@ -226,23 +481,11 @@ export default {
   text-transform: uppercase;
   font-family: 'cc font', monospace;
 }
-.master {
+.card-logo {
   position: absolute;
   right: 20px;
   bottom: 20px;
   display: flex;
-}
-.master .circle {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-}
-.master .master-red {
-  background-color: #eb001b;
-}
-.master .master-yellow {
-  margin-left: -10px;
-  background-color: rgba(255,209,0,0.7);
 }
 .credit-card {
   perspective: 1000;
