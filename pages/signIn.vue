@@ -22,7 +22,7 @@
                     id="i-email"
                     v-model="companyDetails.email"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="ahmet@mail.com"
+                    placeholder="E-posta adresiniz"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -43,7 +43,7 @@
                     type="password"
                     v-model="companyDetails.password"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="******"
+                    placeholder="Hesap şifreniz"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>

@@ -22,7 +22,7 @@
                     id="i-company"
                     v-model="companyDetails.name"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="FurtherSoft"
+                    placeholder="Şirket Adınız"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -42,7 +42,7 @@
                     id="i-personnel"
                     v-model="companyDetails.personnelName"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="Ahmet Soruc"
+                    placeholder="Yetkili Personel Adı"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -62,7 +62,7 @@
                     id="i-email"
                     v-model="companyDetails.email"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="ahmet@mail.com"
+                    placeholder="E-posta adresiniz"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -83,7 +83,7 @@
                     type="password"
                     v-model="companyDetails.password"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="******"
+                    placeholder="Hesap Şifresi giriniz"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -106,7 +106,7 @@
           <!--                    placeholder="533 833 33 33"-->
           <!--                  />-->
 
-                  <VuePhoneNumberInput class="fucking-selector" default-country-code="TR" id="i-phone" @update="phoneDetails = $event" size="sm" v-model= "companyDetails.phone" />
+                  <VuePhoneNumberInput default-country-code="TR" :translations="translations" id="i-phone" @update="phoneDetails = $event" size="sm" v-model= "companyDetails.phone" />
 
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -126,7 +126,7 @@
                     id="i-taxid"
                     v-model="companyDetails.taxID"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="1234"
+                    placeholder="Tax ID Numaranız"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>
@@ -165,7 +165,7 @@
                   id="i-company"
                   v-model="OTPCode"
                   :state="errors.length > 0 ? false:null"
-                  placeholder="123456"
+                  placeholder="OTP numaranız"
                 />
                 <small class="text-danger">{{ errors[0] }}</small>
               </validation-provider>
@@ -235,6 +235,12 @@ export default {
   },
   data() {
     return {
+      translations: {
+        countrySelectorLabel: 'Ülke Kodu',
+        countrySelectorError: 'Ülke Seçiniz',
+        phoneNumberLabel: 'Numaranız',
+        example: 'Örnek :'
+      },
       phoneDetails: null,
       companyDetails: {
         name:'',
