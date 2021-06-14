@@ -83,8 +83,7 @@
             </div>
             <div class="mobile-menu mobile-menu-3"></div>
             <div class="sidebar__info mt-350">
-              <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">Giriş Yap</a>
-              <a href="#" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
+              <a href="/signUp" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
             </div>
           </div>
         </div>
@@ -116,7 +115,7 @@
             <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-6">
               <div class="hero__content-3 mb-100 pl-70">
                 <h3 class="hero__title-3 wow fadeInUp" data-wow-delay=".3s">Kuzey Kıbrıs AdaPass</h3>
-                <p class="wow fadeInUp" data-wow-delay=".5s">AdaPass uygulamasıyla mekanlara veya ülkeye giriş çıkışlarınızı daha güvenli hale getirin.</p>
+                <p class="wow fadeInUp" data-wow-delay=".5s">AdaPass uygulamasıyla mekanlara ve ülkeye giriş çıkışlarınızı daha güvenli hale getirin.</p>
                 <div class="hero__app wow fadeInUp " data-wow-delay=".7s">
                   <ul>
                     <li>
@@ -162,13 +161,13 @@
               <div class="about__wrapper mb-10">
                 <div class="section__title-wrapper mb-25">
                   <h2 class="section__title">Ülkeye Giriş İzni Alma</h2>
-                  <p>Giriş İzni Alabilmek için bu adımları tamamlamanız gerekiyor.</p>
+                  <p>Giriş izni alabilmek için bu adımları tamamlamanız gerekiyor.</p>
                 </div>
                 <ul>
                   <li> <p style="font-weight: bold;">PCR Testi</p> Ülkenizde yaptığınız PCR testini yükleyin</li>
                   <li> <p style="font-weight:bold;"> Aşı Belgesi </p> Sahip olduğunuz aşı belgesini yükleyin</li>
                   <li> <p style="font-weight:bold;"> Uçuş Bileti</p> Satın aldığınız uçuşun PNR kodunu girin</li>
-                  <li> <p style="font-weight:bold;">Çocuk Ekleyin (Eğer Varsa)</p> Yaşı 12’den küçük çocuklarınızı ekleyiniz. 12 yaşından büyük çocuklarınız için hesap oluşturmanız gerekiyor.</li>
+                  <li> <p style="font-weight:bold;">Çocuk Ekleyin (Eğer Varsa)</p> Yaşı 12’den küçük çocuklarınızı ekleyebilirsiniz. 12 yaşından büyük çocuklarınız için hesap oluşturmanız gerekiyor.</li>
                 </ul>
               </div>
             </div>
@@ -205,7 +204,7 @@
               <div class="about__wrapper about__wrapper-2 ml-60 mb-30">
                 <div class="section__title-wrapper mb-25">
                   <h2 class="section__title">QR Kodla Giriş</h2>
-                  <p>Mekan girişlerin de artık sizi kağıt, kalemle bekleyen kişiler olmayacak. İşlemlerinizi tamamladığınız zaman mekanlara girişiniz çok daha kolay ve zaman kaybı olmadan giriş yapabileceksiniz. Tek yapmanız gereken AdaPass uygulamasını açıp giriş yapacağınız mekandaki QR kodu okutmak. </p>
+                  <p>İşlemlerinizi tamamladığınız zaman mekanlara girişiniz çok daha kolay hale gelecek. Tek yapmanız gereken AdaPass uygulamasını açıp giriş yapacağınız mekandaki QR kodu okutmak. </p>
                 </div>
               </div>
             </div>
@@ -256,14 +255,14 @@
               <div class="promotion__content wow fadeInUp" data-wow-delay=".3s">
                 <h3 class="promotion__title">KKTC Vatandaşı</h3>
                 <p>Kuzey Kıbrısta yaşayan veya ikamet eden her bireyin mobil uygulama ile QR kodu okutarak işletmelere rahatça girip çıkabilirsiniz.</p>
-                <a href="about.html" class="w-btn w-btn-8">Hemen Sahip Ol</a>
+                <a href="about.html" class="w-btn w-btn-8">Hemen İndirin</a>
               </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <div class="promotion__content pl-70 promotion__right wow fadeInUp" data-wow-delay=".5s">
                 <h3 class="promotion__title">KKTC Yolcusu</h3>
-                <p>Kuzey Kıbrıs'a giriş yapabilmek için uygulamayı indirin ve kayıt formunu tamamlayın ve ülkeye giriş için onay alın</p>
-                <a href="about.html" class="w-btn w-btn-8">hemen Sahip Ol</a>
+                <p>Kuzey Kıbrıs'a giriş yapabilmek için uygulamayı indirin, kayıt formunu tamamlayın ve ülkeye giriş için onay alın</p>
+                <a href="about.html" class="w-btn w-btn-8">Hemen İndirin</a>
               </div>
             </div>
           </div>
@@ -325,7 +324,7 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>Evet alınması gerekiyor, Her işletme için QR kodu almanız gerekiyor çünkü her işletmenin konumu farklı alanlarda bulunuyor ve doğru analiz gerçekleştirebilmemiz için her işletmenin QR kodu olması gerekiyor.</p>
+                        <p>Evet alınması gerekiyor. Çünkü her işletmenin konumu farklı alanlarda bulunuyor ve doğru analiz gerçekleştirebilmemiz için her işletmenin QR kodu olması gerekiyor.</p>
                       </div>
                     </div>
                   </div>
@@ -337,7 +336,7 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p> Tüm işletmeler (İşletmesin de müşteri hizmeti veren tüm işletmeler) QR kod almalıdır.</p>
+                        <p> Tüm işletmeler (işletmesinde müşteri hizmeti veren tüm işletmeler) QR kod almalıdır.</p>
                       </div>
                     </div>
                   </div>
@@ -349,7 +348,7 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod. Aynı zaman da polis kontrolünden geçerken de AdaPass kodunuzu okutarak hızlı ve güvenli bir şekilde geçebileceksiniz.</p>
+                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod. Aynı zamanda polis kontrolünden geçerken de AdaPass kodunuzu okutarak hızlı ve güvenli bir şekilde geçebileceksiniz.</p>
                       </div>
                     </div>
                   </div>
