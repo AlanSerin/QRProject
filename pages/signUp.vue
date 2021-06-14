@@ -83,7 +83,7 @@
                     type="password"
                     v-model="companyDetails.password"
                     :state="errors.length > 0 ? false:null"
-                    placeholder="Hesap Şifresi giriniz"
+                    placeholder="Hesap Şifresi"
                   />
                   <small class="text-danger">{{ errors[0] }}</small>
                 </validation-provider>

@@ -101,7 +101,7 @@
                       <b-col md="6">
                         <b-form-group label="Isim" label-for="i-name">
                           <validation-provider #default="{ errors }" name="İsim" rules="required">
-                            <b-form-input id="i-name" v-model="cardDetails.name" :state="errors.length > 0 ? false:null" placeholder="Ahmet" />
+                            <b-form-input id="i-name" v-model="cardDetails.name" :state="errors.length > 0 ? false:null" placeholder="İsim" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -109,7 +109,7 @@
                       <b-col md="6">
                         <b-form-group label="Soyisim" label-for="i-surname">
                           <validation-provider #default="{ errors }" name="Soyisim" rules="required">
-                            <b-form-input id="i-surname" v-model="cardDetails.surname" :state="errors.length > 0 ? false:null" placeholder="Soruc" />
+                            <b-form-input id="i-surname" v-model="cardDetails.surname" :state="errors.length > 0 ? false:null" placeholder="Soyisim" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -117,7 +117,7 @@
                       <b-col md="6">
                         <b-form-group label="Kart Numarasi" label-for="i-card">
                           <validation-provider #default="{ errors }" name="Kart Numarası" rules="required|credit-card">
-                            <b-form-input id="i-card" v-model="cardDetails.cardNumber" :formatter="cardFormatter" :state="errors.length > 0 ? false:null" placeholder="4716800255496291" />
+                            <b-form-input id="i-card" v-model="cardDetails.cardNumber" :formatter="cardFormatter" :state="errors.length > 0 ? false:null" placeholder="Ör: 4716800255496291" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -125,7 +125,7 @@
                       <b-col md="6">
                         <b-form-group label="Son Kullanma Tarihi" label-for="i-expiration">
                           <validation-provider #default="{ errors }" name="Son Kullanma Tarihi" rules="required">
-                            <b-form-input id="i-expiration" v-model="cardDetails.expiration" type="text" :formatter="dateFormatter" :state="errors.length > 0 ? false:null" placeholder="03/24" />
+                            <b-form-input id="i-expiration" v-model="cardDetails.expiration" type="text" :formatter="dateFormatter" :state="errors.length > 0 ? false:null" placeholder="Ör: 03/24" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -133,7 +133,7 @@
                       <b-col md="6">
                         <b-form-group label="CCV Kodu" label-for="i-cvv">
                           <validation-provider #default="{ errors }" name="CCV Kodu" rules="required|min:3">
-                            <b-form-input id="i-cvv" v-model="cardDetails.cvv" :formatter="cvvFormatter" :state="errors.length > 0 ? false:null" placeholder="212" />
+                            <b-form-input id="i-cvv" v-model="cardDetails.cvv" :formatter="cvvFormatter" :state="errors.length > 0 ? false:null" placeholder="Ör: 275" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -333,6 +333,25 @@ export default {
       },
       loadingWizard:false,
       PosSonuc:''
+    }
+  },
+  watch: {
+    chainDetails: {
+      deep: true,
+
+      handler() {
+        if(this.chainDetails.latitude && this.chainDetails.longitude) {
+          setTimeout(() => {
+            this.markers.pop()
+            this.markers = [{
+              position: {
+                lat: parseInt(this.chainDetails.latitude),
+                lng: parseInt(this.chainDetails.longitude)
+              },
+            }, ]
+          }, 1500)
+        }
+      },
     }
   },
   methods: {
