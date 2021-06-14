@@ -55,8 +55,6 @@ export default {
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
     {src: "~/plugins/vue-form-wizard.js"},
-    // { src: '~/plugins/googleMaps.js', ssr: true },
-    // { src: '~/plugins/useGeolocation.js', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

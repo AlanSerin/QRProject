@@ -214,7 +214,7 @@
                 id="g6386" /></g></svg>
             </div>
           </div>
-          <div class="back">
+          <div v-bind:style="cardColor" class="back">
             <div class="strip-black"></div>
             <div class="ccv">
               <label>ccv</label>
@@ -233,7 +233,7 @@
 <script type="js">
 
 export default {
-  props: ['name', 'number', 'exp', 'ccv', 'company'],
+  props: ['name', 'number', 'exp', 'ccv', 'company','onfocus'],
   data() {
     return {
       creditCard: '',
@@ -244,11 +244,6 @@ export default {
     }
   },
   methods: {
-    checkTurn: function () {
-      setTimeout(()=>{
-        this.turn = false
-      }, 4000)
-    },
     checkCardType() {
 
       // Visa
@@ -321,15 +316,8 @@ export default {
     },
   },
   watch: {
-    ccv: function () {
-      if(this.ccv) {
-        if(this.ccv.length > 2) {
-          this.turn = true
-          this.checkTurn();
-        } else {
-          this.turn = true
-        }
-      }
+    onfocus: function () {
+      this.turn = this.onfocus
     },
     number: function() {
       this.checkCardType()
@@ -341,6 +329,10 @@ export default {
 </script>
 
 <style scoped>
+
+p {
+  color: white;
+}
 
 .right .strip-top {
   width: calc(50vw + 90px);
@@ -379,20 +371,11 @@ export default {
   box-shadow: 0 1px 10px 1px rgba(0,0,0,0.3);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /*background-image: linear-gradient(to right, #111, #555);*/
   overflow: hidden;
 }
 .front {
   transform: translateZ(0);
 }
-/*.strip-bottom,*/
-/*.strip-top {*/
-/*  position: absolute;*/
-/*  right: 0;*/
-/*  height: inherit;*/
-/*  background-image: linear-gradient(to bottom, #ff6767, #ff4545);*/
-/*  box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);*/
-/*}*/
 .strip-bottom {
   width: 200px;
   transform: skewX(-15deg) translateX(50px);
@@ -400,11 +383,6 @@ export default {
 .strip-top {
   width: 180px;
   transform: skewX(20deg) translateX(50px);
-}
-.logo {
-  position: absolute;
-  top: 30px;
-  right: 25px;
 }
 .investor {
   position: relative;
@@ -474,7 +452,7 @@ export default {
 }
 .end .end-text {
   font-size: 9px;
-  color: rgba(255,255,255,0.8);
+  color: rgb(255, 255, 255);
 }
 .card-holder {
   margin: 10px 25px;
@@ -498,7 +476,6 @@ export default {
 }
 .back {
   transform: rotateY(180deg) translateZ(0);
-  background: #9e9e9e;
 }
 .back .strip-black {
   position: absolute;
@@ -536,6 +513,7 @@ export default {
   padding: 20px;
   font-size: 10px;
   text-align: justify;
+  color: white;
 }
 @font-face {
   font-family: 'cc font';

@@ -133,7 +133,7 @@
                       <b-col md="6">
                         <b-form-group label="CCV Kodu" label-for="i-cvv">
                           <validation-provider #default="{ errors }" name="CCV Kodu" rules="required|min:3">
-                            <b-form-input id="i-cvv" v-model="cardDetails.cvv" :formatter="cvvFormatter" :state="errors.length > 0 ? false:null" placeholder="Ör: 275" />
+                            <b-form-input @blur="ccvFocused = false" @focus="ccvFocused = true" id="i-cvv" v-model="cardDetails.cvv" :formatter="cvvFormatter" :state="errors.length > 0 ? false:null" placeholder="Ör: 275" />
                             <small class="text-danger">{{ errors[0] }}</small>
                           </validation-provider>
                         </b-form-group>
@@ -142,7 +142,7 @@
                   </b-col>
                   <b-col class="d-none d-sm-block" order="1" order-xl="2" lg="12" xl="6">
                     <div class="mb-4 pb-4" style="height: 250px;">
-                      <LazyCreditCard :company="'FurtherSoft'" :name="cardDetails.name + ' ' +cardDetails.surname" :number="this.cardDetails.cardNumber" :exp="cardDetails.expiration" :ccv="cardDetails.cvv" />
+                      <LazyCreditCard :company="'FurtherSoft'" :name="cardDetails.name + ' ' +cardDetails.surname" :number="this.cardDetails.cardNumber" :exp="cardDetails.expiration" :ccv="cardDetails.cvv" :onfocus ="ccvFocused"/>
                     </div>
                   </b-col>
 
@@ -279,6 +279,7 @@ export default {
 
   data() {
     return {
+      ccvFocused: false,
       translations: {
         countrySelectorLabel: 'Ülke Kodu',
         countrySelectorError: 'Ülke Seçiniz',
