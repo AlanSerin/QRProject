@@ -11,14 +11,20 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'
+      }
     ],
     script: [
-      { type: 'text/javascript', src: 'js/popper.min.js', body: true },
+      // { type: 'text/javascript', src: 'js/popper.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/jquery-3.5.1.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/waypoints.min.js', body: true },
       { type: 'text/javascript', src: 'js/bootstrap.bundle.min.js', body: true },
-      { type: 'text/javascript', src: 'js/bootstrap.min.js', body: true },
+      // { type: 'text/javascript', src: 'js/bootstrap.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.meanmenu.js', body: true },
       { type: 'text/javascript', src: 'js/owl.carousel.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.fancybox.min.js', body: true },
@@ -30,6 +36,10 @@ export default {
       { type: 'text/javascript', src: 'js/wow.min.js', body: true },
       { type: 'text/javascript', src: 'js/imagesloaded.pkgd.min.js', body: true },
       { type: 'text/javascript', src: 'js/main.js', body: true },
+
+      { src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js', body:true},
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', body:true },
+      { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', body:true }
     ],
   },
 
