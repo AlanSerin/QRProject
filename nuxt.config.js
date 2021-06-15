@@ -14,9 +14,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
+      { type: 'text/javascript', src: 'js/popper.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/jquery-3.5.1.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/waypoints.min.js', body: true },
       { type: 'text/javascript', src: 'js/bootstrap.bundle.min.js', body: true },
+      { type: 'text/javascript', src: 'js/bootstrap.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.meanmenu.js', body: true },
       { type: 'text/javascript', src: 'js/owl.carousel.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.fancybox.min.js', body: true },
