@@ -420,7 +420,7 @@
                   <div class="row">
                      <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="footer__copyright-wrapper footer__copyright-wrapper-3 text-center">
-                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a></p>
+                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a> <a href="/privacy">Gizlilik Politikası</a></p>
                         </div>
                      </div>
                   </div>
