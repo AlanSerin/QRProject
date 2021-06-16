@@ -1,5 +1,6 @@
+const webpack = require("webpack");
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     title: 'AdaPass',
     htmlAttrs: {
@@ -11,20 +12,13 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-
-      {
-        rel: 'stylesheet',
-        type: 'text/css',
-        href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'
-      }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
       // { type: 'text/javascript', src: 'js/popper.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/jquery-3.5.1.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/waypoints.min.js', body: true },
       { type: 'text/javascript', src: 'js/bootstrap.bundle.min.js', body: true },
-      // { type: 'text/javascript', src: 'js/bootstrap.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.meanmenu.js', body: true },
       { type: 'text/javascript', src: 'js/owl.carousel.min.js', body: true },
       { type: 'text/javascript', src: 'js/jquery.fancybox.min.js', body: true },
@@ -35,15 +29,10 @@ export default {
       { type: 'text/javascript', src: 'js/ajax-form.js', body: true },
       { type: 'text/javascript', src: 'js/wow.min.js', body: true },
       { type: 'text/javascript', src: 'js/imagesloaded.pkgd.min.js', body: true },
-      { type: 'text/javascript', src: 'js/main.js', body: true },
-
-      { src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js', body:true},
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', body:true },
-      { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', body:true }
+      { type: 'text/javascript', src: 'js/main.js', body: true }
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/bootstrap.min.css',
     '@/assets/css/meanmenu.css',
@@ -58,7 +47,6 @@ export default {
     '@/assets/css/vue-form-wizard.min.css'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: "~/plugins/lodash.js"},
     {src: '~/plugins/vee-validate.js', ssr: true },
@@ -69,10 +57,8 @@ export default {
     {src: "~/plugins/vue-form-wizard.js"},
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/fontawesome'
   ],
@@ -84,28 +70,25 @@ export default {
     }
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    // ['nuxt-gmaps', {
-    //   key: 'AIzaSyBshazo-Nrs6_vKy0Ksn-b7FFXRsXHjhRY',
-    //   //you can use libraries: ['places']
-    // }],
   ],
   server: {
       port: 5000 // default: 3000
   },
 
   axios: {
-    baseURL:"https://api.adapas.org/selfCompany"
-    // proxy: true
+    baseURL:"https://api.adapass.org/selfCompany"
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['vee-validate'],
-    vendor: ["vue2-google-maps"]
+    vendor: ["vue2-google-maps","jquery"],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery"
+      })
+    ]
   }
 }

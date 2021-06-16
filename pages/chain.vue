@@ -104,7 +104,7 @@
 
               <template v-if="loadingWizard == false">
               <validation-observer ref="cardDetails" tag="form">
-                <form ref="OdemeForm" :action="resp.URL" method="post">
+
 
                 <b-row class="mb-4">
                   <b-col order="2" order-md="1" md="6">
@@ -151,29 +151,13 @@
                     </div>
                   </b-col>
                 </b-row>
-                <input type="hidden" name="Hash" :value="resp.Hash" />
-                <input type="hidden" name="UserIp" :value="resp.IP" />
-                <input type="hidden" name="UrlOk" :value="resp.UrlOK" />
-                <input type="hidden" name="UrlFail" :value="resp.UrlFail" />
-                <input type="hidden" name="Installment" :value="resp.Installment" />
-                <input type="hidden" name="Currency" :value="resp.Currency" />
-                <input type="hidden" name="OrderId" :value="resp.OdemeID" />
-                <input type="hidden" name="MerchantId" :value="resp.MerchantId" />
-                <input type="hidden" name="Amount" :value="resp.Tutar" />
-                <input type="hidden" name="UserEmail" :value="resp.Mail" />
-                <input type="hidden" name="UserName" :value="cardDetails.name" />
-                <input type="hidden" name="CardName" :value="cardDetails.name" />
-                <input type="hidden" name="CardExpireMonth" :value="cardDetails.expiration.split('/')[0] || 0" />
-                <input type="hidden" name="CardExpireYear" :value="cardDetails.expiration.split('/')[1] || 0" />
-
-                <input type="hidden" name="CardNo" :value="cardDetails.cardNumber.match(/\d+/g).join('')" />
-                <input type="hidden" name="Expiration" :value="cardDetails.cvv.match(/\d+/g).join('')" />
 
 
 
 
 
-              </form>
+
+
               </validation-observer>
               </template>
             </div>
@@ -396,7 +380,29 @@ export default {
       })
     },
     odemeYap(){
-      this.$refs.OdemeForm.submit();
+      let creditCard = this.cardDetails.cardNumber.match(/\d+/g).join('');
+      let Cvv = this.cardDetails.cvv.match(/\d+/g).join('');
+      let sonKullanim = this.cardDetails.expiration.split('/');
+      $('body').append(`<form action="${this.resp.URL}" method="post" id="OdemeForm"></form>`);
+
+      $('#OdemeForm') .append(`<input type="hidden" name="Hash" value="${this.resp.Hash}" />`)
+                      .append(`<input type="hidden" name="UserIp" value="${this.resp.IP}" />`)
+                      .append(`<input type="hidden" name="UrlOk" value="${this.resp.UrlOK}" />`)
+                      .append(`<input type="hidden" name="UrlFail" value="${this.resp.UrlFail}" />`)
+                      .append(`<input type="hidden" name="Installment" value="${this.resp.Installment}" />`)
+                      .append(`<input type="hidden" name="Currency" value="${this.resp.Currency}" />`)
+                      .append(`<input type="hidden" name="OrderId" value="${this.resp.OdemeID}" />`)
+                      .append(`<input type="hidden" name="MerchantId" value="${this.resp.MerchantId}" />`)
+                      .append(`<input type="hidden" name="Amount" value="${this.resp.Tutar}" />`)
+                      .append(`<input type="hidden" name="UserEmail" value="${this.resp.Mail}" />`)
+                      .append(`<input type="hidden" name="UserName" value="${this.cardDetails.name}" />`)
+                      .append(`<input type="hidden" name="CardName" value="${this.cardDetails.name}" />`)
+                      .append(`<input type="hidden" name="CardExpireMonth" value="${sonKullanim[0]}" />`)
+                      .append(`<input type="hidden" name="CardExpireYear" value="${sonKullanim[1]}" />`)
+                      .append(`<input type="hidden" name="CardNo" value="${creditCard}" />`)
+                      .append(`<input type="hidden" name="CardCvv" value="${Cvv}" />`)
+        $('#OdemeForm').submit();
+
     },
     resetModal(){
       this.$axios.$get('/').then((res) => {
@@ -453,6 +459,7 @@ export default {
     },
   },
   mounted() {
+    $('body').attr('test','11544')
     if (this.$route.query.Odeme == 'OK') {
       console.log('OK','Odeme Tamamlandi.');
     }

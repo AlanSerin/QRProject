@@ -21,6 +21,7 @@
     "feather-icons": "^4.28.0",
     "nuxt": "^2.15.3",
     "nuxt-gmaps": "^1.2.10",
+    "popper.js": "^1.16.1",
     "qrcode": "^1.4.4",
     "vee-validate": "^3.4.8",
     "vue-form-wizard": "^0.8.4",
