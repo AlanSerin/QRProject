@@ -15,7 +15,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      // { type: 'text/javascript', src: 'js/popper.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/jquery-3.5.1.min.js', body: true },
       { type: 'text/javascript', src: 'js/vendor/waypoints.min.js', body: true },
       { type: 'text/javascript', src: 'js/bootstrap.bundle.min.js', body: true },
@@ -90,5 +89,5 @@ export default {
         $: "jquery"
       })
     ]
-  }
+  },
 }

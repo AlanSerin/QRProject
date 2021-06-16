@@ -459,7 +459,7 @@ export default {
     },
   },
   mounted() {
-    $('body').attr('test','11544')
+
     if (this.$route.query.Odeme == 'OK') {
       console.log('OK','Odeme Tamamlandi.');
     }
