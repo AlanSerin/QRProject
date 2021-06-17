@@ -96,7 +96,7 @@
               </ul>
             </b-nav>
             <div class="mobile-menu mobile-menu-3"></div>
-            <div class="sidebar__info mt-350">
+            <div class="sidebar__info mt-4">
               <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">Giriş Yap</a>
               <a href="#" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
             </div>
