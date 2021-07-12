@@ -1514,6 +1514,10 @@ p {
   color: #7127ea;
 }
 
+.selectpicker {
+  border: none;
+}
+
 @keyframes phoneShake {
   0%,
   100% {

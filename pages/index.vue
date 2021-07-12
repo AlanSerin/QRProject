@@ -49,6 +49,12 @@
                       <a href="/signUp" class="w-btn w-btn-purple w-btn-7">Kayıt Ol</a>
                     </div>
                   </div>
+                  <div class="header__action ml-35 text-end d-flex align-items-center justify-content-end">
+                    <select class="selectpicker" data-width="fit">
+                            <option data-content='<span class="flag-icon flag-icon-us"></span> tr'>TR</option>
+                            <option  data-content='<span class="flag-icon flag-icon-mx"></span> eng'>ENG</option>
+                            </select>
+                  </div>
                 </div>
               </div>
               <div class="col-6 d-lg-none">
@@ -86,6 +92,12 @@
               <a href="/signUp" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
             </div>
           </div>
+          <div class="header__action mt-100">
+                    <select class="selectpicker" data-width="fit">
+                            <option data-content='<span class="flag-icon flag-icon-us"></span>'>TR</option>
+                            <option  data-content='<span class="flag-icon flag-icon-mx"></span>'>ENG</option>
+                            </select>
+                  </div>
         </div>
       </div>
       <!-- sidebar area end -->
@@ -119,7 +131,7 @@
                 <div class="hero__app wow fadeInUp " data-wow-delay=".7s">
                   <ul>
                     <li>
-                      <a href="#" class="d-flex align-items-center">
+                      <a href="https://play.google.com/store/apps/details?id=io.adapass.starter" target="_blank" class="d-flex align-items-center">
                         <div class="hero__app-icon">
                           <i class="fab fa-google-play"></i>
                         </div>
