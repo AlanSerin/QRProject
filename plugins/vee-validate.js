@@ -1,4 +1,5 @@
 import { extend, localize } from "vee-validate";
+import tr from 'vee-validate/dist/locale/tr';
 // import { required, email, min } from "vee-validate/dist/rules";
 import {
   required as rule_required,
@@ -40,7 +41,7 @@ export const validatorPhone = phonenum => {
 
 export const credit = extend('credit-card', {
   validate: validatorCreditCard,
-  message: 'It is not valid credit card!',
+  message: 'Kart numarası geçersiz',
 })
 
 export const password = extend('password', {
@@ -50,7 +51,7 @@ export const password = extend('password', {
 
 export const phone = extend('phone', {
   validate: validatorPhone,
-  message: 'Phone number is not valid',
+  message: 'Telefon numarası geçersiz',
 })
 
 export const required = extend('required', rule_required)
@@ -82,6 +83,11 @@ export const length = extend('length', rule_length)
 //       required: () => '* Required',
 //     },
 //   },
+//   tr: {
+//     messages: {
+//       required: () => '* doldurmaniz gereklidir',
+//     }
+//   }
 // };
 //
 // // Install required rule.
@@ -93,5 +99,5 @@ export const length = extend('length', rule_length)
 // // Install min rule.
 // extend("min", min);
 //
-// localize(dictionary);
+localize('tr',tr);
 

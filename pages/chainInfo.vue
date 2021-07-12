@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      chainID: this.$route.params.chain.toString(),
+      chainID:''
     }
   },
   methods: {
@@ -61,6 +61,9 @@ export default {
       this.$router.push({name: 'chainDetails', params: {chain: this.chainID}})
     }
   },
+  mounted() {
+    this.chainID = this.$route.params.chain;
+  }
 }
 </script>
 

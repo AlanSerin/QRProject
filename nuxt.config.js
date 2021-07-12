@@ -1,5 +1,6 @@
+const webpack = require("webpack");
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     title: 'AdaPass',
     htmlAttrs: {
@@ -27,11 +28,10 @@ export default {
       { type: 'text/javascript', src: 'js/ajax-form.js', body: true },
       { type: 'text/javascript', src: 'js/wow.min.js', body: true },
       { type: 'text/javascript', src: 'js/imagesloaded.pkgd.min.js', body: true },
-      { type: 'text/javascript', src: 'js/main.js', body: true },
+      { type: 'text/javascript', src: 'js/main.js', body: true }
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/bootstrap.min.css',
     '@/assets/css/meanmenu.css',
@@ -46,22 +46,18 @@ export default {
     '@/assets/css/vue-form-wizard.min.css'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vee-validate.js', ssr: true },
-    { src: '~/plugins/qrcode.js', ssr: true },
-    { src: '~/plugins/qr.js', ssr: true },
+    {src: "~/plugins/lodash.js"},
+    {src: '~/plugins/vee-validate.js', ssr: true },
+    {src: '~/plugins/qrcode.js', ssr: true },
+    {src: '~/plugins/qr.js', ssr: true },
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
     {src: "~/plugins/vue-form-wizard.js"},
-    // { src: '~/plugins/googleMaps.js', ssr: true },
-    // { src: '~/plugins/useGeolocation.js', ssr: true },
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/fontawesome'
   ],
@@ -73,25 +69,25 @@ export default {
     }
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    // ['nuxt-gmaps', {
-    //   key: 'AIzaSyBshazo-Nrs6_vKy0Ksn-b7FFXRsXHjhRY',
-    //   //you can use libraries: ['places']
-    // }],
   ],
-
-
-  axios: {
-    // proxy: true
+  server: {
+      port: 5000 // default: 3000
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  axios: {
+    baseURL:"https://api.adapass.org/selfCompany"
+  },
+
   build: {
     transpile: ['vee-validate'],
-    vendor: ["vue2-google-maps"]
-  }
+    vendor: ["vue2-google-maps","jquery"],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery"
+      })
+    ]
+  },
 }

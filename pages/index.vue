@@ -15,7 +15,7 @@
       </div>
       <!-- pre loader area end -->
 
-      <header>
+      <div>
         <div id="header-sticky" class="header__area header__shadow header__padding">
           <div class="container">
             <div class="row align-items-center">
@@ -29,7 +29,7 @@
               <div class="col-xxl-8 col-xl-10 col-lg-10 d-none d-lg-block">
                 <div class="header__right d-flex justify-content-end">
                   <div class="main-menu main-menu-3 pl-40">
-                    <nav id="mobile-menu">
+                    <b-nav>
                       <ul>
                         <li>
                           <a href="#home">Anasayfa</a>
@@ -42,7 +42,7 @@
                           <a href="#quest">Sorular</a>
                         </li>
                       </ul>
-                    </nav>
+                    </b-nav>
                   </div>
                   <div class="header__action ml-40 text-end d-flex align-items-center justify-content-end">
                     <div class="header__right-btn d-none d-md-flex d-xl-block">
@@ -69,7 +69,7 @@
             </div>
           </div>
         </div>
-      </header>
+      </div>
       <!-- header area end -->
 
       <!-- sidebar area start -->
@@ -87,9 +87,24 @@
                 <img src="~/assets/img/logo/logo.png" alt="logo">
               </a>
             </div>
+            <b-nav class="mean-nav">
+              <ul>
+                <li class="mb-3 fw-normal">
+                  <a href="#home">Anasayfa</a>
+                </li>
+                <li class="mb-3"><a href="#uygulama">Uygulama</a></li>
+                <li class="has-dropdownn mb-3">
+                  <a href="#register">İşletme Kaydı</a>
+                </li>
+                <li class="has-dropdownn mb-3">
+                  <a href="#quest">Sorular</a>
+                </li>
+              </ul>
+            </b-nav>
             <div class="mobile-menu mobile-menu-3"></div>
-            <div class="sidebar__info mt-350">
-              <a href="/signUp" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
+            <div class="sidebar__info mt-4">
+              <a href="#" class="w-btn w-btn-blue-2 w-btn-4 d-block mb-15 mt-15">Giriş Yap</a>
+              <a href="#" class="w-btn w-btn-blue d-block">Kayıt Ol</a>
             </div>
           </div>
           <div class="header__action mt-100">
@@ -407,7 +422,7 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -417,7 +432,7 @@
                   <div class="row">
                      <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="footer__copyright-wrapper footer__copyright-wrapper-3 text-center">
-                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a></p>
+                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a> <a href="/privacy">Gizlilik Politikası</a></p>
                         </div>
                      </div>
                   </div>
@@ -425,7 +440,7 @@
             </div>
          </div>
       </footer>
-      
+
     </div>
 
   </div>

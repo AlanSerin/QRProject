@@ -84,7 +84,7 @@
       </p>
 
       <h3 class="pt-5 pb-5">3. ÇEREZ KULLANIMI</h3>
-      <p> 
+      <p>
         Kuzey Kıbrıs Türk Cumhuriyeti Başbakanlığı yukarıda anılan kişisel verilerden bazılarını teknik bir iletişim dosyasını (Çerez-Cookie) kullanarak elde edebilir.
         Bahsi geçen teknik iletişim dosyaları, ana bellekte saklanmak üzere bir internet sitesinin kullanıcının tarayıcısına (browser) gönderdiği küçük metin dosyalarıdır.
         Teknik iletişim dosyası bir internet sitesi hakkında durum ve tercihleri saklayarak İnternet’in kullanımını kolaylaştırır.Teknik iletişim dosyası, internet sitesini
@@ -115,7 +115,7 @@
         <p> (0392) 227 52 81 </p>
         <h4 class="pt-3"> E-Posta </h4>
         <p class="pb-3"> info.basbakanlik@gov.ct.tr </p>
-      
+
     </div>
 
     <!-- footer area start -->
@@ -150,7 +150,7 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
                   <div class="row">
                      <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".3s">
                         <div class="footer__copyright-wrapper footer__copyright-wrapper-3 text-center">
-                           <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a></p>
+                          <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a> <a href="/privacy">Gizlilik Politikası</a></p>
                         </div>
                      </div>
                   </div>
