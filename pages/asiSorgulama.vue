@@ -110,10 +110,10 @@ export default {
       isMounted: false,
       tabIndex: 0,
       form: {
-        id_number: '3210292737',
-        name: 'Ekrem',
-        lastname: 'yurdakul',
-        birthday: '1995-05-23',
+        id_number: '',
+        name: '',
+        lastname: '',
+        birthday: '',
         vaccine_id: '',
       }
     }
