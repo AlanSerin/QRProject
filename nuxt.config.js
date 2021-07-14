@@ -8,7 +8,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
@@ -54,6 +54,7 @@ export default {
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
     {src: "~/plugins/vue-form-wizard.js"},
+    { src: '@/plugins/vue-html2pdf', mode: 'client' }
   ],
 
   components: true,
@@ -70,17 +71,25 @@ export default {
   },
 
   modules: [
-    'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/recaptcha',
   ],
   server: {
-      port: 5000 // default: 3000
+    host: "0.0.0.0",
+    port: 8080
   },
 
   axios: {
-    baseURL:"https://api.adapass.org/selfCompany"
+    /*baseURL:"https://api.adapass.org/selfCompany"*/
+    baseURL:"http://192.168.70.107:4000"
   },
-
+  recaptcha: {
+    /* reCAPTCHA options */
+    //priv key : 6LfX6Y4bAAAAALDaiRuuHbERuwNZIKJTx0DR2IQ4
+    siteKey: '6LfX6Y4bAAAAAAIrCTvYG8yKec4YLV_eN0km-DqC' ,// for example
+    version: 2,
+  },
   build: {
     transpile: ['vee-validate'],
     vendor: ["vue2-google-maps","jquery"],

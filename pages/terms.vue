@@ -1,60 +1,12 @@
 <template>
-<div>
-  <header>
-        <div id="header-sticky" class="header__area header__shadow header__padding">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-xxl-4 col-xl-2 col-lg-2 col-md-6 col-6">
-                <div class="logo">
-                  <a href="/">
-                    <img src="~/assets/img/logo/logo.png" alt="logo">
-                  </a>
-                </div>
-              </div>
-              <div class="col-xxl-8 col-xl-10 col-lg-10 d-none d-lg-block">
-                <div class="header__right d-flex justify-content-end">
-                  <div class="main-menu main-menu-3 pl-40">
-                    <nav id="mobile-menu">
-                      <ul>
-                        <li>
-                          <a href="/">Anasayfa</a>
-                        </li>
-                        <li><a href="/#uygulama">Uygulama</a></li>
-                        <li class="has-dropdownn">
-                          <a href="/#register">İşletme Kaydı</a>
-                        </li>
-                        <li class="has-dropdownn">
-                          <a href="/#quest">Sorular</a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <div class="header__action ml-40 text-end d-flex align-items-center justify-content-end">
-                    <div class="header__right-btn d-none d-md-flex d-xl-block">
-                      <a href="/signUp" class="w-btn w-btn-purple w-btn-7">Kayıt Ol</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 d-lg-none">
-                <div class="sidebar__menu d-flex justify-content-end d-lg-none">
-                  <div class="sidebar-toggle-btn sidebar-toggle-btn-2" id="sidebar-toggle">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- footer area start -->
-      <footer class="footer__area grey-bg-3 pt-100 pb-100 p-relative fix" style="background: #19947b;">
-        <div class="container text-center pt-5">
-      <h1 class="p-5" style="color: white;">Hüküm ve Koşullar</h1>
-    </div>
-      </footer>
+  <div>
+    <headerSec></headerSec>
+    <!-- footer area start -->
+    <footer class="footer__area grey-bg-3 pt-100 pb-100 p-relative fix" style="background: #19947b;">
+      <div class="container text-center pt-5">
+        <h1 class="p-5" style="color: white;">Hüküm ve Koşullar</h1>
+      </div>
+    </footer>
     <div class="container pt-50">
       <h3 class="pt-5 pb-5">Gizlilik Politikası</h3>
       <p>Kuzey Kıbrıs Türk Cumhuriyeti Başbakanlığı,internet sitesini ziyaret eden sizlerin paylaşmış olduğu bilgilerin gizliliğini sağlamayı ilke olarak kabul etmiştir.
@@ -117,64 +69,21 @@
         <p class="pb-3"> info.basbakanlik@gov.ct.tr </p>
 
     </div>
-
     <!-- footer area start -->
-      <footer class="footer__area grey-bg-3 pt-50 p-relative fix" style="background: #19947b;">
-        <div class="footer__top ">
-          <div class="container text-center align-item-center justify-content-center">
-            <div class="row justify-content-xxl-center">
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-title mb-25">
-                    <div class="footer__logo">
-                        <img src="~/assets/img/logo/logo.png" alt="logo">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-title mb-25">
-                    <div class="footer__logo">
-                        <img src="~/assets/img/logo/saglik.png" alt="logo">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".3s">
-                <div class="footer__widget mb-50">
-                  <div class="footer__widget-title mb-25">
-                    <div class="footer__logo">
-                        <img src="~/assets/img/logo/f.png" alt="logo">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="footer__bottom">
-            <div class="container">
-               <div class="footer__copyright footer__copyright-2">
-                  <div class="row">
-                     <div class="col-xxl-12 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="footer__copyright-wrapper footer__copyright-wrapper-3 text-center">
-                          <p>Copyright © 2021 AdaPass <a href="/terms">Hüküm ve Koşullar</a> <a href="/privacy">Gizlilik Politikası</a></p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-
-    </div>
+    <footerSec></footerSec>
+  </div>
 </template>
 
 <script>
-export default {
+import headerSec from "~/components/loyout/headerSec";
+import footerSec from "~/components/loyout/footerSec";
 
+export default {
+  name: 'terms',
+  components: {
+    headerSec,
+    footerSec
+  }
 }
 </script>
 
