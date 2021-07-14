@@ -186,7 +186,7 @@
               <div class="faq__content">
                 <div class="section__title-wrapper section__title-wrapper-2 mb-35 wow fadeInUp" data-wow-delay=".5s">
                   <h2 class="section__title section__title-2">Kuzey Kıbrıs AdaPass</h2>
-                  <p>Uygulama hakkında merak ettiğiniz sorular.</p>
+                  <p>Kuzey Kıbrıs Aşı Belgenizi Hemen Alın!</p>
                 </div>
                 <div class="faq__counter wow fadeInUp" data-wow-delay=".7s">
                 </div>
@@ -195,39 +195,39 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
               <div class="faq__wrapper wow fadeInUp" data-wow-delay=".3s">
                 <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Her Şube için ayrı bir QR mı almam gerekiyor ?
+                  <div class="accordion-item border-none">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed pb-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        AdaPass Kod Nedir ?
                       </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>Evet alınması gerekiyor. Çünkü her işletmenin konumu farklı alanlarda bulunuyor ve doğru analiz gerçekleştirebilmemiz için her işletmenin QR kodu olması gerekiyor.</p>
+                        <p>AdaPass Kodu Kuzey Kıbrısta yaptırmış olduğunuz aşının dijital bir çıktısıdır. AdaPass kodu ile işletmelere yapacağınız giriş çıkışlar bu kodu göstererek aşı olduğunuzu beyan edecektir.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        QR Kodum Nerelerde Geçerli ?
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p class="text-capitalize">QR kodunuz giriş çıkış yapacağınız tüm işletmelerde ve Kuzey Kıbrısa yapacağınız giriş çıkışlarda Geçerlidir.</p>
                       </div>
                     </div>
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Hangi işletmeler QR Kod Almalı
+                        Kim veya kimler QR kodu sahibi olmalı
                       </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p> Tüm işletmeler (işletmesinde müşteri hizmeti veren tüm işletmeler) QR kod almalıdır.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item border-none">
-                    <h2 class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed pb-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        AdaPass Kod Nedir ?
-                      </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <p>AdaPass Kod sizin sağlık durumunuzu ve kişisel bilgilerinizi tutan bir QR kod. Aynı zamanda polis kontrolünden geçerken de AdaPass kodunuzu okutarak hızlı ve güvenli bir şekilde geçebileceksiniz.</p>
+                        <p class="text-capitalize">Kuzey Kıbrısta ikamet eden veya Kuzey Kıbrısa giriş yapacak olan tüm bireylerin aşı olduğu takdirde AdaPass Kodu alması gerekmektedir.</p>
                       </div>
                     </div>
                   </div>
