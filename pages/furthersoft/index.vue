@@ -35,7 +35,6 @@ export default {
   methods: {
     getData: function () {
       this.$axios.$get('/furthersoft/count').then((res) => {
-        console.log(res)
         if(res.Count) {
           this.activeCount = res.Count
         }
