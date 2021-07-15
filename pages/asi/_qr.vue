@@ -1,5 +1,5 @@
 <template>
-  <div class="back-page">
+  <div class="back-page" style="width: 100%; overflow-x: hidden">
     <headerSec class="d-print-none"></headerSec>
     <div class="d-print-none d-flex align-items-center" style="min-height: 90vh">
       <b-container class="pt-5" v-if="!error">
