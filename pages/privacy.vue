@@ -57,7 +57,7 @@
 
     <h3 class="pt-5 pb-5">Kanun Kapsamında Kişisel Verinin Tanımı:</h3>
     <p class="pb-2">
-      Tarafınıza ait kimlik (ad, soyadı, doğum tarihi, T.C. kimlik numarası, PCR testi, Aşı kartı vs.), iletişim, hizmete erişim esnasında kullanılan yöntemlere ilişkin bilgiler (IP, mobil tel markası-modeli, tarayıcı tipi, versiyonu, sosyal medya bilgisi, ekranlar üzerinde gerçekleştirdiği hareketler vb.) gibi sizin belirleyici ya da belirlenebilir olmanızı sağlayacak her türlü bilgiyi ifade etmektedir.
+      Tarafınıza ait kimlik (ad, soyadı, doğum tarihi, K.K.T.C. kimlik numarası, PCR testi, Aşı kartı vs.), iletişim, hizmete erişim esnasında kullanılan yöntemlere ilişkin bilgiler (IP, mobil tel markası-modeli, tarayıcı tipi, versiyonu, sosyal medya bilgisi, ekranlar üzerinde gerçekleştirdiği hareketler vb.) gibi sizin belirleyici ya da belirlenebilir olmanızı sağlayacak her türlü bilgiyi ifade etmektedir.
     </p>
 
     <h3 class="pt-5 pb-5">Kişisel verilerinizin ne şekilde işlenebileceği</h3>

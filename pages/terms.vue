@@ -28,7 +28,7 @@
       <h3 class="pt-5 pb-5">2. Toplanan Veriler</h3>
       <p>
         Kuzey Kıbrıs Türk Cumhuriyeti Başbakanlığı tarafından, verilen Hizmetler kapsamında birtakım kişisel verileriniz işlenmektedir.
-        Bu kişisel veriler şunları içerebilir: ad-soyad, T.C. Kimlik Numarası, uyruk bilgisi, anne adı, baba adı, doğum yeri, doğum tarihi,
+        Bu kişisel veriler şunları içerebilir: ad-soyad, K.K.T.C. Kimlik Numarası, uyruk bilgisi, anne adı, baba adı, doğum yeri, doğum tarihi,
         cinsiyet,PCR test sonucu,Aşı belgesi vergi numarası, SGK numarası, imza bilgisi, fotoğraf, taşıt plakası, telefon numarası, adres, e-posta adresi, faks numarası,
         IP adresi, sosyal medya hesapları, konum bilgileri, ürün veya hizmet satın almanızla ilgili bilgiler,ödeme bilgileri, sitemizde görüntülediğiniz sayfalar, sitemizi
         mobil cihazınız ile ziyaret etmeniz halinde mobil cihazınızı tanıtan veriler ve tarafımıza vermeyi açıkça ve yazılı olarak tercih ettiğiniz ve onayladığınız

@@ -30,10 +30,10 @@
             </div>
             <div class="col-lg-6 order-lg-1">
               <div class="hero__content-3 mb-100 ">
-                <h3 class="hero__title-3 wow fadeInUp text-center text-lg-start" data-wow-delay=".3s">Kuzey Kıbrıs AdaPass</h3>
+                <h3 class="hero__title-3 wow fadeInUp text-center text-lg-start" data-wow-delay=".3s">K.K.T.C. AdaPass</h3>
                 <p class="wow fadeInUp text-center text-lg-start" data-wow-delay=".5s">AdaPass uygulaması ile hemen aşı belgenizi sorgulayıp anında oluşturabilirsiniz</p>
                 <div class="wow fadeInUp text-center text-lg-start" data-wow-delay=".7s">
-                  <a href="/asiSorgulama" class="w-btn w-btn-purple">Aşı Belgeni Oluştur !</a>
+                  <a href="/asiBelgesi" class="w-btn w-btn-purple">Aşı Belgeni Oluştur !</a>
                 </div>
               </div>
             </div>
@@ -185,8 +185,8 @@
             <div class="col-xxl-5 offset-xxl-1 col-xl-5 offset-xl-1 col-lg-6 col-md-8">
               <div class="faq__content">
                 <div class="section__title-wrapper section__title-wrapper-2 mb-35 wow fadeInUp" data-wow-delay=".5s">
-                  <h2 class="section__title section__title-2">Kuzey Kıbrıs AdaPass</h2>
-                  <p>Kuzey Kıbrıs Aşı Belgenizi Hemen Alın!</p>
+                  <h2 class="section__title section__title-2">K.K.T.C. AdaPass</h2>
+                  <p>K.K.T.C. Aşı Belgenizi Hemen Alın!</p>
                 </div>
                 <div class="faq__counter wow fadeInUp" data-wow-delay=".7s">
                 </div>
@@ -198,12 +198,12 @@
                   <div class="accordion-item border-none">
                     <h2 class="accordion-header" id="headingThree">
                       <button class="accordion-button collapsed pb-0 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                        AdaPass Kod Nedir ?
+                        AdaKod Nedir ?
                       </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>AdaPass Kodu Kuzey Kıbrısta yaptırmış olduğunuz aşının dijital bir çıktısıdır. AdaPass kodu ile işletmelere yapacağınız giriş çıkışlar bu kodu göstererek aşı olduğunuzu beyan edecektir.</p>
+                        <p>AdaPass Kodu K.K.T.C.' de yaptırmış olduğunuz aşının dijital bir çıktısıdır. AdaPass kodu ile işletmelere yapacağınız giriş çıkışlar bu kodu göstererek aşı olduğunuzu beyan edecektir.</p>
                       </div>
                     </div>
                   </div>
@@ -215,7 +215,7 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p class="text-capitalize">QR kodunuz giriş çıkış yapacağınız tüm işletmelerde ve Kuzey Kıbrısa yapacağınız giriş çıkışlarda Geçerlidir.</p>
+                        <p class="text-capitalize">QR kodunuz giriş çıkış yapacağınız tüm işletmelerde ve K.K.T.C.' ye yapacağınız giriş çıkışlarda Geçerlidir.</p>
                       </div>
                     </div>
                   </div>
@@ -227,7 +227,7 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p class="text-capitalize">Kuzey Kıbrısta ikamet eden veya Kuzey Kıbrısa giriş yapacak olan tüm bireylerin aşı olduğu takdirde AdaPass Kodu alması gerekmektedir.</p>
+                        <p class="text-capitalize">K.K.T.C.'de ikamet eden veya K.K.T.C.' ye giriş yapacak olan tüm bireylerin aşı olduğu takdirde AdaPass Kodu alması gerekmektedir.</p>
                       </div>
                     </div>
                   </div>
@@ -280,5 +280,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.overlay-image-card {
+  position: absolute;
+  left: 0;
+  background-color: red;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>

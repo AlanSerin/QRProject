@@ -25,8 +25,8 @@
               <h6 class="mb-3" style="color: #2C3E50; font-weight: bold">Bilgilerinizi Giriniz</h6>
               <b-tabs content-class="mt-3" pills fill v-model="tabIndex">
 
-                <b-tab title="Kimlik" >
-                  <validation-observer tag="form" v-slot="{ invalid }" @submit.prevent="onSubmit">
+                <b-tab title="Kimlik">
+                  <validation-observer v-slot="{ invalid }">
                     <b-form-group label="Kimlik Numarası*" label-for="kimlik-nosu">
                       <validation-provider #default="{ errors }" name="Kimlik numarası" rules="required">
                         <b-form-input size="sm" id="kimlik-nosu" v-model="form.id_number" :state="errors.length > 0 ? false:null" placeholder="Kimlik Numaranızı Giriniz" />
@@ -58,7 +58,6 @@
                   </validation-observer>
                 </b-tab>
 
-
                 <b-tab title="ADAKOD" disabled>
                   <validation-observer tag="form" v-slot="{ invalid }" @submit.prevent="onSubmit">
                     <b-form-group label="ADAPASS KODU*" label-for="adapass-kodu">
@@ -68,7 +67,7 @@
                       </validation-provider>
                     </b-form-group>
                     <div class="d-flex align-items-center justify-content-center py-3">
-                      <recaptcha></recaptcha>
+                    <!-- <recaptcha></recaptcha> -->
                     </div>
                     <b-button class="request-btn" type="submit" variant="primary" @click="check('id')" block :disabled="loading || invalid"> <b-spinner small v-if="loading" label="Spinning"></b-spinner> <span v-if="!loading">Hemen Sorgula</span> <span v-if="loading">Sorgulanıyor...</span></b-button>
                   </validation-observer>
@@ -122,7 +121,16 @@ export default {
     this.isMounted = true
   },
   methods: {
-    check: function (type) {
+    async check (type) {
+      let token = ''
+      try {
+        token = await this.$recaptcha.getResponse();
+      }catch (err) {
+        await this.$recaptcha.reset()
+        console.log(err)
+      }
+      await this.$recaptcha.reset()
+      console.log(token)
       this.loading = true
       this.error = '';
       if(type === 'info') {
@@ -131,6 +139,7 @@ export default {
           FirstName: this.form.name,
           LastName: this.form.lastname,
           BirthDate: moment(this.form.birthday,'YYYY-MM-DD').format('DD.MM.YYYY'),
+          CaptchaToken: token
         }).then(res=>{
           if(res.Hata) {
             this.error = res.Hata
@@ -169,6 +178,9 @@ export default {
     tabIndex: function () {
       this.form = {}
     }
+  },
+  beforeDestroy() {
+    this.$recaptcha.destroy()
   }
 }
 </script>

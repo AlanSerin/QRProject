@@ -7,7 +7,7 @@
             <!--            <img class="government-logo" src="~/assets/img/saglik-removebg-preview.png" />-->
           </div>
           <div class="ministry-name">
-            <h2 class="text-light">Kuzey Kibris Turk Cumhuriyeti</h2>
+            <h2 class="text-light">K.K.T.C.</h2>
             <h2 class="text-light">Saglik Bakanligi</h2>
           </div>
         </div>

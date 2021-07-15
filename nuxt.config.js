@@ -60,9 +60,17 @@ export default {
   components: true,
 
   buildModules: [
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/google-analytics'
   ],
-
+  googleAnalytics: {
+    id: 'G-9NJ2C1QH3N'
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: 'G-9NJ2C1QH3N'
+    }
+  },
   fontawesome: {
     icons: {
       solid: true,
@@ -86,8 +94,8 @@ export default {
   },
   recaptcha: {
     /* reCAPTCHA options */
-    //priv key : 6LfX6Y4bAAAAALDaiRuuHbERuwNZIKJTx0DR2IQ4
-    siteKey: '6LfX6Y4bAAAAAAIrCTvYG8yKec4YLV_eN0km-DqC' ,// for example
+    /*priv_key : '6LfX6Y4bAAAAALDaiRuuHbERuwNZIKJTx0DR2IQ4',*/
+    siteKey: '6LfX6Y4bAAAAAAIrCTvYG8yKec4YLV_eN0km-DqC',
     version: 2,
   },
   build: {
