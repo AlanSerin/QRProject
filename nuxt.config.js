@@ -54,7 +54,8 @@ export default {
     {src: "~/plugins/vue2-google-maps.js"},
     {src: "~/plugins/vue-phone-number.js"},
     {src: "~/plugins/vue-form-wizard.js"},
-    { src: '@/plugins/vue-html2pdf', mode: 'client' }
+    { src: '@/plugins/vue-html2pdf', mode: 'client' },
+    { src: '~/plugins/vue-confetti.js', mode: 'client' },
   ],
 
   components: true,
@@ -89,8 +90,7 @@ export default {
   },
 
   axios: {
-    /*baseURL:"https://api.adapass.org/selfCompany"*/
-    baseURL:"http://192.168.70.107:4000"
+    baseURL:"https://adapass.gov.ct.tr/api"
   },
   recaptcha: {
     /* reCAPTCHA options */

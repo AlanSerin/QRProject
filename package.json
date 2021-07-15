@@ -27,6 +27,7 @@
     "popper.js": "^1.16.1",
     "qrcode": "^1.4.4",
     "vee-validate": "^3.4.10",
+    "vue-confetti": "^2.2.1",
     "vue-form-wizard": "^0.8.4",
     "vue-fragment": "^1.5.2",
     "vue-html2pdf": "^1.8.0",
