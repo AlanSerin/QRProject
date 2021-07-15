@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     getData: function () {
-      this.$axios.$get('/furthersoft/count').then((res) => {
+      this.$axios.$get('/api/furthersoft/count').then((res) => {
         this.activeCount = res.Count
       });
     },
