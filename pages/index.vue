@@ -203,7 +203,7 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        <p>AdaPass Kodu K.K.T.C.' de yaptırmış olduğunuz aşının dijital bir çıktısıdır. AdaPass kodu ile işletmelere yapacağınız giriş çıkışlar bu kodu göstererek aşı olduğunuzu beyan edecektir.</p>
+                        <p class="text-capitalize">AdaPass Kodu K.K.T.C.' de yaptırmış olduğunuz aşının dijital bir çıktısıdır. AdaPass kodu ile işletmelere yapacağınız giriş çıkışlar bu kodu göstererek aşı olduğunuzu beyan edecektir.</p>
                       </div>
                     </div>
                   </div>
