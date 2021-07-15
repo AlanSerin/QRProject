@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%; overflow-x: hidden">
     <div v-if="!isMounted" class="loading">
       <div>
         <img src="~/assets/img/logo/logo.png" alt="logo">
