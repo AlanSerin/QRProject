@@ -86,11 +86,11 @@ export default {
   ],
   server: {
     host: "0.0.0.0",
-    port: 8080
+    port: 3000
   },
 
   axios: {
-    baseURL:"https://adapass.gov.ct.tr"
+    baseURL:"https://adapass.gov.ct.tr/"
   },
   recaptcha: {
     /* reCAPTCHA options */
