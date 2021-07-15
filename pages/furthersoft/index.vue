@@ -1,13 +1,11 @@
 <template>
   <div>
-    <headerSec></headerSec>
     <div class="main-body">
       <div>
         <h1 class="texx">Active User Size</h1>
-        <h1 class="counter">{{ activeCount }}</h1>
+        <h1 class="count">{{ activeCount }}</h1>
       </div>
     </div>
-    <footerSec></footerSec>
   </div>
 </template>
 
@@ -23,7 +21,7 @@ export default {
   name: 'furtherSoft',
   data(){
     return {
-      activeCount: 25,
+      activeCount: 0,
     }
   },
   created() {
@@ -35,9 +33,7 @@ export default {
   methods: {
     getData: function () {
       this.$axios.$get('/furthersoft/count').then((res) => {
-        if(res.Count) {
-          this.activeCount = res.Count
-        }
+        this.activeCount = res.Count
       });
     },
     newRegister: function () {
@@ -60,7 +56,7 @@ export default {
 
 <style>
 .main-body {
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +65,7 @@ export default {
   text-align: center;
   opacity: .5;
 }
-.counter {
+.count {
   text-align: center;
   font-size: 250px;
 }
