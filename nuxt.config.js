@@ -90,7 +90,7 @@ export default {
   },
 
   axios: {
-    baseURL:"https://adapass.gov.ct.tr/api"
+    baseURL:"https://adapass.gov.ct.tr"
   },
   recaptcha: {
     /* reCAPTCHA options */

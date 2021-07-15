@@ -239,7 +239,7 @@
         @beforeDownload="beforeDownload($event)"
         ref="html2Pdf">
         <section slot="pdf-content">
-          <section class="d-flex align-items-center justify-content-center p-5">
+          <section class="d-flex justify-content-center p-5" style="height: 90vh">
             <div class="vaccine-card">
               <div class="bg-img"></div>
               <section class="d-flex align-items-center justify-content-center pt-4 ">
