@@ -34,7 +34,11 @@
     "vue-lodash": "^2.1.2",
     "vue-phone-number-input": "^1.1.10",
     "vue-qrcode": "^0.4.0",
-    "vue2-google-maps": "^0.10.7"
+    "vue-qrcode-reader": "^3.0.3",
+    "vue-select": "^3.11.2",
+    "vue-the-mask": "^0.11.1",
+    "vue2-google-maps": "^0.10.7",
+    "vue3-qrcode-reader": "0.0.1"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",

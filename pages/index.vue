@@ -9,7 +9,6 @@
       </div>
     </div>
     <headerSec v-if="isMounted"></headerSec>
-
     <main v-if="isMounted">
 
       <section id="home" class="hero__area hero__height-3 hero__bg p-relative d-flex align-items-center missingheader">

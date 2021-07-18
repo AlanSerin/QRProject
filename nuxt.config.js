@@ -15,20 +15,20 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { type: 'text/javascript', src: 'js/vendor/jquery-3.5.1.min.js', body: true },
-      { type: 'text/javascript', src: 'js/vendor/waypoints.min.js', body: true },
-      { type: 'text/javascript', src: 'js/bootstrap.bundle.min.js', body: true },
-      { type: 'text/javascript', src: 'js/jquery.meanmenu.js', body: true },
-      { type: 'text/javascript', src: 'js/owl.carousel.min.js', body: true },
-      { type: 'text/javascript', src: 'js/jquery.fancybox.min.js', body: true },
-      { type: 'text/javascript', src: 'js/isotope.pkgd.min.js', body: true },
-      { type: 'text/javascript', src: 'js/parallax.min.js', body: true },
-      { type: 'text/javascript', src: 'js/backToTop.js', body: true },
-      { type: 'text/javascript', src: 'js/jquery.counterup.min.js', body: true },
-      { type: 'text/javascript', src: 'js/ajax-form.js', body: true },
-      { type: 'text/javascript', src: 'js/wow.min.js', body: true },
-      { type: 'text/javascript', src: 'js/imagesloaded.pkgd.min.js', body: true },
-      { type: 'text/javascript', src: 'js/main.js', body: true }
+      { type: 'text/javascript', src: '/js/vendor/jquery-3.5.1.min.js', body: true },
+      { type: 'text/javascript', src: '/js/vendor/waypoints.min.js', body: true },
+      { type: 'text/javascript', src: '/js/bootstrap.bundle.min.js', body: true },
+      { type: 'text/javascript', src: '/js/jquery.meanmenu.js', body: true },
+      { type: 'text/javascript', src: '/js/owl.carousel.min.js', body: true },
+      { type: 'text/javascript', src: '/js/jquery.fancybox.min.js', body: true },
+      { type: 'text/javascript', src: '/js/isotope.pkgd.min.js', body: true },
+      { type: 'text/javascript', src: '/js/parallax.min.js', body: true },
+      { type: 'text/javascript', src: '/js/backToTop.js', body: true },
+      { type: 'text/javascript', src: '/js/jquery.counterup.min.js', body: true },
+      { type: 'text/javascript', src: '/js/ajax-form.js', body: true },
+      { type: 'text/javascript', src: '/js/wow.min.js', body: true },
+      { type: 'text/javascript', src: '/js/imagesloaded.pkgd.min.js', body: true },
+      { type: 'text/javascript', src: '/js/main.js', body: true }
     ],
   },
 
@@ -43,7 +43,8 @@ export default {
     '@/assets/css/elegantFont.css',
     '@/assets/css/default.css',
     '@/assets/css/style.css',
-    '@/assets/css/vue-form-wizard.min.css'
+    '@/assets/css/vue-form-wizard.min.css',
+
   ],
 
   plugins: [
@@ -56,6 +57,9 @@ export default {
     {src: "~/plugins/vue-form-wizard.js"},
     { src: '@/plugins/vue-html2pdf', mode: 'client' },
     { src: '~/plugins/vue-confetti.js', mode: 'client' },
+    { src: '~/plugins/mask.js', mode: 'client' },
+    { src: '~/plugins/select.js', ssr: true },
+    { src: '~/plugins/qrReader.js', mode: 'client' }
   ],
 
   components: true,

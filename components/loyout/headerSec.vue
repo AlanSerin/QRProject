@@ -1,11 +1,10 @@
 <template>
   <div>
     <div class="top-header" @click="goMainPage">
-      <img style="height: 75px" src="images/saglik.png"/>
+      <img style="height: 75px" src="/images/saglik.png"/>
     </div>
-    <b-navbar toggleable="lg" id="header-sticky" class="header__area header__shadow header__padding px-lg-5 px-3">
-      <b-navbar-brand href="/">
-<!--        <img src="~/assets/img/logo/logo.png" alt="logo">-->
+    <b-navbar toggleable="lg" id="header-sticky" class="header__area header__shadow header__padding px-lg-5 px-3" style="position: relative;">
+      <b-navbar-brand href="/" >
         <img src="~/assets/img/logo/logo.png" alt="logo">
       </b-navbar-brand>
 
@@ -59,5 +58,7 @@ export default {
   background-color: #19947b!important;
   padding: 10px 20px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 </style>
