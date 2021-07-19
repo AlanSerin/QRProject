@@ -23,29 +23,31 @@
                       <b-col cols="6">
                         <div class="text-sec">
                           <i class="text-head">Kimlik No <span>/ Identity No</span></i>
-                          <h1 class="text-main">{{ vaccine.id || '-' }}</h1>
+                          <h1 class="text-main" v-if="vaccine.BelgeTur == 'kimlik'">{{ vaccine.BelgeNo || '-' }}</h1>
+                          <h1 class="text-main" v-else>-</h1>
                         </div>
                         <div class="text-sec">
                           <i class="text-head">Soyadı <span>/ Surname</span></i>
-                          <h1 class="text-main">{{ vaccine.surname || '-' }}</h1>
+                          <h1 class="text-main">{{ vaccine.Soyadi || '-' }}</h1>
                         </div>
                         <div class="text-sec">
                           <i class="text-head">Doğum Tarihi <span>/ Date of Birth</span></i>
-                          <h1 class="text-main">{{ vaccine.birthday || '-' }}</h1>
+                          <h1 class="text-main">{{ vaccine.DogumTarih || '-' }}</h1>
                         </div>
                       </b-col>
                       <b-col cols="6">
                         <div class="text-sec">
                           <i class="text-head">Pasaport No <span>/ Passaport No</span></i>
-                          <h1 class="text-main">{{ vaccine.passport_id || '-' }}</h1>
+                          <h1 class="text-main" v-if="vaccine.BelgeTur == 'pasaport'">{{ vaccine.BelgeNo || '-' }}</h1>
+                          <h1 class="text-main" v-else>-</h1>
                         </div>
                         <div class="text-sec">
                           <i class="text-head">Adı <span>/ Given Name(s)</span></i>
-                          <h1 class="text-main">{{ vaccine.name || '-' }}</h1>
+                          <h1 class="text-main">{{ vaccine.Adi || '-' }}</h1>
                         </div>
                         <div class="text-sec">
                           <i class="text-head">Doğum Yeri <span>/ Place Of Birth</span></i>
-                          <h1 class="text-main">{{ vaccine.place_of_birth || '-' }}</h1>
+                          <h1 class="text-main">{{ vaccine.DogumYeri || '-' }}</h1>
                         </div>
                       </b-col>
                     </b-row>
@@ -62,27 +64,19 @@
                 </section>
                 <section class="mb-1">
                   <b-container fluid>
-                    <b-row class="px-3 mt-1">
+                    <b-row class="px-3 mt-2">
                       <b-col cols="7" class="d-flex align-items-center">
                         <div>
-                          <div class="text-sec">
-                            <i class="text-head">Aşı Adı <span>/ Name Of Vaccine</span></i>
-                            <h1 class="text-main">{{ vaccine.vaccine_name }}</h1>
-                          </div>
-                          <div class="text-sec">
-                            <i class="text-head">1.Doz Tarihi <span>/ First Dose Date</span></i>
-                            <h1 class="text-main">{{ vaccine.vaccine_date_1 }}</h1>
-                          </div>
-                          <div v-if="vaccine.vaccine_date_2" class="text-sec">
-                            <i class="text-head">2.Doz Tarihi <span>/ Second Dose Date</span></i>
-                            <h1 class="text-main">{{ vaccine.vaccine_date_2 }}</h1>
+                          <div class="text-sec-vaccine" v-for="(asi, index) in vaccine.Asi" :key="'asilar-' + index">
+                            <small class="text-vaccine-date" v-if="asi.Tarih">Tarih: {{ asi.Tarih }}</small>
+                            <h1 class="text-main">{{ asi.Asi }} </h1>
                           </div>
                         </div>
                       </b-col>
                       <b-col cols="5" class="d-flex align-items-center justify-content-center">
                         <div class="qr-code-area" v-if="vaccine && vaccine.qr">
-                          <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.id" :width="100"/>
-                          <h1 class="qr-code-text">{{ vaccine.qr.id || 'ERROR' }}</h1>
+                          <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.qrcode" :width="100"/>
+                          <h1 class="qr-code-text">{{ vaccine.qr.qrcode || 'ERROR' }}</h1>
                         </div>
                       </b-col>
                     </b-row>
@@ -93,7 +87,7 @@
                     <img src="/images/caretta.png" class="caretta-1"/>
                     <img src="/images/caretta.png" class="caretta-2"/>
                   </div>
-                  <div class="sub-date" v-if="vaccine.created">{{ vaccine.created }} Tarihinde Oluşturulmuştur</div>
+                  <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
                 </section>
               </div>
               <b-skeleton v-else class="skeleton"></b-skeleton>
@@ -111,7 +105,7 @@
               </div>
               <div class="px-3" v-else>
                 <h2 class="text-white">Aşı Belgesi Onaylanmıştır!</h2>
-                <h5 class="text-white" style="opacity: .5">#{{ vaccine.id || '-' }}</h5>
+                <h5 class="text-white" style="opacity: .5">#{{ vaccine.BelgeNo || '-' }}</h5>
               </div>
             </div>
             <div v-else  class="print-settings pr-md-5 text-center text-md-left" style="max-width: 550px">
@@ -149,29 +143,31 @@
               <b-col cols="6">
                 <div class="text-sec">
                   <i class="text-head">Kimlik No <span>/ Identity No</span></i>
-                  <h1 class="text-main">{{ vaccine.id || '-' }}</h1>
+                  <h1 class="text-main" v-if="vaccine.BelgeTur == 'kimlik'">{{ vaccine.BelgeNo || '-' }}</h1>
+                  <h1 class="text-main" v-else>-</h1>
                 </div>
                 <div class="text-sec">
                   <i class="text-head">Soyadı <span>/ Surname</span></i>
-                  <h1 class="text-main">{{ vaccine.surname || '-' }}</h1>
+                  <h1 class="text-main">{{ vaccine.Soyadi || '-' }}</h1>
                 </div>
                 <div class="text-sec">
                   <i class="text-head">Doğum Tarihi <span>/ Date of Birth</span></i>
-                  <h1 class="text-main">{{ vaccine.birthday || '-' }}</h1>
+                  <h1 class="text-main">{{ vaccine.DogumTarih || '-' }}</h1>
                 </div>
               </b-col>
               <b-col cols="6">
                 <div class="text-sec">
                   <i class="text-head">Pasaport No <span>/ Passaport No</span></i>
-                  <h1 class="text-main">{{ vaccine.passport_id || '-' }}</h1>
+                  <h1 class="text-main" v-if="vaccine.BelgeTur == 'pasaport'">{{ vaccine.BelgeNo || '-' }}</h1>
+                  <h1 class="text-main" v-else>-</h1>
                 </div>
                 <div class="text-sec">
                   <i class="text-head">Adı <span>/ Given Name(s)</span></i>
-                  <h1 class="text-main">{{ vaccine.name || '-' }}</h1>
+                  <h1 class="text-main">{{ vaccine.Adi || '-' }}</h1>
                 </div>
                 <div class="text-sec">
                   <i class="text-head">Doğum Yeri <span>/ Place Of Birth</span></i>
-                  <h1 class="text-main">{{ vaccine.place_of_birth || '-' }}</h1>
+                  <h1 class="text-main">{{ vaccine.DogumYeri || '-' }}</h1>
                 </div>
               </b-col>
             </b-row>
@@ -188,27 +184,19 @@
         </section>
         <section class="mb-1">
           <b-container fluid>
-            <b-row class="px-3 mt-1">
+            <b-row class="px-3 mt-2">
               <b-col cols="7" class="d-flex align-items-center">
                 <div>
-                  <div class="text-sec">
-                    <i class="text-head">Aşı Adı <span>/ Name Of Vaccine</span></i>
-                    <h1 class="text-main">{{ vaccine.vaccine_name }}</h1>
-                  </div>
-                  <div class="text-sec">
-                    <i class="text-head">1.Doz Tarihi <span>/ First Dose Date</span></i>
-                    <h1 class="text-main">{{ vaccine.vaccine_date_1 }}</h1>
-                  </div>
-                  <div v-if="vaccine.vaccine_date_2" class="text-sec">
-                    <i class="text-head">2.Doz Tarihi <span>/ Second Dose Date</span></i>
-                    <h1 class="text-main">{{ vaccine.vaccine_date_2 }}</h1>
+                  <div class="text-sec-vaccine" v-for="(asi, index) in vaccine.Asi" :key="'asilar-' + index">
+                    <small class="text-vaccine-date" v-if="asi.Tarih">Tarih: {{ asi.Tarih }}</small>
+                    <h1 class="text-main">{{ asi.Asi }} </h1>
                   </div>
                 </div>
               </b-col>
               <b-col cols="5" class="d-flex align-items-center justify-content-center">
                 <div class="qr-code-area" v-if="vaccine && vaccine.qr">
-                  <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.id" :width="100"/>
-                  <h1 class="qr-code-text">{{ vaccine.qr.id || 'ERROR' }}</h1>
+                  <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.qrcode" :width="100"/>
+                  <h1 class="qr-code-text">{{ vaccine.qr.qrcode || 'ERROR' }}</h1>
                 </div>
               </b-col>
             </b-row>
@@ -219,7 +207,7 @@
             <img src="/images/caretta.png" class="caretta-1"/>
             <img src="/images/caretta.png" class="caretta-2"/>
           </div>
-          <div class="sub-date" v-if="vaccine.created">{{ vaccine.created }} Tarihinde Oluşturulmuştur</div>
+          <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
         </section>
       </div>
     </section>
@@ -257,29 +245,31 @@
                     <b-col cols="6">
                       <div class="text-sec">
                         <i class="text-head">Kimlik No <span>/ Identity No</span></i>
-                        <h1 class="text-main">{{ vaccine.id || '-' }}</h1>
+                        <h1 class="text-main" v-if="vaccine.BelgeTur == 'kimlik'">{{ vaccine.BelgeNo || '-' }}</h1>
+                        <h1 class="text-main" v-else>-</h1>
                       </div>
                       <div class="text-sec">
                         <i class="text-head">Soyadı <span>/ Surname</span></i>
-                        <h1 class="text-main">{{ vaccine.surname || '-' }}</h1>
+                        <h1 class="text-main">{{ vaccine.Soyadi || '-' }}</h1>
                       </div>
                       <div class="text-sec">
                         <i class="text-head">Doğum Tarihi <span>/ Date of Birth</span></i>
-                        <h1 class="text-main">{{ vaccine.birthday || '-' }}</h1>
+                        <h1 class="text-main">{{ vaccine.DogumTarih || '-' }}</h1>
                       </div>
                     </b-col>
                     <b-col cols="6">
                       <div class="text-sec">
                         <i class="text-head">Pasaport No <span>/ Passaport No</span></i>
-                        <h1 class="text-main">{{ vaccine.passport_id || '-' }}</h1>
+                        <h1 class="text-main" v-if="vaccine.BelgeTur == 'pasaport'">{{ vaccine.BelgeNo || '-' }}</h1>
+                        <h1 class="text-main" v-else>-</h1>
                       </div>
                       <div class="text-sec">
                         <i class="text-head">Adı <span>/ Given Name(s)</span></i>
-                        <h1 class="text-main">{{ vaccine.name || '-' }}</h1>
+                        <h1 class="text-main">{{ vaccine.Adi || '-' }}</h1>
                       </div>
                       <div class="text-sec">
                         <i class="text-head">Doğum Yeri <span>/ Place Of Birth</span></i>
-                        <h1 class="text-main">{{ vaccine.place_of_birth || '-' }}</h1>
+                        <h1 class="text-main">{{ vaccine.DogumYeri || '-' }}</h1>
                       </div>
                     </b-col>
                   </b-row>
@@ -296,27 +286,19 @@
               </section>
               <section class="mb-1">
                 <b-container fluid>
-                  <b-row class="px-3 mt-1">
+                  <b-row class="px-3 mt-2">
                     <b-col cols="7" class="d-flex align-items-center">
                       <div>
-                        <div class="text-sec">
-                          <i class="text-head">Aşı Adı <span>/ Name Of Vaccine</span></i>
-                          <h1 class="text-main">{{ vaccine.vaccine_name }}</h1>
-                        </div>
-                        <div class="text-sec">
-                          <i class="text-head">1.Doz Tarihi <span>/ First Dose Date</span></i>
-                          <h1 class="text-main">{{ vaccine.vaccine_date_1 }}</h1>
-                        </div>
-                        <div v-if="vaccine.vaccine_date_2" class="text-sec">
-                          <i class="text-head">2.Doz Tarihi <span>/ Second Dose Date</span></i>
-                          <h1 class="text-main">{{ vaccine.vaccine_date_2 }}</h1>
+                        <div class="text-sec-vaccine" v-for="(asi, index) in vaccine.Asi" :key="'asilar-' + index">
+                          <small class="text-vaccine-date" v-if="asi.Tarih">Tarih: {{ asi.Tarih }}</small>
+                          <h1 class="text-main">{{ asi.Asi }} </h1>
                         </div>
                       </div>
                     </b-col>
                     <b-col cols="5" class="d-flex align-items-center justify-content-center">
                       <div class="qr-code-area" v-if="vaccine && vaccine.qr">
-                        <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.id" :width="100"/>
-                        <h1 class="qr-code-text">{{ vaccine.qr.id || 'ERROR' }}</h1>
+                        <vue-qrcode v-if="vaccine.qr.prefix" :value="vaccine.qr.prefix + vaccine.qr.qrcode" :width="100"/>
+                        <h1 class="qr-code-text">{{ vaccine.qr.qrcode || 'ERROR' }}</h1>
                       </div>
                     </b-col>
                   </b-row>
@@ -327,13 +309,14 @@
                   <img src="/images/caretta.png" class="caretta-1"/>
                   <img src="/images/caretta.png" class="caretta-2"/>
                 </div>
-                <div class="sub-date" v-if="vaccine.created">{{ vaccine.created }} Tarihinde Oluşturulmuştur</div>
+                <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
               </section>
             </div>
           </section>
         </section>
       </vue-html2pdf>
     </client-only>
+
   </div>
 </template>
 
@@ -355,20 +338,17 @@ export default {
       loading: true,
       pdfLoad: false,
       vaccine: {
-        id: '1710394073',
-        passport_id: '',
-        surname: 'çağatay',
-        name: 'ali yılmaz',
-        birthday: '07.05.1990',
-        place_of_birth: 'lefkoşa',
-        vaccine_name: 'biontech',
-        vaccine_date: '26.04.2021',
-        vaccine_expire: '26.12.2021',
+        BelgeNo: '-',
+        Soyadi: '-',
+        Adi: '-',
+        DogumTarih: '-.-.-',
+        DogumYeri: '-',
+        Asi: [],
         qr: {
-          prefix: 'www.adapass.org/',
-          id: '546546546'
+          prefix: 'www.adapass.gov.ct.tr/asi?id=',
+          id: '-'
         },
-        created: '12.05.2021'
+        OlusturmaTarih: '-.-.-'
       },
 
     }
@@ -379,7 +359,7 @@ export default {
   methods: {
     async getData () {
       let params = await this.$route.query.id;
-      this.$axios.$get('/api/kontrol/' + params).then(res=>{
+      this.$axios.$get('/vaccini/kontrol/' + params).then(res=>{
         if(res.Hata) {
           this.error = res.Hata
         } else {
@@ -490,6 +470,14 @@ export default {
 }
 .text-sec {
   margin-bottom: 7px;
+}
+.text-sec-vaccine {
+  margin-bottom: 5px;
+}
+.text-vaccine-date {
+  line-height: 10px;
+  font-size: 10px;
+  font-weight: bold;
 }
 .text-head span {
   opacity: .5;

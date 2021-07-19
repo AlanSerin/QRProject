@@ -1,6 +1,11 @@
 const webpack = require("webpack");
 export default {
-
+  env: {
+    baseURL: process.env.baseURL,
+    maintenance: process.env.maintenance,
+    paymentSuccess: process.env.paymentSuccess,
+    paymentError: process.env.paymentError,
+  },
   head: {
     title: 'AdaPass',
     htmlAttrs: {
@@ -82,7 +87,9 @@ export default {
       brands: true,
     }
   },
-
+  router: {
+    middleware: 'maintenance'
+  },
   modules: [
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
@@ -94,7 +101,7 @@ export default {
   },
 
   axios: {
-    baseURL:"https://adapass.gov.ct.tr/"
+    baseURL: process.env.baseURL,
   },
   recaptcha: {
     /* reCAPTCHA options */

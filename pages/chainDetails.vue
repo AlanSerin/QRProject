@@ -131,7 +131,6 @@ export default {
     if (this.$route.params.chain) {
       this.$axios.$get('/' + this.$route.params.chain ).then((res) => {
         this.chainDetails = res;
-        console.log(res);
         window.print()
       });
     }

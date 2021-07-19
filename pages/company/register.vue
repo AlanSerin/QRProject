@@ -208,7 +208,7 @@ export default {
       /* get countries from server */
       this.$axios({
         method: 'get',
-        url: 'http://home.oncutech.net:3000/regions',
+        url: '/regions',
       }).then((response) => {
         this.locations = response.data
       }, (error) => {
@@ -217,7 +217,7 @@ export default {
       /* get company type from server */
       this.$axios({
         method: 'get',
-        url: 'http://home.oncutech.net:3000/sectors',
+        url: '/sectors',
       }).then((response) => {
         this.sectors = response.data
       }, (error) => {
@@ -226,9 +226,28 @@ export default {
     },
     pushForm: function () {
       this.loading = true
-      console.log("data pushed", this.form)
-      this.loading = false
-      /*this.$router.push('payment')*/
+      let form = {
+        companyName: this.form.companyName,
+        person: this.form.person,
+        email: this.form.email,
+        phone: this.form.phone,
+        type: this.form.type,
+        taxID: this.form.taxID,
+        il: this.form.il._id,
+        ilce: this.form.ilce._id,
+        address: this.form.address,
+      }
+      this.$axios.$post('/company', {...form, successUrl: process.env.paymentSuccess, failUrl: process.env.paymentError }).then(res=>{
+        this.loading = false
+        if(res.Hata) {
+          this.error = res.Hata
+        } else {
+          this.$router.push({ name: 'company-payment', params: { pos: res.PosCvp } })
+        }
+      }).catch(error => {
+        this.loading = false
+        console.log(error)
+      })
     }
   }
 }

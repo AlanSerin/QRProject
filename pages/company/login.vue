@@ -96,7 +96,23 @@ export default {
   methods: {
     login: function () {
       this.loading = true
-      console.log("login", this.form)
+      this.$axios.$post('/login', {
+        Username: this.form.email,
+        Pass: this.form.password
+      }).then(res=>{
+        this.loading = false
+        if(res.Hata) {
+          this.error = res.Hata
+        } else {
+          localStorage.setItem('Token', res.Token)
+          localStorage.setItem('Adi', res.Adi)
+          localStorage.setItem('MailAdres', res.MailAdres)
+          this.$router.push({ name: 'company-dashboard'})
+        }
+      }).catch(error => {
+        this.loading = false
+        console.log(error)
+      })
     }
   }
 }

@@ -249,7 +249,6 @@ export default {
       // Visa
       let re = new RegExp("^4")
       if (this.number.match(re) != null) {
-        console.log('visa')
         this.cardColor["background-image"] = 'linear-gradient(to right, #0070ba, #0584dc)'
         this.creditCard = 'visa'
         return
@@ -259,7 +258,6 @@ export default {
       // Updated for Mastercard 2017 BINs expansion
       re = new RegExp("^(5$|5[1-5])")
       if (this.number.match(re) != null) {
-        console.log('mastercard')
         this.cardColor["background-image"] = 'linear-gradient(to right, #111, #555)'
         this.creditCard = 'mastercard'
         return
@@ -268,7 +266,6 @@ export default {
       // AMEX
       re = new RegExp("^3[47]")
       if (this.number.match(re) != null) {
-        console.log('amex')
         this.creditCard = 'amex'
         this.cardColor["background-image"] = 'linear-gradient(to right, #C0C0C0, #d3d3d3)'
         return
@@ -277,7 +274,6 @@ export default {
       // Discover
       re = new RegExp("^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)");
       if (this.number.match(re) != null) {
-        console.log('discover')
         this.cardColor["background-image"] = 'linear-gradient(to right, #7BC5DE, #8cdcf7)'
         this.creditCard = 'discover'
         return
@@ -286,7 +282,6 @@ export default {
       // Diners
       re = new RegExp("^36")
       if (this.number.match(re) != null) {
-        console.log('diners')
         this.cardColor["background-image"] = 'linear-gradient(to right, #111, #555)'
         this.creditCard = 'diners'
         return
@@ -295,7 +290,6 @@ export default {
       // JCB
       re = new RegExp("^35(2[89]|[3-8][0-9])")
       if (this.number.match(re) != null) {
-        console.log('jcb')
         this.cardColor["background-image"] = 'linear-gradient(to right, #d4af37, #e8bd3c)'
         this.creditCard = 'jcb'
         return
@@ -304,7 +298,6 @@ export default {
       // Visa Electron
       re = new RegExp("^(4026|417500|4508|4844|491(3|7))")
       if (this.number.match(re) != null) {
-        console.log('electron')
         this.cardColor["background-image"] = 'linear-gradient(to right, #0070ba, #0584dc)'
         this.creditCard = 'visa'
         return

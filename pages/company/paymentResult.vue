@@ -13,7 +13,7 @@
               </div>
             </div>
             <div>
-              <b-button block class="buttonadps max-with" @click="$router.push('login')">Giriş Sayfasına Git <span class="fas fa-chevron-right ml-1"></span> </b-button>
+              <b-button block class="buttonadps max-with" @click="$router.push({name: 'company-login'})">Giriş Sayfasına Git <span class="fas fa-chevron-right ml-1"></span> </b-button>
             </div>
           </div>
 
@@ -22,12 +22,11 @@
             <div class="mt-1">
               <h1 class="suc-head mb-3">Ödeme tamamlanamadı!</h1>
               <div class="mx-auto" style="max-width: 75vw">
-                <h4 class="suc-sub mb-3">Ödemeniz yapılırken bir sorunla karşılaştık. Lütfen Bilgilerinizi Kontrol Edip Tekrar yükleniniz.</h4>
-                <h6 class="font-weight-bold">Hata: <small>{{ errorReason }}</small> </h6>
+                <h4 class="suc-sub mb-3">Ödemeniz yapılırken bir sorunla karşılaştık. Lütfen Bilgilerinizi Kontrol Edip Tekrar deneyiniz.</h4>
               </div>
             </div>
-            <div>
-              <b-button block class="buttonadps max-with" @click="$router.push('register')"><span class="fas fa-chevron-left mr-1"></span> Geri Dön</b-button>
+            <div style="min-height: 50vh">
+              <b-button block class="buttonadps max-with" @click="$router.push({name: 'company-register'})"><span class="fas fa-chevron-left mr-1"></span> Geri Dön</b-button>
             </div>
           </div>
 
@@ -45,10 +44,21 @@ export default {
   components: {
     headerSec
   },
+  created() {
+    this.checkStatus();
+  },
   data() {
     return {
-      result: true,
-      errorReason: 'Yetsiz Bakiye'
+      result: false,
+    }
+  },
+  methods: {
+    checkStatus: function () {
+      if(this.$route.query.status === 'true') {
+        this.result = true
+      } else if (this.$route.query.status === 'false') {
+        this.result = false
+      }
     }
   }
 }

@@ -229,7 +229,6 @@ export default {
   methods: {
     async validateForm(refs='') {
       return await this.$refs.[refs].validate().then((data)=>{
-        console.log(data);
         if (data) {
           return Promise.resolve(true);
         }else {
@@ -252,7 +251,7 @@ export default {
           localStorage.setItem('UserID', res._id);
           this.$router.push('/chain');
         }else {
-          console.log(res);
+          /*console.log(res);*/
         }
       } catch (e) {
         console.log(e)

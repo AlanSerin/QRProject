@@ -119,7 +119,7 @@ export default {
         localStorage.setItem('UserID', res._id);
         this.$router.push('/chain');
       }else {
-        console.log(res);
+        /*console.log(res);*/
       }
     },
   },

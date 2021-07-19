@@ -7,7 +7,7 @@
           <span class="fas fa-times-circle close-camera" @click="$router.push('dashboard')"></span>
         </div>
       </div>
-      <qrcode-stream @decode="onDecode"></qrcode-stream>
+      <qrcode-stream :camera="camera" @decode="onDecode"></qrcode-stream>
       <div class="camera-footer" @click="$router.push('dashboard')">
         <span class="fas fa-edit"></span>
         <h5 class="footer-camera-text">Elle Gir</h5>
@@ -22,6 +22,7 @@ export default {
   name: 'camera',
   data() {
     return {
+      camera: '',
       result: '',
       error: ''
     }
@@ -31,14 +32,13 @@ export default {
   },
   methods: {
     startCamera: function () {
-      console.log("camera started")
+      /*console.log("camera started")*/
     },
     onDecode (result) {
+      this.camera = 'off'
       this.result = result;
-      console.log(result)
-      this.$router.push('cameraResult')
+      this.$router.push({ name: 'company-cameraResult', params: { qr: result } })
     },
-
     async onInit (promise) {
       try {
         await promise
@@ -58,6 +58,9 @@ export default {
         }
       }
     }
+  },
+  destroyed() {
+    this.camera = 'off'
   }
 }
 </script>

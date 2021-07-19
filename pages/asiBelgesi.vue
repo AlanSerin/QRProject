@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-img-holder  d-md-block"></div>
+    <div class="bg-img-holder d-none d-md-block"></div>
 
     <headerSec class="header"></headerSec>
     <div class="body-area d-flex">
@@ -24,12 +24,18 @@
             <div class="request-card mt-5 mt-lg-0 mb-5 mb-lg-0">
               <h6 class="mb-3" style="color: #2C3E50; font-weight: bold">Bilgilerinizi Giriniz</h6>
               <b-tabs content-class="mt-3" pills fill v-model="tabIndex">
-
-                <b-tab title="Kimlik">
+                <b-tab title="Kimlik/pasaport">
                   <validation-observer v-slot="{ invalid }">
-                    <b-form-group label="Kimlik Numarası*" label-for="kimlik-nosu">
+                    <b-form-group label="Belge Türü" label-for="belgeTur">
+                      <b-form-select id="belgeTur" size="sm" v-model="form.type">
+                        <b-form-select-option value="Kimlik">Kimlik</b-form-select-option>
+                        <b-form-select-option value="Pasaport">Pasaport</b-form-select-option>
+                      </b-form-select>
+                    </b-form-group>
+
+                    <b-form-group :label="form.type + ' Numarası*'" label-for="kimlik-nosu">
                       <validation-provider #default="{ errors }" name="Kimlik numarası" rules="required">
-                        <b-form-input size="sm" id="kimlik-nosu" v-model="form.id_number" :state="errors.length > 0 ? false:null" placeholder="Kimlik Numaranızı Giriniz" />
+                        <b-form-input size="sm" id="kimlik-nosu" v-model="form.id_number" :state="errors.length > 0 ? false:null" :placeholder="form.type + ' Numaranızı Giriniz'" />
                         <small class="text-danger">{{ errors[0] }}</small>
                       </validation-provider>
                     </b-form-group>
@@ -47,7 +53,7 @@
                     </b-form-group>
                     <b-form-group label="Doğum Tarihi*" label-for="dogum">
                       <validation-provider #default="{ errors }" name="Doğum tarihi" rules="required">
-                        <b-form-input id="dogum" type="date" v-model="form.birthday" size="sm" :state="errors.length > 0 ? false:null"></b-form-input>
+                        <b-form-input id="dogum" type="text" v-model="form.birthday" placeholder="GG.AA.YYYY" size="sm" :state="errors.length > 0 ? false:null" v-mask="'##/##/####'"></b-form-input>
                         <small class="text-danger">{{ errors[0] }}</small>
                       </validation-provider>
                     </b-form-group>
@@ -57,7 +63,6 @@
                     <b-button class="request-btn" type="submit" variant="primary" @click="check('info')" block :disabled="loading || invalid"> <b-spinner small v-if="loading" label="Spinning"></b-spinner> <span v-if="!loading">Hemen Sorgula</span> <span v-if="loading">Sorgulanıyor...</span></b-button>
                   </validation-observer>
                 </b-tab>
-
                 <b-tab title="ADAKOD" disabled>
                   <validation-observer tag="form" v-slot="{ invalid }" @submit.prevent="onSubmit">
                     <b-form-group label="ADAPASS KODU*" label-for="adapass-kodu">
@@ -109,6 +114,7 @@ export default {
       isMounted: false,
       tabIndex: 0,
       form: {
+        type: 'Kimlik',
         id_number: '',
         name: '',
         lastname: '',
@@ -130,15 +136,15 @@ export default {
         console.log(err)
       }
       await this.$recaptcha.reset()
-      console.log(token)
       this.loading = true
       this.error = '';
       if(type === 'info') {
-        this.$axios.$post('/api/vaccini', {
+        this.$axios.$post('/vaccini', {
+          type: this.form.type,
           IdentityNo: this.form.id_number,
           FirstName: this.form.name,
           LastName: this.form.lastname,
-          BirthDate: moment(this.form.birthday,'YYYY-MM-DD').format('DD.MM.YYYY'),
+          BirthDate: this.form.birthday,
           CaptchaToken: token
         }).then(res=>{
           if(res.Hata) {
@@ -188,8 +194,8 @@ export default {
 <style>
 .bg-img-holder {
   position: absolute;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100vh;
   background-image: url("~static/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -216,7 +222,7 @@ export default {
 }
 .body-area {
   width: 100%;
-  min-height: 90vh;
+  min-height: 70vh;
   align-items: center;
   justify-content: center;
 }

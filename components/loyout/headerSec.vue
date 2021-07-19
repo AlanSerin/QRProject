@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="top-header" @click="goMainPage">
-      <img style="height: 75px" src="/images/saglik.png"/>
+    <div class="top-header">
+      <img @click="goMainPage" style="max-height: 60px; max-width: 100vw; cursor: pointer;" src="/images/saglik.png"/>
     </div>
     <b-navbar toggleable="lg" id="header-sticky" class="header__area header__shadow header__padding px-lg-5 px-3" style="position: relative;">
       <b-navbar-brand href="/" >
@@ -54,7 +54,6 @@ export default {
   background-color: #FFFFFF;
 }
 .top-header {
-  cursor: pointer;
   background-color: #19947b!important;
   padding: 10px 20px;
   position: relative;

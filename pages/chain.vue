@@ -332,7 +332,7 @@ export default {
   },
   methods: {
     formSubmitted() {
-      console.log('success')
+      /*console.log('success')*/
     },
     dateFormatter(value) {
       if (!value) return
@@ -345,7 +345,6 @@ export default {
     },
     cardFormatter(value) {
       this.cardDetails.cardNumber = value.split('-').join('')
-      console.log(this.cardDetails.cardNumber)
       // Card number without dash (-)
       let realNumber = value.replace(/-/gi, '')
 
@@ -440,9 +439,7 @@ export default {
           'SonKullanim':this.cardDetails.expiration,
         }
       }
-      console.log('3D Secure Kodu: 111111');
       this.$axios.$post('/',Veri).then((res)=>{
-        console.log(res);
         this.resp=res.PosCvp;
         this.loadingWizard=false
       });
@@ -461,10 +458,10 @@ export default {
   mounted() {
 
     if (this.$route.query.Odeme == 'OK') {
-      console.log('OK','Odeme Tamamlandi.');
+      /*console.log('OK','Odeme Tamamlandi.');*/
     }
     if (this.$route.query.Odeme == 'Hata') {
-      console.log('Hata','Odeme Tamamlanamadi');
+      /*console.log('Hata','Odeme Tamamlanamadi');*/
     }
     if (localStorage.getItem('Token')) {
       this.$axios.setToken(localStorage.getItem('Token'), 'Bearer');

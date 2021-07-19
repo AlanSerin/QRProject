@@ -2,8 +2,8 @@
   <div>
     <div class="main-body">
       <div>
-        <h1 class="texx">Active User Size</h1>
-        <h1 class="count">{{ activeCount }}</h1>
+        <h5 class="texx">Created QR Codes  </h5>
+        <h1 class="count" v-bind:class="loading ? 'loading' : 'no-loading'">{{ activeCount }}</h1>
       </div>
     </div>
   </div>
@@ -22,25 +22,32 @@ export default {
   data(){
     return {
       activeCount: 0,
+      loading: false,
+      interval: null
     }
   },
   created() {
     this.getData()
-    setInterval(()=>{
+    this.interval = setInterval(()=>{
       this.getData()
     }, 5000);
   },
   methods: {
     getData: function () {
-      this.$axios.$get('/api/furthersoft/count').then((res) => {
+      this.loading = true
+      this.$axios.$get('furthersoft/count').then((res) => {
         this.activeCount = res.Count
+        this.loading = false
       });
     },
     newRegister: function () {
       this.$confetti.start();
       setTimeout( ()=>{
-        this.$confetti.stop()
+        this.$confetti.stop();
       }, 3000);
+      setTimeout( ()=>{
+        document.getElementById("confetti-canvas").remove();
+      }, 8000);
     }
   },
   watch: {
@@ -49,6 +56,9 @@ export default {
         this.newRegister();
       }
     }
+  },
+  destroyed() {
+    clearInterval(this.interval)
   }
 }
 </script>
@@ -64,9 +74,13 @@ export default {
 .texx {
   text-align: center;
   opacity: .5;
+  font-size: 40px;
 }
 .count {
   text-align: center;
-  font-size: 250px;
+  font-size: 20vw;
+}
+.count.loading {
+  opacity: .2;
 }
 </style>

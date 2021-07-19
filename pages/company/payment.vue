@@ -52,10 +52,10 @@
 
                 <b-row>
                   <b-col md="6">
-                    <validation-provider #default="{ errors }" name="Son Kullanma Tarihi" rules="required|min:7">
+                    <validation-provider #default="{ errors }" name="Son Kullanma Tarihi" rules="required|min:5">
                       <div class="input-holder" v-bind:class="errors[0] ? 'border border-danger' : ''">
                         <label class="floating-label">
-                          <b-input type="text" autocomplete="off" placeholder="Son Kullanma Tarihi" v-model="form.SKT" v-mask="'##/####'"></b-input>
+                          <b-input type="text" autocomplete="off" placeholder="Son Kullanma Tarihi" v-model="form.SKT" v-mask="'##/##'"></b-input>
                           <span>Son Kullanma Tarihi</span>
                         </label>
                         <small class="text-danger" v-if="errors[0]">Eksik veya hatalı Tarih</small>
@@ -78,7 +78,7 @@
 
                 <b-row>
                   <b-col cols="12" class="d-flex align-items-center my-buttons">
-                    <b-form-checkbox class="ml-2 my-2" v-model="check">Onayladığınız Takdirde Hesabınızdan <b>100.00 TL</b> Çekilecektir.</b-form-checkbox>
+                    <b-form-checkbox class="ml-2 my-2" v-model="check">Onayladığınız Takdirde Hesabınızdan <b v-if="pos">{{ pos.Tutar }} {{ pos.Currency }}</b> Çekilecektir.</b-form-checkbox>
                   </b-col>
                   <b-col cols="12">
                     <div class="w-100 mt-2">
@@ -131,13 +131,43 @@ export default {
         SKT: '',
         cvv: '',
       },
-      check: false
+      check: false,
+      pos: {}
     }
   },
+  mounted() {
+    this.getPaymentInfo();
+  },
   methods: {
+    getPaymentInfo: function () {
+      this.pos = this.$route.params['pos']
+    },
     payment: function () {
-      this.loading = true
-      console.log("payment", this.form)
+      this.loading = true;
+
+      let creditCard = this.form.cardNumber.match(/\d+/g).join('');
+      let Cvv = this.form.cvv.match(/\d+/g).join('');
+      let sonKullanim = this.form.SKT.split('/');
+      console.log(this.pos.URL)
+      $('body').append(`<form action="${this.pos.URL}" method="post" id="OdemeForm"></form>`);
+
+      $('#OdemeForm') .append(`<input type="hidden" name="Hash" value="${this.pos.Hash}" />`)
+        .append(`<input type="hidden" name="UserIp" value="${this.pos.IP}" />`)
+        .append(`<input type="hidden" name="UrlOk" value="${this.pos.UrlOK}" />`)
+        .append(`<input type="hidden" name="UrlFail" value="${this.pos.UrlFail}" />`)
+        .append(`<input type="hidden" name="Installment" value="${this.pos.Installment}" />`)
+        .append(`<input type="hidden" name="Currency" value="${this.pos.Currency}" />`)
+        .append(`<input type="hidden" name="OrderId" value="${this.pos.OdemeID}" />`)
+        .append(`<input type="hidden" name="MerchantId" value="${this.pos.MerchantId}" />`)
+        .append(`<input type="hidden" name="Amount" value="${this.pos.Tutar}" />`)
+        .append(`<input type="hidden" name="UserEmail" value="${this.pos.Mail}" />`)
+        .append(`<input type="hidden" name="UserName" value="${this.form.isim + ' ' + this.form.soyisim}" />`)
+        .append(`<input type="hidden" name="CardName" value="${this.form.isim + ' ' + this.form.soyisim}" />`)
+        .append(`<input type="hidden" name="CardExpireMonth" value="${sonKullanim[0]}" />`)
+        .append(`<input type="hidden" name="CardExpireYear" value="${sonKullanim[1]}" />`)
+        .append(`<input type="hidden" name="CardNo" value="${creditCard}" />`)
+        .append(`<input type="hidden" name="CardCvv" value="${Cvv}" />`)
+      $('#OdemeForm').submit();
     }
   }
 }
