@@ -247,9 +247,9 @@ export default {
         let res = await this.$axios.$put('/otponay/'+this._id,Veri);
         if (res.OK) {
           this.$axios.setToken(res.Token, 'Bearer');
-          localStorage.setItem('Token', res.Token);
-          localStorage.setItem('UserID', res._id);
-          this.$router.push('/chain');
+          await localStorage.setItem('Token', res.Token);
+          await localStorage.setItem('UserID', res._id);
+          await this.$router.push('/chain');
         }else {
           /*console.log(res);*/
         }

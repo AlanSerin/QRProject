@@ -5,7 +5,7 @@
       <b-row>
         <b-col cols="12" class="d-flex justify-content-center align-items-center">
           <div v-if="result" class="text-center">
-            <img class="p-5 w-25" src="/company/success.svg" alt="" style="max-height: 600px; min-width: 450px">
+            <img class="p-5 w-25" src="/company/success.svg" alt="AdaPass" style="max-height: 600px; min-width: 450px">
             <div class="mt-1">
               <h1 class="suc-head mb-3">Ödeme Başarıyla Tamamlandı!</h1>
               <div class="mx-auto" style="max-width: 75vw">
@@ -18,7 +18,7 @@
           </div>
 
           <div v-else class="text-center">
-            <img class="p-5 w-25" src="/company/error.svg" alt="" style="max-height: 600px; min-width: 450px">
+            <img class="p-5 w-25" src="/company/error.svg" alt="AdaPass" style="max-height: 600px; min-width: 450px">
             <div class="mt-1">
               <h1 class="suc-head mb-3">Ödeme tamamlanamadı!</h1>
               <div class="mx-auto" style="max-width: 75vw">

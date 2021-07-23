@@ -3,8 +3,8 @@
     <!-- footer area start -->
     <footer class="footer__area grey-bg-3 pt-120 p-relative fix">
       <div class="footer__shape">
-        <img class="footer-circle-1 footer-2-circle-1" src="~/assets/img/icon/footer/home-1/circle-1.png" alt="">
-        <img class="footer-circle-2 footer-2-circle-2" src="~/assets/img/icon/footer/home-1/circle-2.png" alt="">
+        <img class="footer-circle-1 footer-2-circle-1" src="~/assets/img/icon/footer/home-1/circle-1.png" alt="AdaPass">
+        <img class="footer-circle-2 footer-2-circle-2" src="~/assets/img/icon/footer/home-1/circle-2.png" alt="AdaPass">
       </div>
       <div class="footer__top pb-65">
         <div class="container">
@@ -14,7 +14,7 @@
                 <div class="footer__widget-title mb-25">
                   <div class="footer__logo">
                     <a href="#">
-                      <img src="~/assets/img/logo/logo.png" alt="logo">
+                      <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
                     </a>
                   </div>
                 </div>

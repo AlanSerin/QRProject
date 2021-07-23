@@ -1,16 +1,82 @@
 <template>
   <div style="width: 100%; overflow-x: hidden">
     <Nuxt />
+
+    <div class="add-home-screen-area" v-if="homeBtn">
+      <b-container fluid>
+        <b-row>
+          <b-col cols="4" class="d-flex align-items-center justify-content-center">
+            <img style="width: 60%; max-width: 100px" src="/company/aplogo.png" alt="AdaPass Logo"/>
+          </b-col>
+          <b-col cols="8">
+            <div class="d-flex align-items-center">
+              <h5 class="mb-0">Ana Sayfaya Ekle</h5>
+              <div class="ml-auto">
+                <b-button-close @click="closeHome"></b-button-close>
+              </div>
+
+            </div>
+            <p>AdaPass'ı hemen Telefonunuzun anasayfasına ekleyebilirsiniz</p>
+            <b-button class="buttonadps" @click="addToHomeScreen">Ana Sayfaya Ekle</b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'defaultLayout',
+  data () {
+    return {
+      homeBtn: false,
+    }
+  },
+  created() {
+    this.checkHomeBtn()
+  },
+  methods: {
+    async closeHome () {
+      this.homeBtn = false
+      await localStorage.setItem('homeBtn', 'false')
+    },
+    async checkHomeBtn () {
+      let btn = await localStorage.getItem('homeBtn')
+      if(btn === 'true' || !btn) {
+        this.homeBtn = true
+      } else {
+        this.homeBtn = false
+      }
+    },
+    async addToHomeScreen() {
+      await localStorage.setItem('homeBtn', 'false');
+      this.homeBtn = false;
+      console.log("ana sayfaya eklendi")
+      //buradan ana sayfaya ekleme eventini koyuyoruz
+    }
+  }
 }
 </script>
 
 <style>
+
+.add-home-screen-area {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  left: 20px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: inline;
+  /*max-width: 800px;*/
+}
+
 html {
   font-family:
     'Source Sans Pro',

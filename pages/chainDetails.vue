@@ -4,7 +4,7 @@
       <div class="top-area container-fluid">
         <div class="top-content w-100">
           <div class="d-flex justify-content-end">
-            <!--            <img class="government-logo" src="~/assets/img/saglik-removebg-preview.png" />-->
+            <!--            <img class="government-logo" src="~/assets/img/saglik-removebg-preview.png" alt="AdaPass" />-->
           </div>
           <div class="ministry-name">
             <h2 class="text-light">K.K.T.C.</h2>
@@ -48,7 +48,7 @@
       <div class="clearfix py-2 container-fluid warning my-footer">
         <b-row class="">
           <b-col class="d-flex align-items-center justify-content-center" sm="2">
-<!--            <img src="~/assets/img/saglik-removebg-preview.png" alt="Left image" />-->
+<!--            <img src="~/assets/img/saglik-removebg-preview.png" alt="AdaPass" />-->
           </b-col>
           <b-col class="" sm="8">
             <h4>KKTC Saglik Bakanligi <b-badge class="" pill variant="warning">AdaPass</b-badge> </h4>

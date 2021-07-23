@@ -2,7 +2,7 @@
   <div style="width: 100%; overflow-x: hidden">
     <div v-if="!isMounted" class="loading">
       <div>
-        <img src="~/assets/img/logo/logo.png" alt="logo">
+        <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
         <div class="d-flex align-items-center justify-content-center mt-4">
           <b-spinner></b-spinner>
         </div>

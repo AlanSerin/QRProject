@@ -2,7 +2,7 @@
   <div style="width: 100%; overflow-x: hidden">
     <div v-if="!isMounted" class="loading">
       <div>
-        <img src="~/assets/img/logo/logo.png" alt="logo">
+        <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
         <div class="d-flex align-items-center justify-content-center mt-4">
           <b-spinner></b-spinner>
         </div>
@@ -13,18 +13,18 @@
 
       <section id="home" class="hero__area hero__height-3 hero__bg p-relative d-flex align-items-center missingheader">
         <div class="hero__shape-3">
-          <img class="hero-3-circle-2" src="~/assets/img/icon/hero/home-3/hero-circle.png" alt="">
-          <img class="hero-3-dot" src="~/assets/img/icon/hero/home-3/hero-dot.png" alt="">
-          <img class="hero-3-dot-3" src="~/assets/img/icon/hero/home-3/hero-dot-3.png" alt="">
-          <img class="hero-3-dot-4" src="~/assets/img/icon/hero/home-3/hero-dot-4.png" alt="">
-          <img class="hero-3-triangle" src="~/assets/img/icon/hero/home-3/hero-triangle.png" alt="">
+          <img class="hero-3-circle-2" src="~/assets/img/icon/hero/home-3/hero-circle.png" alt="AdaPass">
+          <img class="hero-3-dot" src="~/assets/img/icon/hero/home-3/hero-dot.png" alt="AdaPass">
+          <img class="hero-3-dot-3" src="~/assets/img/icon/hero/home-3/hero-dot-3.png" alt="AdaPass">
+          <img class="hero-3-dot-4" src="~/assets/img/icon/hero/home-3/hero-dot-4.png" alt="AdaPass">
+          <img class="hero-3-triangle" src="~/assets/img/icon/hero/home-3/hero-triangle.png" alt="AdaPass">
         </div>
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-6">
               <div class="hero__thumb-3 ">
-                <img class="hero-phone wow fadeInLeft" style="width: 400px" data-wow-delay=".3s" src="../static/images/vaccine-card.png"/>
-                <img class="hero-3-dot-2" src="~/assets/img/icon/hero/home-3/hero-dot-2.png" alt="">
+                <img class="hero-phone wow fadeInLeft" alt="AdaPass" style="width: 400px" data-wow-delay=".3s" src="../static/images/vaccine-card.png"/>
+                <img class="hero-3-dot-2" src="~/assets/img/icon/hero/home-3/hero-dot-2.png" alt="AdaPass">
               </div>
             </div>
             <div class="col-lg-6 order-lg-1">
@@ -42,10 +42,10 @@
 
       <!--      <section id="uygulama" class="about__area pb-120 p-relative pt-100">
               <div class="about__shape">
-                <img class="about-triangle" src="~/assets/img/icon/about/home-1/triangle.png" alt="">
-                <img class="about-circle" src="~/assets/img/icon/about/home-1/circle.png" alt="">
-                <img class="about-circle-2" src="~/assets/img/icon/about/home-1/circle-2.png" alt="">
-                <img class="about-circle-3" src="~/assets/img/icon/about/home-1/circle-3.png" alt="">
+                <img class="about-triangle" src="~/assets/img/icon/about/home-1/triangle.png" alt="AdaPass">
+                <img class="about-circle" src="~/assets/img/icon/about/home-1/circle.png" alt="AdaPass">
+                <img class="about-circle-2" src="~/assets/img/icon/about/home-1/circle-2.png" alt="AdaPass">
+                <img class="about-circle-3" src="~/assets/img/icon/about/home-1/circle-3.png" alt="AdaPass">
               </div>
               <div class="container">
                 <div class="row align-items-center">
@@ -65,9 +65,9 @@
                   </div>
                   <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6 col-md-10 order-first order-lg-last">
                     <div class="about__thumb-wrapper p-relative ml-40 fix text-end">
-                      <img src="~/assets/img/about/home-1/about-bg.png" alt="">
+                      <img src="~/assets/img/about/home-1/about-bg.png" alt="AdaPass">
                       <div class="about__thumb p-absolute">
-                        <img class="bounceInUp wow about-big" data-wow-delay=".3s" src="~/assets/img/about/home-1/about-1.png" alt="">
+                        <img class="bounceInUp wow about-big" data-wow-delay=".3s" src="~/assets/img/about/home-1/about-1.png" alt="AdaPass">
 
                       </div>
                     </div>
@@ -78,16 +78,16 @@
 
       <!--      <section class="about__area pb-50 pt-80 p-relative">
               <div class="about__shape">
-                <img class="about-plus" src="~/assets/img/icon/about/home-1/plus.png" alt="">
-                <img class="about-triangle-2" src="~/assets/img/icon/about/home-1/triangle-2.png" alt="">
-                <img class="about-circle-4" src="~/assets/img/icon/about/home-1/circle-4.png" alt="">
-                <img class="about-circle-5" src="~/assets/img/icon/about/home-1/circle-5.png" alt="">
+                <img class="about-plus" src="~/assets/img/icon/about/home-1/plus.png" alt="AdaPass">
+                <img class="about-triangle-2" src="~/assets/img/icon/about/home-1/triangle-2.png" alt="AdaPass">
+                <img class="about-circle-4" src="~/assets/img/icon/about/home-1/circle-4.png" alt="AdaPass">
+                <img class="about-circle-5" src="~/assets/img/icon/about/home-1/circle-5.png" alt="AdaPass">
               </div>
               <div class="container">
                 <div class="row align-items-center">
                   <div class="col-xxl-6 col-xl-6 col-lg-6">
                     <div class="about__thumb-wrapper p-relative ml&#45;&#45;auto fix mr-90">
-                      <img src="~/assets/img/about/home-1/about-bg-2.png" style="max-width: 50vh" alt="">
+                      <img src="~/assets/img/about/home-1/about-bg-2.png" style="max-width: 50vh" alt="AdaPass">
                     </div>
                   </div>
                   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-9">
@@ -108,7 +108,7 @@
                   <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 order-last order-lg-first">
                     <div class="about__wrapper-3">
                       <div class="section__title-wrapper section__title-wrapper-3 mb-25 wow fadeInUp" data-wow-delay=".3s">
-                        <span class="section__pre-title-img"><img src="~/assets/img/icon/title/about.png" alt=""></span>
+                        <span class="section__pre-title-img"><img src="~/assets/img/icon/title/about.png" alt="AdaPass"></span>
                         <h2 class="section__title section__title-3">AdaPass Kodu</h2>
                         <p>AdaPass QR kodunuzla işlemleriniz tamamlanmış ve geçerli ise polis kontrollerinde AdaPass kodunuzu okutarak geçiş yapabilirsiniz.</p>
                       </div>
@@ -118,8 +118,8 @@
                   </div>
                   <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6 col-md-8 col-sm-10">
                     <div class="about__thumb-4 p-relative text-end">
-                      <img class="mr-95 about-phone wow fadeInRight" data-wow-delay=".7s" src="~/assets/img/about/home-3/about-phone.png" alt="">
-                      <img class="about-4-circle" src="~/assets/img/about/home-3/about-circle.png" alt="">
+                      <img class="mr-95 about-phone wow fadeInRight" data-wow-delay=".7s" src="~/assets/img/about/home-3/about-phone.png" alt="AdaPass">
+                      <img class="about-4-circle" src="~/assets/img/about/home-3/about-circle.png" alt="AdaPass">
                     </div>
                   </div>
                 </div>
@@ -128,9 +128,9 @@
 
       <!--      <section class="promotion__area promotion__bg pt-125 pb-125 p-relative">
               <div class="promotion__shape">
-                <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="">
-                <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="">
-                <img class="promotion-triangle" src="~/assets/img/icon/promotion/pro-triangle.png" alt="">
+                <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="AdaPass">
+                <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="AdaPass">
+                <img class="promotion-triangle" src="~/assets/img/icon/promotion/pro-triangle.png" alt="AdaPass">
               </div>
               <div class="container">
                 <div class="row">
@@ -154,14 +154,14 @@
 
       <!--      <section id="register" class="about__area grey-bg-3 pt-50 pb-50 p-relative">
               <div class="about__shape-2">
-                <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="">
-                <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="">
+                <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="AdaPass">
+                <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="AdaPass">
               </div>
               <div class="container mb-100">
                 <div class="row">
                   <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-140">
                     <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
-                      <img src="~/assets/img/about/home-3/uyg.png" alt="">
+                      <img src="~/assets/img/about/home-3/uyg.png" alt="AdaPass">
                     </div>
                   </div>
                   <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 mb-100">

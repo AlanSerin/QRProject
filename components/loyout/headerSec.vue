@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="top-header">
-      <img @click="goMainPage" style="max-height: 60px; max-width: 100vw; cursor: pointer;" src="/images/saglik.png"/>
+      <img @click="goMainPage" style="max-height: 60px; max-width: 100vw; cursor: pointer;" src="/images/saglik.png" alt="AdaPass"/>
     </div>
     <b-navbar toggleable="lg" id="header-sticky" class="header__area header__shadow header__padding px-lg-5 px-3" style="position: relative;">
       <b-navbar-brand href="/" >
-        <img src="~/assets/img/logo/logo.png" alt="logo">
+        <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
       </b-navbar-brand>
 
 <!--      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>-->

@@ -4,7 +4,7 @@
     <b-container fluid class="h-100" style="padding-top: 2rem;">
       <b-row>
         <b-col lg="6" class="d-none d-lg-flex align-items-center justify-content-center" style="min-height: 70vh">
-          <img class="p-5 w-75" src="/company/payment.svg" alt="" style="max-height: 600px">
+          <img class="p-5 w-75" src="/company/payment.svg" alt="AdaPass" style="max-height: 600px">
         </b-col>
         <b-col lg="6" class="pr-lg-5">
           <b-row>

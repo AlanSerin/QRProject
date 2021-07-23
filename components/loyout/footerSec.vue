@@ -5,17 +5,17 @@
         <div class="row justify-content-xxl-center py-4">
           <div class="col-md-4 wow fadeInUp my-4 my-md-0" data-wow-delay=".3s">
             <div class="footer__logo">
-              <img src="~/assets/img/logo/logo.png" alt="logo">
+              <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
             </div>
           </div>
           <div class="col-md-4 wow fadeInUp my-4 my-md-0" data-wow-delay=".3s">
             <div class="footer__logo">
-              <img src="~/assets/img/logo/saglik.png" alt="logo">
+              <img src="~/assets/img/logo/saglik.png" alt="AdaPass-logo">
             </div>
           </div>
           <div class="col-md-4 wow fadeInUp my-4 my-md-0" data-wow-delay=".3s">
             <div class="footer__logo">
-              <img src="~/assets/img/logo/f.png" alt="logo">
+              <img src="~/assets/img/logo/f.png" alt="AdaPass-logo">
             </div>
           </div>
         </div>

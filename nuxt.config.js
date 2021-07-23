@@ -14,7 +14,17 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'AdaPass ile artık Kuzey Kıbrıs daha sağlıklı. Hemen kaydolun ve diğer tüm servislerimize göz atın! AdaPass Sağlık K.K.T.C Sağlık Bakanlığının resmi web sitesidir.' },
+      { name: 'theme-color', content: '#19947b' },
+      { name: 'keywords', content: 'Kuzey Kıbrıs AdaPAss - K.K.T.C. SAĞLIK BAKANLIĞI' },
+      { name: 'mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-title', content: 'AdaPass' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+      { name: 'msapplication-navbutton-color', content: '#19947b' },
+      { name: 'msapplication-TileColor', content: '#19947b' },
+      { name: 'application-name', content: 'AdaPass' },
+      { name: 'screen-orientation', content: 'portrait' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -36,7 +46,6 @@ export default {
       { type: 'text/javascript', src: '/js/main.js', body: true }
     ],
   },
-
   css: [
     '@/assets/css/bootstrap.min.css',
     '@/assets/css/meanmenu.css',
@@ -49,27 +58,35 @@ export default {
     '@/assets/css/default.css',
     '@/assets/css/style.css',
     '@/assets/css/vue-form-wizard.min.css',
-
   ],
-
   plugins: [
-    {src: "~/plugins/lodash.js"},
-    {src: '~/plugins/vee-validate.js', ssr: true },
-    {src: '~/plugins/qrcode.js', ssr: true },
-    {src: '~/plugins/qr.js', ssr: true },
-    {src: "~/plugins/vue2-google-maps.js"},
-    {src: "~/plugins/vue-phone-number.js"},
-    {src: "~/plugins/vue-form-wizard.js"},
+    { src: "~/plugins/lodash.js" },
+    { src: '~/plugins/vee-validate.js', ssr: true },
+    { src: '~/plugins/qrcode.js', ssr: true },
+    { src: '~/plugins/qr.js', ssr: true },
+    { src: "~/plugins/vue2-google-maps.js" },
+    { src: "~/plugins/vue-phone-number.js" },
+    { src: "~/plugins/vue-form-wizard.js" },
     { src: '@/plugins/vue-html2pdf', mode: 'client' },
     { src: '~/plugins/vue-confetti.js', mode: 'client' },
     { src: '~/plugins/mask.js', mode: 'client' },
     { src: '~/plugins/select.js', ssr: true },
     { src: '~/plugins/qrReader.js', mode: 'client' }
   ],
-
   components: true,
+  pwa: {
+    icon: false,
+    manifest: {
+      name: 'AdaPass',
+      lang: 'tr',
+      useWebmanifestExtension: false
+    },
+    meta: {
 
+    }
+  },
   buildModules: [
+    '@nuxtjs/pwa',
     '@nuxtjs/fontawesome',
     '@nuxtjs/google-analytics'
   ],
@@ -94,17 +111,35 @@ export default {
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
     '@nuxtjs/recaptcha',
+    '@nuxtjs/auth-next'
   ],
   server: {
     host: "0.0.0.0",
     port: 3000
   },
-
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/company/login',
+      home: '/company/dashboard'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login : { url: '/login', method: 'POST', propertyName: 'data.Token' },
+          user: false,
+          logout: false,
+        },
+        watchLoggedIn: true,
+        tokenType: 'bearer',
+        tokenName: 'data.Token',
+      }
+    }
+  },
   axios: {
     baseURL: process.env.baseURL,
   },
   recaptcha: {
-    /* reCAPTCHA options */
     /*priv_key : '6LfX6Y4bAAAAALDaiRuuHbERuwNZIKJTx0DR2IQ4',*/
     siteKey: '6LfX6Y4bAAAAAAIrCTvYG8yKec4YLV_eN0km-DqC',
     version: 2,

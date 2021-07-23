@@ -5,12 +5,12 @@
       <!-- page title area start -->
       <section class="page__title-area page__title-height d-flex align-items-center fix p-relative z-index-1 missingtitle">
         <div class="page__title-shape">
-          <img class="page-title-dot-4" src="~/assets/img/page-title/dot-4.png" alt="">
-          <img class="page-title-dot" src="~/assets/img/page-title/dot.png" alt="">
-          <img class="page-title-dot-2" src="~/assets/img/page-title/dot-2.png" alt="">
-          <img class="page-title-dot-3" src="~/assets/img/page-title/dot-3.png" alt="">
-          <img class="page-title-plus" src="~/assets/img/page-title/plus.png" alt="">
-          <img class="page-title-triangle" src="~/assets/img/page-title/triangle.png" alt="">
+          <img class="page-title-dot-4" src="~/assets/img/page-title/dot-4.png" alt="AdaPass">
+          <img class="page-title-dot" src="~/assets/img/page-title/dot.png" alt="AdaPass">
+          <img class="page-title-dot-2" src="~/assets/img/page-title/dot-2.png" alt="AdaPass">
+          <img class="page-title-dot-3" src="~/assets/img/page-title/dot-3.png" alt="AdaPass">
+          <img class="page-title-plus" src="~/assets/img/page-title/plus.png" alt="AdaPass">
+          <img class="page-title-triangle" src="~/assets/img/page-title/triangle.png" alt="AdaPass">
         </div>
         <div class="container">
           <div class="row">
@@ -45,7 +45,7 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
               <div class="services__item-4 white-bg mb-30">
                 <div class="services__thumb-4 text-center d-flex align-items-end justify-content-center">
-                  <img src="~/assets/img/services/home-4/services-1.png" alt="">
+                  <img src="~/assets/img/services/home-4/services-1.png" alt="AdaPass">
                 </div>
                 <div class="services__content-4">
                   <h3 class="services__title-4"><a href="services-details.html">Finish routine tasks automatically</a></h3>
@@ -57,7 +57,7 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
               <div class="services__item-4 white-bg mb-30">
                 <div class="services__thumb-4 text-center d-flex align-items-end justify-content-center">
-                  <img src="~/assets/img/services/home-4/services-2.png" alt="">
+                  <img src="~/assets/img/services/home-4/services-2.png" alt="AdaPass">
                 </div>
                 <div class="services__content-4">
                   <h3 class="services__title-4"><a href="services-details.html">Start workflows from any app</a></h3>
@@ -90,7 +90,7 @@
             </div>
             <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6 wow fadeInRight" data-wow-delay=".7s">
               <div class="about__thumb-wrapper-2 ml-40 p-relative m-img">
-                <img src="~/assets/img/about/about-img.jpg" alt="">
+                <img src="~/assets/img/about/about-img.jpg" alt="AdaPass">
               </div>
             </div>
           </div>
@@ -176,9 +176,9 @@
       <!-- promotion area start -->
       <section class="promotion__area promotion__bg pt-125 pb-125 p-relative">
         <div class="promotion__shape">
-          <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="">
-          <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="">
-          <img class="promotion-triangle" src="~/assets/img/icon/promotion/pro-triangle.png" alt="">
+          <img class="promotion-dot" src="~/assets/img/icon/promotion/pro-dot.png" alt="AdaPass">
+          <img class="promotion-plus" src="~/assets/img/icon/promotion/pro-plus.png" alt="AdaPass">
+          <img class="promotion-triangle" src="~/assets/img/icon/promotion/pro-triangle.png" alt="AdaPass">
         </div>
         <div class="container">
           <div class="row">

@@ -4,7 +4,7 @@
     <b-container fluid class="h-100" style="padding-top: 2rem;">
       <b-row>
         <b-col lg="6" class="d-none d-lg-flex align-items-center justify-content-center" style="min-height: 50vh">
-          <img class="p-5 w-75" src="/company/register.svg" alt="" style="max-height: 600px">
+          <img class="p-5 w-75" src="/company/register.svg" alt="AdaPass" style="max-height: 600px">
         </b-col>
         <b-col lg="6" class="pr-lg-5">
           <b-row>
@@ -120,7 +120,7 @@
                 <b-row>
 
                   <b-col md="6" order-md="1" order="2" class="d-flex align-items-center justify-content-center" style="min-height: 80px">
-                    <h6 class="login-btn" @click="$router.push('login')">Hesabım Var</h6>
+                    <h6 class="login-btn" @click="$router.push({ name: 'company-login' })">Hesabım Var</h6>
                   </b-col>
                   <b-col md="6" order-md="2" order="1" class="d-flex align-items-center justify-content-center" style="min-height: 80px">
                     <div class="w-100">

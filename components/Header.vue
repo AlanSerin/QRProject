@@ -29,7 +29,7 @@
           <div class="col-xxl-4 col-xl-2 col-lg-2 col-md-6 col-6">
             <div class="logo">
               <a href="index.html">
-                <img src="~/assets/img/logo/logo.png" alt="logo">
+                <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
               </a>
             </div>
           </div>
@@ -109,7 +109,7 @@
       <div class="sidebar__content">
         <div class="logo mb-40">
           <a href="index.html">
-            <img src="~/assets/img/logo/logo.png" alt="logo">
+            <img src="~/assets/img/logo/logo.png" alt="AdaPass-logo">
           </a>
         </div>
         <div class="mobile-menu mobile-menu-3"></div>

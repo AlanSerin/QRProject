@@ -8,7 +8,7 @@
         </div>
       </div>
       <qrcode-stream :camera="camera" @decode="onDecode"></qrcode-stream>
-      <div class="camera-footer" @click="$router.push('dashboard')">
+      <div class="camera-footer" @click="$router.push({ name: 'company-dashboard' })">
         <span class="fas fa-edit"></span>
         <h5 class="footer-camera-text">Elle Gir</h5>
       </div>

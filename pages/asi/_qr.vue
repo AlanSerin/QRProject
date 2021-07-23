@@ -10,7 +10,7 @@
                 <div class="bg-img"></div>
                 <section class="d-flex align-items-center justify-content-center pt-4 ">
                   <div class="vaccine-header">
-                    <img src="/images/cyprus-flag.png" alt="">
+                    <img src="/images/cyprus-flag.png" alt="cy-flag">
                     <div class="pl-2">
                       <h5 class="v-h-first">Kuzey Kıbrıs Türk Cumhuriyeti AŞI KİMLİĞİ</h5>
                       <h5 class="v-h-second">Turkish Republic of Northern Cyprus VACCINATION ID</h5>
@@ -55,7 +55,7 @@
                 </section>
                 <section class="px-3">
                   <div class="middle-card">
-                    <img src="/images/logo-saglik.png" alt="">
+                    <img src="/images/logo-saglik.png" alt="cy-caretta">
                     <div class="pr-5">
                       <h5 class="tex">COVID-19 AŞISI OLMUŞTUR</h5>
                       <h5 class="tex-sub">COVID-19 VACCINATED</h5>
@@ -84,8 +84,8 @@
                 </section>
                 <section class="footer-sec">
                   <div class="ml-4">
-                    <img src="/images/caretta.png" class="caretta-1"/>
-                    <img src="/images/caretta.png" class="caretta-2"/>
+                    <img src="/images/caretta.png" class="caretta-1" alt="AdaPass"/>
+                    <img src="/images/caretta.png" class="caretta-2" alt="AdaPass"/>
                   </div>
                   <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
                 </section>
@@ -130,7 +130,7 @@
         <div class="bg-img"></div>
         <section class="d-flex align-items-center justify-content-center pt-4 ">
           <div class="vaccine-header">
-            <img src="/images/cyprus-flag.png" alt="">
+            <img src="/images/cyprus-flag.png" alt="AdaPass">
             <div class="pl-2">
               <h5 class="v-h-first">Kuzey Kıbrıs Türk Cumhuriyeti AŞI KİMLİĞİ</h5>
               <h5 class="v-h-second">Turkish Republic of Northern Cyprus VACCINATION ID</h5>
@@ -175,7 +175,7 @@
         </section>
         <section class="px-3">
           <div class="middle-card">
-            <img src="/images/logo-saglik.png" alt="">
+            <img src="/images/logo-saglik.png" alt="AdaPass">
             <div class="pr-5">
               <h5 class="tex">COVID-19 AŞISI OLMUŞTUR</h5>
               <h5 class="tex-sub">COVID-19 VACCINATED</h5>
@@ -204,8 +204,8 @@
         </section>
         <section class="footer-sec">
           <div class="ml-4">
-            <img src="/images/caretta.png" class="caretta-1"/>
-            <img src="/images/caretta.png" class="caretta-2"/>
+            <img src="/images/caretta.png" class="caretta-1" alt="AdaPass"/>
+            <img src="/images/caretta.png" class="caretta-2" alt="AdaPass"/>
           </div>
           <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
         </section>
@@ -232,7 +232,7 @@
               <div class="bg-img"></div>
               <section class="d-flex align-items-center justify-content-center pt-4 ">
                 <div class="vaccine-header">
-                  <img src="/images/cyprus-flag.png" alt="">
+                  <img src="/images/cyprus-flag.png" alt="AdaPass">
                   <div class="pl-2">
                     <h5 class="v-h-first">Kuzey Kıbrıs Türk Cumhuriyeti AŞI KİMLİĞİ</h5>
                     <h5 class="v-h-second">Turkish Republic of Northern Cyprus VACCINATION ID</h5>
@@ -277,7 +277,7 @@
               </section>
               <section class="px-3">
                 <div class="middle-card">
-                  <img src="/images/logo-saglik.png" alt="">
+                  <img src="/images/logo-saglik.png" alt="AdaPass">
                   <div class="pr-5">
                     <h5 class="tex">COVID-19 AŞISI OLMUŞTUR</h5>
                     <h5 class="tex-sub">COVID-19 VACCINATED</h5>
@@ -306,8 +306,8 @@
               </section>
               <section class="footer-sec">
                 <div class="ml-4">
-                  <img src="/images/caretta.png" class="caretta-1"/>
-                  <img src="/images/caretta.png" class="caretta-2"/>
+                  <img src="/images/caretta.png" class="caretta-1" alt="AdaPass"/>
+                  <img src="/images/caretta.png" class="caretta-2" alt="AdaPass"/>
                 </div>
                 <div class="sub-date" v-if="vaccine.OlusturmaTarih">{{ vaccine.OlusturmaTarih }} Tarihinde Oluşturulmuştur</div>
               </section>

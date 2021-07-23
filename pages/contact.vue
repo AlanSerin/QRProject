@@ -5,12 +5,12 @@
     <!-- page title area start -->
     <section class="page__title-area page__title-height d-flex align-items-center fix p-relative z-index-1 missingtitle">
       <div class="page__title-shape">
-        <img class="page-title-dot-4" src="~/assets/img/page-title/dot-4.png" alt="">
-        <img class="page-title-dot" src="~/assets/img/page-title/dot.png" alt="">
-        <img class="page-title-dot-2" src="~/assets/img/page-title/dot-2.png" alt="">
-        <img class="page-title-dot-3" src="~/assets/img/page-title/dot-3.png" alt="">
-        <img class="page-title-plus" src="~/assets/img/page-title/plus.png" alt="">
-        <img class="page-title-triangle" src="~/assets/img/page-title/triangle.png" alt="">
+        <img class="page-title-dot-4" src="~/assets/img/page-title/dot-4.png" alt="AdaPass">
+        <img class="page-title-dot" src="~/assets/img/page-title/dot.png" alt="AdaPass">
+        <img class="page-title-dot-2" src="~/assets/img/page-title/dot-2.png" alt="AdaPass">
+        <img class="page-title-dot-3" src="~/assets/img/page-title/dot-3.png" alt="AdaPass">
+        <img class="page-title-plus" src="~/assets/img/page-title/plus.png" alt="AdaPass">
+        <img class="page-title-triangle" src="~/assets/img/page-title/triangle.png" alt="AdaPass">
       </div>
       <div class="container">
         <div class="row">
@@ -83,7 +83,7 @@
     <!-- contact support area start -->
     <section class="contact__support p-relative pb-110">
       <div class="contact__shape">
-        <img src="~/assets/img/contact/shape.png" alt="">
+        <img src="~/assets/img/contact/shape.png" alt="AdaPass">
       </div>
       <div class="container">
         <div class="row">
@@ -91,7 +91,7 @@
             <div class="contact__item-inner hover__active mb-30">
               <div class="contact__item text-center transition-3 white-bg">
                 <div class="contact__icon d-flex justify-content-center align-items-end">
-                  <img src="~/assets/img/contact/call.png" alt="">
+                  <img src="~/assets/img/contact/call.png" alt="AdaPass">
                 </div>
                 <div class="contact__content">
                   <h3 class="contact__title-2"><a href="#">Quick Answers</a></h3>
@@ -105,7 +105,7 @@
             <div class="contact__item-inner hover__active mb-30">
               <div class="contact__item text-center transition-3 white-bg">
                 <div class="contact__icon d-flex justify-content-center align-items-end">
-                  <img src="~/assets/img/contact/message.png" alt="">
+                  <img src="~/assets/img/contact/message.png" alt="AdaPass">
                 </div>
                 <div class="contact__content">
                   <h3 class="contact__title-2"><a href="#">Customer Support</a></h3>
@@ -119,7 +119,7 @@
             <div class="contact__item-inner hover__active mb-30">
               <div class="contact__item text-center transition-3 white-bg">
                 <div class="contact__icon d-flex justify-content-center align-items-end">
-                  <img src="~/assets/img/contact/social.png" alt="">
+                  <img src="~/assets/img/contact/social.png" alt="AdaPass">
                 </div>
                 <div class="contact__content">
                   <h3 class="contact__title-2"><a href="#">We are Social</a></h3>

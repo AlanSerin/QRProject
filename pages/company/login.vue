@@ -1,10 +1,11 @@
 <template>
   <div>
+    <loading :status="siteLoading"></loading>
     <headerSec></headerSec>
     <b-container fluid class="h-100" style="padding-top: 2rem;">
       <b-row>
         <b-col lg="6" class="d-none d-lg-flex align-items-center justify-content-center" style="min-height: 50vh">
-          <img class="p-5 w-75" src="/company/login.svg" alt="" style="max-height: 600px">
+          <img class="p-5 w-75" src="/company/login.svg" alt="AdaPass" style="max-height: 600px">
         </b-col>
         <b-col lg="6" class="pr-lg-5">
           <b-row>
@@ -71,48 +72,53 @@
 
 <script>
 import headerSec from "@/components/loyout/headerSec"
-import footerSec from "@/components/loyout/footerSec"
+import loading from "@/components/loading";
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import "vue-select/src/scss/vue-select.scss";
 
 export default {
-  name: 'companyRegister',
+  name: 'companyLogin',
   components: {
     headerSec,
-    footerSec,
     ValidationProvider,
     ValidationObserver
   },
   data() {
     return {
       loading: false,
+      siteLoading: true,
       error: '',
       form: {
-        email: '',
-        password: '',
+        email: 'mdilmac9@gmail.com',
+        password: '123456',
       },
     }
   },
+  mounted() {
+    this.siteLoading = false
+  },
   methods: {
-    login: function () {
+    async login () {
       this.loading = true
-      this.$axios.$post('/login', {
-        Username: this.form.email,
-        Pass: this.form.password
-      }).then(res=>{
+      this.error = ''
+      this.$auth.loginWith('local', {
+        data: {
+          Username: this.form.email,
+          Pass: this.form.password
+        },
+      }).then((res)=> {
+        console.log(res.data)
         this.loading = false
-        if(res.Hata) {
-          this.error = res.Hata
+        if(res.data.Hata) {
+          this.error = res.data.Hata
         } else {
-          localStorage.setItem('Token', res.Token)
-          localStorage.setItem('Adi', res.Adi)
-          localStorage.setItem('MailAdres', res.MailAdres)
-          this.$router.push({ name: 'company-dashboard'})
+          this.$auth.setUser(res.data.user);
+          this.$auth.setUserToken(res.data.Token)
         }
-      }).catch(error => {
+      }).catch((error)=>{
         this.loading = false
         console.log(error)
-      })
+      });
     }
   }
 }
