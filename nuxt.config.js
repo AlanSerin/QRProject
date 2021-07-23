@@ -78,19 +78,7 @@ export default {
     { src: '~/plugins/qrReader.js', mode: 'client' }
   ],
   components: true,
-  pwa: {
-    icon: false,
-    manifest: {
-      name: 'AdaPass',
-      lang: 'tr',
-      useWebmanifestExtension: false
-    },
-    meta: {
-
-    }
-  },
   buildModules: [
-    '@nuxtjs/pwa',
     '@nuxtjs/fontawesome',
     '@nuxtjs/google-analytics'
   ],
@@ -112,6 +100,7 @@ export default {
     middleware: 'maintenance'
   },
   modules: [
+    '@nuxtjs/pwa',
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
     '@nuxtjs/recaptcha',
@@ -119,11 +108,7 @@ export default {
   ],
   server: {
     host: "0.0.0.0",
-    port: 3000,
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
-    }
+    port: 80,
   },
   auth: {
     redirect: {

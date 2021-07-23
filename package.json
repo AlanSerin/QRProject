@@ -1,5 +1,7 @@
 {
-  "name": "QRSite",
+  "name": "Ada Pass",
+  "description": "KKTC Sağlık Bakanlığı AdaPass Uygulaması",
+  "author": "Taner SANCAR",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,6 +18,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/proxy": "^2.1.0",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/recaptcha": "^1.0.4",
     "@vue/composition-api": "^1.0.0-rc.11",
     "bootstrap": "^4.6.0",
@@ -45,7 +48,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@nuxtjs/fontawesome": "^1.1.2",
-    "@nuxtjs/pwa": "^3.3.5",
     "jquery": "^3.6.0",
     "sass": "^1.34.1",
     "sass-loader": "^10.2.0",
