@@ -1,4 +1,7 @@
 const webpack = require("webpack");
+import path from 'path'
+import fs from 'fs'
+
 export default {
   env: {
     baseURL: process.env.baseURL,
@@ -6,6 +9,7 @@ export default {
     paymentSuccess: process.env.paymentSuccess,
     paymentError: process.env.paymentError,
   },
+
   head: {
     title: 'AdaPass',
     htmlAttrs: {
@@ -115,7 +119,11 @@ export default {
   ],
   server: {
     host: "0.0.0.0",
-    port: 3000
+    port: 3000,
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
+    }
   },
   auth: {
     redirect: {
