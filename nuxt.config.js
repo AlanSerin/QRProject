@@ -96,10 +96,22 @@ export default {
       brands: true,
     }
   },
+  oneSignal: {
+    init: {
+      appId: '1d141dd1-20c6-4465-a8e5-6ad65eab74ee',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+          disable: true
+      },
+      cdn: true,
+      OneSignalSDK: 'https://cdn.onesignal.com/sdks/OneSignalSDK.js'
+    }
+  },
   router: {
     middleware: 'maintenance'
   },
   modules: [
+    '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
