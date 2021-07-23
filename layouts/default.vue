@@ -23,6 +23,10 @@
       </b-container>
     </div>
 
+    <div class='onesignal-customlink-container'>
+
+    </div>
+
   </div>
 </template>
 
@@ -34,25 +38,27 @@ export default {
       homeBtn: false,
     }
   },
-  created() {
-    this.checkHomeBtn()
-    // this.$OneSignal.push(() => {
-    //     this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
-    //     if (isEnabled) {
-    //       console.log('Push notifications are enabled!')
-    //     } else {
-    //       console.log('Push notifications are not enabled yet.')
-    //     }
-    //   })
-    // });
-    // window.$OneSignal.push(['addListenerForNotificationOpened', (data) => {
-    //   console.log('Received NotificationOpened:', data )}
-    // ]);
+  mounted() {
+    this.startOneSignal();
   },
   methods: {
+    async startOneSignal() {
+      this.$OneSignal.push(() => {
+        this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
+          if (isEnabled) {
+            console.log('Push notifications are enabled!')
+          } else {
+            console.log('Push notifications are not enabled yet.')
+          }
+        })
+      });
+      window.$OneSignal.push(['addListenerForNotificationOpened', (data) => {
+        console.log('Received NotificationOpened:', data )}
+      ]);
+    },
     async closeHome () {
       this.homeBtn = false
-      await localStorage.setItem('homeBtn', 'false')
+      //await localStorage.setItem('homeBtn', 'false')
     },
     async checkHomeBtn () {
       let btn = await localStorage.getItem('homeBtn')
@@ -63,7 +69,7 @@ export default {
       }
     },
     async addToHomeScreen() {
-      await localStorage.setItem('homeBtn', 'false');
+      //await localStorage.setItem('homeBtn', 'false');
       this.homeBtn = false;
       console.log("ana sayfaya eklendi");
 
@@ -101,7 +107,19 @@ export default {
 </script>
 
 <style>
-
+.onesignal-customlink-container {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  left: 20px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: inline;
+}
 .add-home-screen-area {
   position: fixed;
   z-index: 2;
@@ -114,7 +132,6 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   display: inline;
-  /*max-width: 800px;*/
 }
 
 html {

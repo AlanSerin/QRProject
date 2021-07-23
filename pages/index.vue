@@ -151,32 +151,32 @@
                 </div>
               </div>
             </section>-->
-
-      <!--      <section id="register" class="about__area grey-bg-3 pt-50 pb-50 p-relative">
-              <div class="about__shape-2">
-                <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="AdaPass">
-                <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="AdaPass">
+      <section id="register" class="about__area grey-bg-3 pt-50 pb-50 p-relative">
+        <div class="about__shape-2">
+          <img class="about-2-circle" src="~/assets/img/about/home-3/about-circle-2.png" alt="AdaPass">
+          <img class="about-2-circle-2" src="~/assets/img/about/home-3/about-circle-3.png" alt="AdaPass">
+        </div>
+        <div class="container mb-100">
+          <div class="row">
+            <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-140">
+              <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
+                <img src="~/assets/img/about/home-3/uyg.png" alt="AdaPass">
               </div>
-              <div class="container mb-100">
-                <div class="row">
-                  <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-8 mt-140">
-                    <div class="about__thumb-3 wow fadeInLeft" data-wow-delay=".3s">
-                      <img src="~/assets/img/about/home-3/uyg.png" alt="AdaPass">
-                    </div>
-                  </div>
-                  <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 mb-100">
-                    <div class="about__content-3 pt-100">
-                      <div class="section__title-wrapper section__title-wrapper-2 mb-30 wow fadeInUp" data-wow-delay=".3s">
-                        <span class="section__pre-title pink">İşletme Kaydı</span>
-                        <h2 class="section__title section__title-2">İşletmenizi Uygulama için Kaydedin</h2>
-                        <p>AdaPass kullanıcılarının işletmenize QR Kodla giriş yapabilmesi için işletmenizi kaydetmeniz gerekmektedir.</p>
-                      </div>
-                      <a href="#" class="w-btn w-btn-blue w-btn-3 w-btn-1">İşletmeni Kaydet</a>
-                    </div>
-                  </div>
+            </div>
+            <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 mb-100">
+              <div class="about__content-3 pt-100">
+                <div class="section__title-wrapper section__title-wrapper-2 mb-30 wow fadeInUp" data-wow-delay=".3s">
+                  <span class="section__pre-title pink">İşletme Kaydı</span>
+                  <h2 class="section__title section__title-2">İşletmenizi AdaPass için Kaydedin</h2>
+<!--                  <p>AdaPass kullanıcılarının işletmenize QR Kodla giriş yapabilmesi için işletmenizi kaydetmeniz gerekmektedir.</p>-->
+                  <p>AdaPass kodu olan vatandaşların işletmenize girişlerini kontrol edebilmek için</p>
                 </div>
+                <a href="/company/register" class="w-btn w-btn-blue w-btn-3 w-btn-1">İşletmeni Kaydet</a>
               </div>
-            </section>-->
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="quest" class="faq__area pt-50 pb-100">
         <div class="container">
