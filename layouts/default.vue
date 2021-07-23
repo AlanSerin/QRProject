@@ -113,11 +113,9 @@ export default {
   bottom: 0;
   left: 20px;
   padding: 20px;
-  background-color: #FFFFFF;
   margin-bottom: 20px;
   margin-right: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   display: inline;
 }
 .add-home-screen-area {
