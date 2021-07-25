@@ -322,8 +322,8 @@
 
 <script>
 import VueQrcode from 'vue-qrcode'
-import headerSec from "~/components/loyout/headerSec";
-import footerSec from "~/components/loyout/footerSec";
+import headerSec from "@/components/loyout/headerSec";
+import footerSec from "@/components/loyout/footerSec";
 
 export default {
   components: {
@@ -360,6 +360,9 @@ export default {
     async getData () {
       let params = await this.$route.query.id;
       this.$axios.$get('/vaccini/kontrol/' + params).then(res=>{
+        if (process.browser) {          
+          localStorage.setItem('pwaVaccini', params);
+        }
         if(res.Hata) {
           this.error = res.Hata
         } else {
@@ -409,7 +412,7 @@ export default {
   position: absolute;
   height: 100%;
   opacity: .3;
-  background-image: url("~static/images/background-asi.png");
+  background-image: url("~/static/images/background-asi.png");
   background-repeat: no-repeat;
   width: 345px;
   background-size: cover;

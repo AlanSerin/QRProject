@@ -1,12 +1,15 @@
 <template>
   <div>
-    <div v-if="status" class="bg-loading">
+    <div class="bg-loading" :class="status || status == 'true' ? '':'d-none'">
       <div>
         <img style="width: 20vh" class="mb-50" src="../static/company/aplogo.png" alt="AdaPass"/>
         <div class="d-flex align-items-center justify-content-center">
           <b-spinner large></b-spinner>
         </div>
       </div>
+    </div>
+    <div class="d-none">
+
     </div>
   </div>
 </template>

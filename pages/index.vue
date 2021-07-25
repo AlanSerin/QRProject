@@ -23,7 +23,7 @@
           <div class="row align-items-center">
             <div class="col-lg-6">
               <div class="hero__thumb-3 ">
-                <img class="hero-phone wow fadeInLeft" alt="AdaPass" style="width: 400px" data-wow-delay=".3s" src="../static/images/vaccine-card.png"/>
+                <img class="hero-phone wow fadeInLeft" alt="AdaPass" style="width: 400px;max-width: 100%;" data-wow-delay=".3s" src="../static/images/vaccine-card.png"/>
                 <img class="hero-3-dot-2" src="~/assets/img/icon/hero/home-3/hero-dot-2.png" alt="AdaPass">
               </div>
             </div>
@@ -258,8 +258,19 @@ export default {
     }
   },
   mounted() {
+    if (this.$route.query.standalone == 'true') {
+      if (process.browser) {
+        if (localStorage.getItem('pwaCompany')) {
+          this.$router.push('/company/dashboard/')
+        }else if (localStorage.getItem('pwaVaccini')) {
+          this.$router.push('/asi/_qr/?id='+ localStorage.getItem('pwaVaccini'))
+        }
+      }
+    }
+
     this.isMounted = true
-  }
+
+  },
 }
 </script>
 

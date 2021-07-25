@@ -237,7 +237,7 @@ export default {
         ilce: this.form.ilce._id,
         address: this.form.address,
       }
-      this.$axios.$post('/company', {...form, successUrl: process.env.paymentSuccess, failUrl: process.env.paymentError }).then(res=>{
+      this.$axios.$post('/company/', {...form, successUrl: process.env.paymentSuccess, failUrl: process.env.paymentError }).then(res=>{
         this.loading = false
         if(res.Hata) {
           this.error = res.Hata

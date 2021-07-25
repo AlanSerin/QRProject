@@ -1,1 +1,1 @@
-importScripts('/_nuxt/ons.d15e44d2.js')
+importScripts('https://cdn.onesignal.com/sdks/OneSignalSDK.js')

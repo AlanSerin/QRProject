@@ -41,12 +41,12 @@
 
 
                 <b-row>
-                  <b-col order-md="1" order="2" md="6" class="d-flex align-items-center justify-content-center" >
+                  <b-col order-md="1" order="2" md="6" class="d-flex align-items-center justify-content-center">
                     <h6 class="login-btn" @click="$router.push('register')">Kayıt Ol</h6>
                   </b-col>
                   <b-col md="6" order-md="2" order="1" class="d-flex align-items-center justify-content-center">
                     <div class="w-100">
-                      <b-button type="submit" block class="buttonadps" @click="login" :disabled="loading || invalid">
+                      <b-button type="submit" block class="buttonadps mb-3" @click="login" :disabled="loading || invalid">
                         <div v-if="!loading">Giriş Yap</div>
                         <div v-else class="d-flex align-items-center justify-content-center">
                           <span>Kontrol Ediliyor</span>
@@ -71,55 +71,57 @@
 </template>
 
 <script>
-import headerSec from "@/components/loyout/headerSec"
-import loading from "@/components/loading";
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import "vue-select/src/scss/vue-select.scss";
-
-export default {
-  name: 'companyLogin',
-  components: {
-    headerSec,
+  import headerSec from "@/components/loyout/headerSec"
+  import loading from "@/components/loading";
+  import {
     ValidationProvider,
     ValidationObserver
-  },
-  data() {
-    return {
-      loading: false,
-      siteLoading: true,
-      error: '',
-      form: {
-        email: 'mdilmac9@gmail.com',
-        password: '123456',
-      },
-    }
-  },
-  mounted() {
-    this.siteLoading = false
-  },
-  methods: {
-    async login () {
-      this.loading = true
-      this.error = ''
-      this.$auth.loginWith('local', {
-        data: {
-          Username: this.form.email,
-          Pass: this.form.password
+  } from 'vee-validate'
+  import "vue-select/src/scss/vue-select.scss";
+
+  export default {
+    name: 'companyLogin',
+    components: {
+      headerSec,
+      ValidationProvider,
+      ValidationObserver
+    },
+    data() {
+      return {
+        loading: false,
+        siteLoading: true,
+        error: '',
+        form: {
+          email: 'mdilmac9@gmail.com',
+          password: '123456',
         },
-      }).then((res)=> {
-        console.log(res.data)
-        this.loading = false
-        if(res.data.Hata) {
-          this.error = res.data.Hata
-        } else {
-          this.$auth.setUser(res.data.user);
-          this.$auth.setUserToken(res.data.Token)
-        }
-      }).catch((error)=>{
-        this.loading = false
-        console.log(error)
-      });
+      }
+    },
+    mounted() {
+      setTimeout(() => this.siteLoading = false, 500)
+    },
+    methods: {
+      async login() {
+        this.loading = true
+        this.error = ''
+        this.$auth.loginWith('local', {
+          data: {
+            Username: this.form.email,
+            Pass: this.form.password
+          },
+        }).then((res) => {
+          this.loading = false
+          if (res.data.Hata) {
+            this.error = res.data.Hata
+          } else {
+            this.$auth.setUser(res.data.user);
+            this.$auth.setUserToken(res.data.Token)
+          }
+        }).catch((error) => {
+          this.loading = false
+          console.log(error)
+        });
+      }
     }
   }
-}
 </script>

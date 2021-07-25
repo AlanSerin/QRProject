@@ -13,7 +13,7 @@ export default {
   head: {
     title: 'AdaPass',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'tr'
     },
     meta: [
       { charset: 'utf-8' },
@@ -71,7 +71,7 @@ export default {
     { src: "~/plugins/vue2-google-maps.js" },
     { src: "~/plugins/vue-phone-number.js" },
     { src: "~/plugins/vue-form-wizard.js" },
-    { src: '@/plugins/vue-html2pdf', mode: 'client' },
+    { src: '~/plugins/vue-html2pdf', mode: 'client' },
     { src: '~/plugins/vue-confetti.js', mode: 'client' },
     { src: '~/plugins/mask.js', mode: 'client' },
     { src: '~/plugins/select.js', ssr: true },
@@ -107,9 +107,6 @@ export default {
       OneSignalSDK: 'https://cdn.onesignal.com/sdks/OneSignalSDK.js'
     }
   },
-  router: {
-    middleware: 'maintenance'
-  },
   modules: [
     '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
@@ -120,8 +117,7 @@ export default {
   ],
   server: {
     host: "0.0.0.0",
-    port: 3000,
-    https: false,
+    port: 8282,
   },
   auth: {
     redirect: {
@@ -159,4 +155,14 @@ export default {
       })
     ]
   },
+  router: {
+    middleware: 'maintenance',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'asi',
+        path: '/:qr?',
+        component: resolve(__dirname, 'pages/asi/_qr.vue')
+      })
+    }
+  }
 }

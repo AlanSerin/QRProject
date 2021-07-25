@@ -242,25 +242,25 @@ export default {
   },
   mounted() {
     this.getInfo();
-    this.siteLoading = false;
+    setTimeout(() => this.siteLoading = false, 500)
   },
   methods: {
     async getInfo (){
       /* get company type from server */
-      this.$axios({
-        method: 'get',
-        url: '/sectors',
-      }).then((res) => {
-        this.sectors = res.data
-      }, (error) => {
-        console.log(error)
-      });
+      this.$axios.$get('/sectors').then((res) => {
+        this.sectors = res
+        }, (error) => {
+          console.log(error)
+        });
+
       this.$axios.$get('/company/myCompany', { headers: { authorization: await this.$auth.strategy.token.get() }}).then(res=>{
+        localStorage.setItem('pwaCompany', "true");
         this.info = res
-      }).catch(error => {
-        console.log(error)
-      });
+        }).catch(error => {
+          console.log(error)
+        });
     },
+
     async checkQrCode () {
       this.formError = '';
       if(!this.formQrcode) {
@@ -289,6 +289,7 @@ export default {
         }
       }
     },
+
     showResult: function ( payload ) {
       this.payloadInfo = {}
       this.loadingBtn = false
@@ -316,6 +317,7 @@ export default {
       }
       this.formQrcode = '';
     },
+
     playSound: function ( status ) {
       if( status ) {
         var audio = new Audio('/sounds/success.wav')
